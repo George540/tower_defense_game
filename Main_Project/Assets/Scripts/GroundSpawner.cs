@@ -47,8 +47,8 @@ public class GroundSpawner : MonoBehaviour
         }
         else if (blockCounter == 0)
         {
-            //randomIndex = Random.Range(2, 5);
-            randomIndex = 4;
+           randomIndex = Random.Range(2, 5);
+           // randomIndex = 4;
         }
         blockCounter--;
 
@@ -66,6 +66,16 @@ public class GroundSpawner : MonoBehaviour
             //Instantiate(spawner, transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
             go = Instantiate(spawner, transform.position, transform.rotation);
             go.transform.Rotate(0, 180, 0);
+            go.AddComponent<GroundSpawner>();
+
+            for (int i = 0; i < groundPrefab.Length; i++)
+            {
+                go.GetComponent<GroundSpawner>().groundPrefab[i] = groundPrefab[i];
+            }
+            go.GetComponent<GroundSpawner>().currentIndex = 1;
+            go.GetComponent<GroundSpawner>().randomSide = 0;
+            go.GetComponent<GroundSpawner>().spawner = spawner;
+            go.GetComponent<GroundSpawner>().blockCounter = 3;
         }
 
         transform.Translate(30, 0, 0);
@@ -117,4 +127,5 @@ public class GroundSpawner : MonoBehaviour
             Debug.Log("BLOCK ENCOUNTERED");
         }
     }
+
 }
