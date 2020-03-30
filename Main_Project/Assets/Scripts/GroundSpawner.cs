@@ -4,85 +4,117 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
-    public Transform[] groundPrefab = new Transform[6];
-    public Transform spawnPoint;
-    public Transform checker;
+    public GameObject[] groundPrefab = new GameObject[6];
     public int currentIndex;
     public int randomSide;
-    public Transform currentBlock;
+    public GameObject currentBlock;
+    public GameObject spawner;
 
-    private Vector3 tempTrans;
-    private Quaternion tempRot;
+    private int randomIndex;
+    public int blockCounter = 3;
+    private bool isColliding;
+
+    private float countdown = 0.5f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnEnemy());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        checker.transform.rotation = spawnPoint.rotation;
-        checker.transform.position = spawnPoint.position;
-    }
-
-    IEnumerator SpawnEnemy()
-    {
-        while (true)
+        if (countdown <= 0f && isColliding == false)
         {
-            int randomIndex = Random.Range(1, 4);
-            if (currentIndex == 2)
-            {
-                transform.Rotate(0, 90, 0, Space.Self);
-            }
-            else if (currentIndex == 3)
-            {
-                transform.Rotate(0, -90, 0, Space.Self);
-            }
-            else if (currentIndex == 4) {
-
-            }
-            transform.Translate(30, 0, 0);
-            currentBlock = Instantiate(groundPrefab[randomIndex], transform.position, transform.rotation);
-            currentBlock.Rotate(-90, 0, 0);
-            currentBlock.gameObject.tag = "Block";
-            SpawnBlockConditions(randomIndex);
-
-            currentIndex = randomIndex;
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy();
+            countdown = 0.5f;
         }
-        //Instantiate(groundPrefab[randomIndex], spawnPoint.position + adderX, Quaternion.Euler(-90, 0, 0));
-        //transform.position += adderX;
+        countdown -= Time.deltaTime;
+        if (blockCounter < 0)
+        {
+            blockCounter = Random.Range(3,10);
+        }
     }
 
+    void SpawnEnemy()
+    {
+        GameObject go = null;
+        if (blockCounter > 0)
+        {
+            randomIndex = 1;
+        }
+        else if (blockCounter == 0)
+        {
+            //randomIndex = Random.Range(2, 5);
+            randomIndex = 4;
+        }
+        blockCounter--;
+
+        if (currentIndex == 2)
+        {
+            transform.Rotate(0, 90, 0, Space.Self);
+        }
+        else if (currentIndex == 3)
+        {
+            transform.Rotate(0, -90, 0, Space.Self);
+        }
+        else if (currentIndex == 4)
+        {
+            transform.Rotate(0, 90, 0, Space.Self);
+            //Instantiate(spawner, transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
+            go = Instantiate(spawner, transform.position, transform.rotation);
+            go.transform.Rotate(0, 180, 0);
+        }
+
+        transform.Translate(30, 0, 0);
+        currentBlock = Instantiate(groundPrefab[randomIndex], transform.position, transform.rotation);
+        currentBlock.gameObject.transform.Rotate(-90, 0, 0);
+        currentBlock.gameObject.tag = "Block";
+        currentBlock.gameObject.AddComponent<BoxCollider>();
+        currentBlock.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+        SpawnBlockConditions(randomIndex);
+
+        currentIndex = randomIndex;
+        //yield return new WaitForSeconds(1f);
+    }
+
+    // Sets appropriate angle for specified block to match ends
     void SpawnBlockConditions(int index)
     {
         if (index == 0)
         {
-            currentBlock.Rotate(0, 180, 0);
+            currentBlock.gameObject.transform.Rotate(0, 180, 0);
         }
         else if (index == 2)
         {
-            currentBlock.Rotate(0, 0, 90);
+            currentBlock.gameObject.transform.Rotate(0, 0, 90);
         }
         else if (index == 3)
         {
-            currentBlock.Rotate(0, 0, 180);
+            currentBlock.gameObject.transform.Rotate(0, 0, 180);
+        }
+        else if (index == 4)
+        {
+            currentBlock.gameObject.transform.Rotate(0, 0, 180);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Block")
+        if (other.gameObject.CompareTag("Block"))
         {
-           
+            Destroy(gameObject);
+            isColliding = true;
+            //randomIndex = 0;
+            transform.Translate(30, 0, 0);
+            currentBlock = Instantiate(groundPrefab[0], transform.position, transform.rotation);
+            currentBlock.gameObject.transform.Rotate(-90, 0, 0);
+            currentBlock.gameObject.tag = "Block";
+            currentBlock.gameObject.AddComponent<BoxCollider>();
+            currentBlock.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            Debug.Log("BLOCK ENCOUNTERED");
         }
-    }
-
-    void CheckNumber()
-    {
-
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BlockSpawner
   - Block
+  - Enemy
   layers:
   - Default
   - TransparentFX
