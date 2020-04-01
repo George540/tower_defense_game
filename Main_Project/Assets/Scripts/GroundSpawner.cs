@@ -8,13 +8,15 @@ public class GroundSpawner : MonoBehaviour
     public int currentIndex;
     public int randomSide;
     public GameObject currentBlock;
+    public GameObject previousBlock;
     public GameObject spawner;
 
     private int randomIndex;
     public int blockCounter = 3;
     private bool isColliding;
 
-    private float countdown = 0.5f;
+    private float countdown = 0.3f;
+    private int[] numbers = { 3, 5, 7, 9, 11};
 
 
     // Start is called before the first frame update
@@ -28,17 +30,17 @@ public class GroundSpawner : MonoBehaviour
     {
         if (countdown <= 0f && isColliding == false)
         {
-            SpawnEnemy();
-            countdown = 0.5f;
+            SpawnBlock();
+            countdown = 0.3f;
         }
         countdown -= Time.deltaTime;
         if (blockCounter < 0)
         {
-            blockCounter = Random.Range(3,10);
+            blockCounter = numbers[Random.Range(0, 5)];
         }
     }
 
-    void SpawnEnemy()
+    void SpawnBlock()
     {
         GameObject go = null;
         if (blockCounter > 0)
@@ -48,7 +50,7 @@ public class GroundSpawner : MonoBehaviour
         else if (blockCounter == 0)
         {
            randomIndex = Random.Range(2, 5);
-           // randomIndex = 4;
+           //randomIndex = 2;
         }
         blockCounter--;
 
@@ -64,29 +66,16 @@ public class GroundSpawner : MonoBehaviour
         {
             transform.Rotate(0, 90, 0, Space.Self);
             //Instantiate(spawner, transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
-            go = Instantiate(spawner, transform.position, transform.rotation);
-            go.transform.Rotate(0, 180, 0);
-            go.AddComponent<GroundSpawner>();
-
-            for (int i = 0; i < groundPrefab.Length; i++)
-            {
-                go.GetComponent<GroundSpawner>().groundPrefab[i] = groundPrefab[i];
-            }
-            go.GetComponent<GroundSpawner>().currentIndex = 1;
-            go.GetComponent<GroundSpawner>().randomSide = 0;
-            go.GetComponent<GroundSpawner>().spawner = spawner;
-            go.GetComponent<GroundSpawner>().blockCounter = 3;
+            go = Spawner();
         }
 
         transform.Translate(30, 0, 0);
-        currentBlock = Instantiate(groundPrefab[randomIndex], transform.position, transform.rotation);
-        currentBlock.gameObject.transform.Rotate(-90, 0, 0);
-        currentBlock.gameObject.tag = "Block";
-        currentBlock.gameObject.AddComponent<BoxCollider>();
-        currentBlock.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+        Debug.Log("TRANSLATED SPAWNER");
+        SetBlock(randomIndex);
         SpawnBlockConditions(randomIndex);
 
         currentIndex = randomIndex;
+        previousBlock = currentBlock;
         //yield return new WaitForSeconds(1f);
     }
 
@@ -111,21 +100,62 @@ public class GroundSpawner : MonoBehaviour
         }
     }
 
+    // Check Collisions of Spawner with other Spawners and Blocks
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Block"))
+        if (other.gameObject.CompareTag("Block") && !isColliding)
         {
             Destroy(gameObject);
             isColliding = true;
             //randomIndex = 0;
             transform.Translate(30, 0, 0);
-            currentBlock = Instantiate(groundPrefab[0], transform.position, transform.rotation);
-            currentBlock.gameObject.transform.Rotate(-90, 0, 0);
-            currentBlock.gameObject.tag = "Block";
-            currentBlock.gameObject.AddComponent<BoxCollider>();
-            currentBlock.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            SetBlock(0);
             Debug.Log("BLOCK ENCOUNTERED");
         }
+        if (other.gameObject.CompareTag("BlockSpawner"))
+        {
+            Destroy(currentBlock);
+            SetBlock(0);
+            SpawnBlockConditions(randomIndex);
+            Destroy(gameObject);
+        }
     }
+
+    void SetBlock(int index)
+    {
+        currentBlock = Instantiate(groundPrefab[index], transform.position, transform.rotation);
+        currentBlock.gameObject.transform.Rotate(-90, 0, 0);
+        currentBlock.gameObject.tag = "Block";
+        currentBlock.gameObject.AddComponent<BoxCollider>();
+        currentBlock.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+        currentBlock.gameObject.GetComponent<BoxCollider>().size = new Vector3(0.019f, 0.019f, 0.019f);
+        currentBlock.gameObject.AddComponent<Rigidbody>();
+        currentBlock.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        currentBlock.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        currentBlock.gameObject.AddComponent<Ground>();
+        currentBlock.gameObject.GetComponent<Ground>().SetIndex(index);
+        Debug.Log("BLOCK SPAWNED");
+    }
+
+    GameObject Spawner()
+    {
+        GameObject go = null;
+        go = Instantiate(spawner, transform.position, transform.rotation);
+        go.gameObject.tag = "BlockSpawner";
+        go.transform.Rotate(0, 180, 0);
+        go.AddComponent<GroundSpawner>();
+
+        for (int i = 0; i < groundPrefab.Length; i++)
+        {
+            go.GetComponent<GroundSpawner>().groundPrefab[i] = groundPrefab[i];
+        }
+        go.GetComponent<GroundSpawner>().currentIndex = 1;
+        go.GetComponent<GroundSpawner>().randomSide = 0;
+        go.GetComponent<GroundSpawner>().spawner = spawner;
+        go.GetComponent<GroundSpawner>().blockCounter = 3;
+
+        return go;
+    }
+
 
 }

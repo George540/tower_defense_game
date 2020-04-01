@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/GroundTest.unity
+- path: Assets/Scenes/Turret.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
