@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
-    public GameObject[] groundPrefab = new GameObject[6];
+    public GameObject[] groundPrefab = new GameObject[7];
     public int currentIndex;
     public int randomSide;
     public GameObject currentBlock;
     public GameObject previousBlock;
     public GameObject spawner;
+    public GameObject upHillSpotter;
+    public int blockCount = 1000;
 
     private int randomIndex;
-    public int blockCounter = 3;
+    public int blockIndex = 3;
     private bool isColliding;
 
-    private float countdown = 0.3f;
-    private int[] numbers = { 3, 5, 7, 9, 11};
+    private float countdown = 0.1f;
+    private int[] numbers = { 3, 5, 7, 9};
 
 
     // Start is called before the first frame update
@@ -28,55 +30,99 @@ public class GroundSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (countdown <= 0f && isColliding == false)
+        if (countdown <= 0f && isColliding == false && blockCount > 0)
         {
             SpawnBlock();
-            countdown = 0.3f;
+            countdown = 0.1f;
+        }
+        if (blockCount == 0)
+        {
+            randomIndex = 0;
+            transform.Translate(30, 0, 0);
+            SetBlock(randomIndex);
+            SpawnBlockConditions(randomIndex);
+            currentIndex = randomIndex;
+            previousBlock = currentBlock;
         }
         countdown -= Time.deltaTime;
-        if (blockCounter < 0)
+        if (blockIndex < 0)
         {
-            blockCounter = numbers[Random.Range(0, 5)];
+            blockIndex = numbers[Random.Range(0, 4)];
+            //blockIndex = 3;
         }
+        upHillSpotter.transform.position = transform.position;
+        upHillSpotter.transform.rotation = transform.rotation;
     }
 
     void SpawnBlock()
     {
-        GameObject go = null;
-        if (blockCounter > 0)
+        if (blockIndex > 0)
         {
             randomIndex = 1;
         }
-        else if (blockCounter == 0)
+        else if (blockIndex == 0)
         {
-           randomIndex = Random.Range(2, 5);
+           randomIndex = Random.Range(2, 7);
            //randomIndex = 2;
         }
-        blockCounter--;
+        blockIndex--;
 
-        if (currentIndex == 2)
+
+        if (currentIndex == 4)
         {
             transform.Rotate(0, 90, 0, Space.Self);
         }
-        else if (currentIndex == 3)
+        else if (currentIndex == 5)
         {
             transform.Rotate(0, -90, 0, Space.Self);
         }
-        else if (currentIndex == 4)
+        else if (currentIndex == 6)
         {
             transform.Rotate(0, 90, 0, Space.Self);
-            //Instantiate(spawner, transform.position, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
-            go = Spawner();
+            Spawner(180f);
+        }
+        else if (currentIndex == 2)
+        {
+            transform.Translate(30, 30, 0);
+            GameObject go = Instantiate(groundPrefab[currentIndex], transform.position, transform.rotation);
+            go.gameObject.transform.Rotate(-90, 180, 0);
+            go.gameObject.tag = "Block";
+            go.gameObject.AddComponent<BoxCollider>();
+            go.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            go.gameObject.GetComponent<BoxCollider>().size = new Vector3(0.019f, 0.019f, 0.019f);
+            go.gameObject.AddComponent<Rigidbody>();
+            go.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            go.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            go.gameObject.AddComponent<Ground>();
+            go.gameObject.GetComponent<Ground>().SetIndex(currentIndex);
+            transform.Translate(0, 30, 0);
+        }
+        else if (currentIndex == 3)
+        {
+            transform.Translate(30, -30, 0);
+            GameObject go = Instantiate(groundPrefab[currentIndex], transform.position, transform.rotation);
+            go.gameObject.transform.Rotate(-90, 0, 0);
+            go.gameObject.tag = "Block";
+            go.gameObject.AddComponent<BoxCollider>();
+            go.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            go.gameObject.GetComponent<BoxCollider>().size = new Vector3(0.019f, 0.019f, 0.019f);
+            go.gameObject.AddComponent<Rigidbody>();
+            go.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            go.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            go.gameObject.AddComponent<Ground>();
+            go.gameObject.GetComponent<Ground>().SetIndex(currentIndex);
+            transform.Translate(0, -30, 0);
         }
 
+
+
         transform.Translate(30, 0, 0);
-        Debug.Log("TRANSLATED SPAWNER");
+
         SetBlock(randomIndex);
         SpawnBlockConditions(randomIndex);
 
         currentIndex = randomIndex;
         previousBlock = currentBlock;
-        //yield return new WaitForSeconds(1f);
     }
 
     // Sets appropriate angle for specified block to match ends
@@ -86,18 +132,23 @@ public class GroundSpawner : MonoBehaviour
         {
             currentBlock.gameObject.transform.Rotate(0, 180, 0);
         }
-        else if (index == 2)
+        else if (index == 4)
         {
             currentBlock.gameObject.transform.Rotate(0, 0, 90);
         }
-        else if (index == 3)
+        else if (index == 5)
         {
             currentBlock.gameObject.transform.Rotate(0, 0, 180);
         }
-        else if (index == 4)
+        else if (index == 6)
         {
             currentBlock.gameObject.transform.Rotate(0, 0, 180);
         }
+        else if (index == 2)
+        {
+            currentBlock.gameObject.transform.Rotate(0, 0, 180);
+        }
+
     }
 
     // Check Collisions of Spawner with other Spawners and Blocks
@@ -105,19 +156,20 @@ public class GroundSpawner : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Block") && !isColliding)
         {
-            Destroy(gameObject);
-            isColliding = true;
-            //randomIndex = 0;
-            transform.Translate(30, 0, 0);
+            if (currentBlock.GetComponent<Ground>().GetIndex() > 3)
+            {
+                SpawnBlock();
+            }
+            Destroy(currentBlock);
             SetBlock(0);
             Debug.Log("BLOCK ENCOUNTERED");
+            Destroy(gameObject);
+            isColliding = true;
         }
         if (other.gameObject.CompareTag("BlockSpawner"))
         {
-            Destroy(currentBlock);
-            SetBlock(0);
-            SpawnBlockConditions(randomIndex);
-            Destroy(gameObject);
+            DestroySpawner();
+            Debug.Log("SPAWNER ENCOUNTERED");
         }
     }
 
@@ -134,15 +186,16 @@ public class GroundSpawner : MonoBehaviour
         currentBlock.gameObject.GetComponent<Rigidbody>().isKinematic = true;
         currentBlock.gameObject.AddComponent<Ground>();
         currentBlock.gameObject.GetComponent<Ground>().SetIndex(index);
+        blockCount--;
         Debug.Log("BLOCK SPAWNED");
     }
 
-    GameObject Spawner()
+    void Spawner(float angleY)
     {
         GameObject go = null;
         go = Instantiate(spawner, transform.position, transform.rotation);
+        go.transform.Rotate(0, angleY, 0);
         go.gameObject.tag = "BlockSpawner";
-        go.transform.Rotate(0, 180, 0);
         go.AddComponent<GroundSpawner>();
 
         for (int i = 0; i < groundPrefab.Length; i++)
@@ -152,10 +205,17 @@ public class GroundSpawner : MonoBehaviour
         go.GetComponent<GroundSpawner>().currentIndex = 1;
         go.GetComponent<GroundSpawner>().randomSide = 0;
         go.GetComponent<GroundSpawner>().spawner = spawner;
-        go.GetComponent<GroundSpawner>().blockCounter = 3;
-
-        return go;
+        go.GetComponent<GroundSpawner>().blockIndex = 3;
+        go.GetComponent<GroundSpawner>().upHillSpotter = Instantiate(upHillSpotter, transform.position, transform.rotation);
+        go.GetComponent<GroundSpawner>().blockCount = blockCount;
     }
 
+    void DestroySpawner()
+    {
+        Destroy(currentBlock);
+        SetBlock(0);
+        SpawnBlockConditions(randomIndex);
+        Destroy(gameObject);
+    }
 
 }

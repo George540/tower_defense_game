@@ -24,17 +24,10 @@ public class Ground : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Block") && !other.gameObject.GetComponent<Ground>().isDestroyed)
         {
-            if (index == 0)
+            if (index == 0 && other.gameObject.GetComponent<Ground>().GetIndex() == 0)
             {
-                if (other.gameObject.GetComponent<Ground>().GetIndex() == 0)
-                {
-                    other.gameObject.GetComponent<Ground>().isDestroyed = true;
-                    Destroy(other.gameObject);
-                }
-                else
-                {
-
-                }
+                other.gameObject.GetComponent<Ground>().isDestroyed = true;
+                Destroy(other.gameObject);
             }
         }
     }
