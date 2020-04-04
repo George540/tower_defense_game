@@ -675,7 +675,7 @@ MonoBehaviour:
   previousBlock: {fileID: 1792069439}
   spawner: {fileID: 6894331899311825693, guid: 871ecda5f2797ee448dfb3aea5c25926, type: 3}
   upHillSpotter: {fileID: 933969240}
-  blockCount: 70
+  blockCount: 100
   blockIndex: 3
 --- !u!65 &1392143624
 BoxCollider:

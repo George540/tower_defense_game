@@ -38,11 +38,7 @@ public class GroundSpawner : MonoBehaviour
         if (blockCount == 0)
         {
             randomIndex = 0;
-            transform.Translate(30, 0, 0);
-            SetBlock(randomIndex);
-            SpawnBlockConditions(randomIndex);
-            currentIndex = randomIndex;
-            previousBlock = currentBlock;
+            DestroySpawner();
         }
         countdown -= Time.deltaTime;
         if (blockIndex < 0)
