@@ -10,14 +10,13 @@ public class GroundSpawner : MonoBehaviour
     public GameObject currentBlock;
     public GameObject previousBlock;
     public GameObject spawner;
-    public GameObject upHillSpotter;
+    public GameObject hillSpotter;
     public int blockCount = 1000;
 
     private int randomIndex;
     public int blockIndex = 3;
     private bool isColliding;
 
-    private float countdown = 0.1f;
     private int[] numbers = { 3, 5, 7, 9};
 
 
@@ -30,24 +29,22 @@ public class GroundSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (countdown <= 0f && isColliding == false && blockCount > 0)
+        if (isColliding == false && blockCount > 0)
         {
             SpawnBlock();
-            countdown = 0.1f;
         }
         if (blockCount == 0)
         {
-            randomIndex = 0;
             DestroySpawner();
         }
-        countdown -= Time.deltaTime;
+
         if (blockIndex < 0)
         {
             blockIndex = numbers[Random.Range(0, 4)];
             //blockIndex = 3;
         }
-        upHillSpotter.transform.position = transform.position;
-        upHillSpotter.transform.rotation = transform.rotation;
+        hillSpotter.transform.position = transform.position;
+        hillSpotter.transform.rotation = transform.rotation;
     }
 
     void SpawnBlock()
@@ -150,7 +147,7 @@ public class GroundSpawner : MonoBehaviour
     // Check Collisions of Spawner with other Spawners and Blocks
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Block") && !isColliding)
+        if ((other.gameObject.CompareTag("Block") && !isColliding))
         {
             if (currentBlock.GetComponent<Ground>().GetIndex() > 3)
             {
@@ -176,7 +173,14 @@ public class GroundSpawner : MonoBehaviour
         currentBlock.gameObject.tag = "Block";
         currentBlock.gameObject.AddComponent<BoxCollider>();
         currentBlock.gameObject.GetComponent<BoxCollider>().isTrigger = true;
-        currentBlock.gameObject.GetComponent<BoxCollider>().size = new Vector3(0.019f, 0.019f, 0.019f);
+        if (index != 2 || index != 3)
+        {
+            currentBlock.gameObject.GetComponent<BoxCollider>().size = new Vector3(0.019f, 0.019f, 0.019f);
+        }
+        else
+        {
+            currentBlock.gameObject.GetComponent<BoxCollider>().size = new Vector3(0.019f, 0.019f, 0.039f);
+        }
         currentBlock.gameObject.AddComponent<Rigidbody>();
         currentBlock.gameObject.GetComponent<Rigidbody>().useGravity = false;
         currentBlock.gameObject.GetComponent<Rigidbody>().isKinematic = true;
@@ -202,7 +206,10 @@ public class GroundSpawner : MonoBehaviour
         go.GetComponent<GroundSpawner>().randomSide = 0;
         go.GetComponent<GroundSpawner>().spawner = spawner;
         go.GetComponent<GroundSpawner>().blockIndex = 3;
-        go.GetComponent<GroundSpawner>().upHillSpotter = Instantiate(upHillSpotter, transform.position, transform.rotation);
+        GameObject go2 = Instantiate(hillSpotter, transform.position, transform.rotation);
+        go.GetComponent<GroundSpawner>().hillSpotter = go2;
+        go.GetComponent<GroundSpawner>().hillSpotter.AddComponent<HillChecker>();
+        go.GetComponent<GroundSpawner>().hillSpotter.GetComponent<HillChecker>().setCollided(false);
         go.GetComponent<GroundSpawner>().blockCount = blockCount;
     }
 
@@ -210,7 +217,6 @@ public class GroundSpawner : MonoBehaviour
     {
         Destroy(currentBlock);
         SetBlock(0);
-        SpawnBlockConditions(randomIndex);
         Destroy(gameObject);
     }
 

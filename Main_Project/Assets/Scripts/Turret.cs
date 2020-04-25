@@ -7,7 +7,10 @@ public class Turret : MonoBehaviour
     private Transform target;
     public float range = 25f;
     public Transform partToRotate;
+    public Transform partToRotate2;
     public float turnSpeed;
+
+    private Vector3 rotation2;
 
     // Start is called before the first frame update
     void Start()
@@ -49,10 +52,11 @@ public class Turret : MonoBehaviour
         if (target == null)
             return;
 
-        Vector3 direction = target.gameObject.transform.position - transform.position;
+        Vector3 direction = target.gameObject.transform.GetChild(0).position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        partToRotate2.rotation = Quaternion.Euler(rotation.x, rotation.y,0f);
     }
 
     private void OnDrawGizmosSelected()

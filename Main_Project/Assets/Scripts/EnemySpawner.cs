@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject go = Instantiate(enemy, transform.position, transform.rotation);
             go.gameObject.tag = "Enemy";
+            go.gameObject.transform.localScale = new Vector3(1.0f, Random.Range(0.5f, 2.0f), 1.0f);
             yield return new WaitForSeconds(timer);
         }
     }
