@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
+    public Transform childTarget;
     public float range = 25f;
     public Transform partToRotate;
     public Transform partToRotate2;
@@ -15,7 +16,7 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.4f);
     }
 
     void UpdateTarget()
@@ -38,10 +39,13 @@ public class Turret : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+            if (target.childCount > 0)
+                childTarget = nearestEnemy.transform.GetChild(0);
         }
         else
         {
             target = null;
+            childTarget = null;
         }
 
     }
@@ -51,12 +55,17 @@ public class Turret : MonoBehaviour
     {
         if (target == null)
             return;
-
-        Vector3 direction = target.gameObject.transform.GetChild(0).position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-        partToRotate2.rotation = Quaternion.Euler(rotation.x, rotation.y,0f);
+        if (childTarget != null)
+        {
+            Vector3 direction = childTarget.gameObject.transform.position - transform.position - new Vector3(0.0f, 2.5f, 0.0f);
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+            Vector3 rotation2 = Quaternion.Lerp(partToRotate2.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+            partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+            partToRotate2.rotation = Quaternion.Euler(rotation2.x, rotation2.y, 0f);
+        }
+        else
+            return;
     }
 
     private void OnDrawGizmosSelected()

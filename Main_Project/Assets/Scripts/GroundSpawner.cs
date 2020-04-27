@@ -76,6 +76,7 @@ public class GroundSpawner : MonoBehaviour
         }
         else if (currentIndex == 2)
         {
+            blockIndex--;
             transform.Translate(30, 30, 0);
             GameObject go = Instantiate(groundPrefab[currentIndex], transform.position, transform.rotation);
             go.gameObject.transform.Rotate(-90, 180, 0);
@@ -92,6 +93,7 @@ public class GroundSpawner : MonoBehaviour
         }
         else if (currentIndex == 3)
         {
+            blockIndex--;
             transform.Translate(30, -30, 0);
             GameObject go = Instantiate(groundPrefab[currentIndex], transform.position, transform.rotation);
             go.gameObject.transform.Rotate(-90, 0, 0);
