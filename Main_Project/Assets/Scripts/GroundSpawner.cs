@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
-    public GameObject[] groundPrefab = new GameObject[7];
+    public GameObject[] groundPrefab = new GameObject[8];
     public int currentIndex;
     public int randomSide;
     public GameObject currentBlock;
@@ -15,10 +15,12 @@ public class GroundSpawner : MonoBehaviour
     public int blockIndex = 3;
     private bool isColliding;
 
-    private int[] numbers = { 3, 5, 7, 9};
+    private int[] numbers = { 3, 5, 7, 9}; // number of consecutive straight blocks in a row
     private int[] indices1 = { 2, 3, 4, 5, 6 }; //0-5
     private int[] indices2 = { 4, 5, 6 }; //0-3
 
+    public IslandSpawner[] islandSpawners = new IslandSpawner[2];
+    private bool canSpawnIsland = false;
 
     // Start is called before the first frame update
     void Start()
@@ -66,8 +68,18 @@ public class GroundSpawner : MonoBehaviour
             }
         }
         blockIndex--;
+        if (randomIndex == 1)
+        {
+            int random1 = Random.Range(0, 2); // pick between 1 and 2 to choose which side to spawn the island;
+            int random2 = Random.Range(0, 10); // get the chance to spawn an island
+            canSpawnIsland = islandSpawners[0].getCanSpawn() && islandSpawners[1].getCanSpawn();
 
-        if (randomIndex == 2)
+            if (canSpawnIsland && random2 < 2)
+            {
+                Instantiate(groundPrefab[7], islandSpawners[random1].transform.position, islandSpawners[random1].transform.rotation);
+            }
+        }
+        else if (randomIndex == 2)
         {
             blockIndex--;
             SetBlock(randomIndex);

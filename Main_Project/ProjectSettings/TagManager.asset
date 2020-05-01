@@ -7,6 +7,8 @@ TagManager:
   - BlockSpawner
   - Block
   - Enemy
+  - IslandSpawner
+  - Island
   layers:
   - Default
   - TransparentFX

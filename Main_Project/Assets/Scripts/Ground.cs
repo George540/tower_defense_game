@@ -22,7 +22,7 @@ public class Ground : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Block") && !other.gameObject.GetComponent<Ground>().isDestroyed)
+        if ((other.gameObject.CompareTag("Block") && !other.gameObject.GetComponent<Ground>().isDestroyed) || other.gameObject.CompareTag("Island"))
         {
             if (index == 0 && other.gameObject.GetComponent<Ground>().GetIndex() == 0)
             {
