@@ -371,7 +371,7 @@ Transform:
   m_Children:
   - {fileID: 534669905}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &190331127
 MonoBehaviour:
@@ -440,7 +440,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -735,7 +735,7 @@ PrefabInstance:
     - target: {fileID: 1418874305151534898, guid: e6381173ba0c86b4789698e8d71bd13b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1418874305151534898, guid: e6381173ba0c86b4789698e8d71bd13b,
         type: 3}
@@ -804,7 +804,7 @@ PrefabInstance:
     - target: {fileID: 22557234474019873, guid: ba95082429a2b4b4599895f227f5103d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22557234474019873, guid: ba95082429a2b4b4599895f227f5103d,
         type: 3}
@@ -1029,7 +1029,7 @@ PrefabInstance:
     - target: {fileID: 1801357957244957359, guid: b2f27d6aba8913a4cbc8354e084354ee,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1801357957244957359, guid: b2f27d6aba8913a4cbc8354e084354ee,
         type: 3}

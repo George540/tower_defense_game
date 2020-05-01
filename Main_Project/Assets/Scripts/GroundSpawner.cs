@@ -36,7 +36,7 @@ public class GroundSpawner : MonoBehaviour
         if (blockCount == 0)
         {
             GameObject go = Instantiate(groundPrefab[0], transform.position, transform.rotation);
-            go.transform.Translate(-30f, 0f, 0f);
+            //go.transform.Translate(-30f, 0f, 0f);
             Destroy(gameObject);
         }
 
