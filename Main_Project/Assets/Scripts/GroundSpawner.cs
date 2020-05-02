@@ -85,23 +85,18 @@ public class GroundSpawner : MonoBehaviour
         {
             blockIndex--;
             SetBlock(randomIndex);
-            currentBlock.gameObject.transform.Rotate(0, 180, 0);
-            transform.Translate(30, 30, 0);
-            SetBlock(randomIndex);
-            currentBlock.gameObject.transform.Rotate(0, 180, 0);
-            transform.Translate(30, 30, 0);
+            currentBlock.transform.Rotate(0f, 180f, 0f);
+            transform.Translate(60, 60, 0);
             currentIndex = randomIndex;
             return;
         }
         else if (randomIndex == 3)
         {
             blockIndex--;
-            transform.Translate(0, -30, 0);
             SetBlock(randomIndex);
-            transform.Translate(30, -30, 0);
-            SetBlock(randomIndex);
+            currentBlock.transform.Rotate(0f, 180f, 0f);
+            transform.Translate(60, -60, 0);
             currentIndex = randomIndex;
-            transform.Translate(30, 0, 0);
             return;
         }
         else if (randomIndex == 4)

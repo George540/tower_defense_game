@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour
     public bool isMapCreated = false;
     public List<GameObject> grounds = new List<GameObject>();
     public List<GroundSpawner> groundSpawners = new List<GroundSpawner>();
+    public List<Waypoint> waypoints = new List<Waypoint>();
 
     public float maxX;
     public float minX;
