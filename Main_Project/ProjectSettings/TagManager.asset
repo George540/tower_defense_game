@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - IslandSpawner
   - Island
+  - Waypoint
   layers:
   - Default
   - TransparentFX

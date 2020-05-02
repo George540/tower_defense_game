@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GroundSpawner : MonoBehaviour
 {
+    public Manager manager;
     public GameObject[] groundPrefab = new GameObject[8];
     public int currentIndex;
     public int randomSide;
@@ -38,13 +39,13 @@ public class GroundSpawner : MonoBehaviour
         if (blockCount == 0)
         {
             GameObject go = Instantiate(groundPrefab[0], transform.position, transform.rotation);
-            //go.transform.Translate(-30f, 0f, 0f);
+            manager.groundSpawners.Remove(this);
             Destroy(gameObject);
         }
 
         if (blockIndex < 0)
         {
-            blockIndex = numbers[Random.Range(0, 4)];
+            blockIndex = numbers[Random.Range(0, 3)];
             //blockIndex = 3;
         }
     }
@@ -58,13 +59,13 @@ public class GroundSpawner : MonoBehaviour
         }
         else if (blockIndex == 0)
         {
-            if (blockCount > 1)
+            if (blockCount > 2)
             {
-                randomIndex = indices1[Random.Range(0, 5)];
+                randomIndex = Random.Range(1, 6);
             }
             else if (blockCount == 1)
             {
-                randomIndex = indices2[Random.Range(0, 3)];
+                randomIndex = Random.Range(1, 4);
             }
         }
         blockIndex--;
@@ -76,7 +77,8 @@ public class GroundSpawner : MonoBehaviour
 
             if (canSpawnIsland && random2 < 2)
             {
-                Instantiate(groundPrefab[7], islandSpawners[random1].transform.position, islandSpawners[random1].transform.rotation);
+                GameObject go = Instantiate(groundPrefab[7], islandSpawners[random1].transform.position, islandSpawners[random1].transform.rotation);
+                manager.grounds.Add(go);
             }
         }
         else if (randomIndex == 2)
@@ -112,14 +114,17 @@ public class GroundSpawner : MonoBehaviour
         }
         else if (randomIndex == 6)
         {
+            blockCount /= 2;
             SetBlock(randomIndex);
             transform.Rotate(0, 90, 0, Space.Self);
             transform.Translate(30, 0, 0);
             GroundSpawner go = Instantiate(this, transform.position, transform.rotation);
+            go.blockCount = blockCount;
             go.transform.Rotate(0f, 180f, 0f);
             go.transform.Translate(60, 0, 0);
             go.randomIndex = 1;
             go.blockCount = blockCount;
+            manager.groundSpawners.Add(go);
             currentIndex = randomIndex;
             return;
         }
@@ -149,6 +154,7 @@ public class GroundSpawner : MonoBehaviour
     void SetBlock(int index)
     {
         currentBlock = Instantiate(groundPrefab[index], transform.position, transform.rotation);
+        manager.grounds.Add(currentBlock);
         if (index == 4)
         {
             currentBlock.transform.Rotate(0f, -90f, 0f, Space.Self);
@@ -172,6 +178,7 @@ public class GroundSpawner : MonoBehaviour
 
     void DestroySpawner()
     {
+        manager.groundSpawners.Remove(this);
         Destroy(currentBlock);
         Instantiate(groundPrefab[0], transform.position + new Vector3(-30, 0, 0), transform.rotation);
         Destroy(gameObject);
