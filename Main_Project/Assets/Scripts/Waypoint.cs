@@ -14,7 +14,7 @@ public class Waypoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        index = gameObject.transform.parent.GetComponent<Ground>().GetIndex();
     }
 
     public int getIndex()

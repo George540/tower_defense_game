@@ -7,6 +7,7 @@ public class Ground : MonoBehaviour
 
     public int index = 0;
     private bool isDestroyed;
+    public List<Waypoint> waypoints = new List<Waypoint>();
 
     // Start is called before the first frame update
     void Start()

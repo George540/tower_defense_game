@@ -61,11 +61,11 @@ public class GroundSpawner : MonoBehaviour
         {
             if (blockCount > 2)
             {
-                randomIndex = Random.Range(1, 6);
+                randomIndex = Random.Range(1, 7);
             }
             else if (blockCount == 1)
             {
-                randomIndex = Random.Range(1, 4);
+                randomIndex = Random.Range(1, 5);
             }
         }
         blockIndex--;
@@ -85,6 +85,7 @@ public class GroundSpawner : MonoBehaviour
         {
             blockIndex--;
             SetBlock(randomIndex);
+            blockCount--;
             currentBlock.transform.Rotate(0f, 180f, 0f);
             transform.Translate(60, 60, 0);
             currentIndex = randomIndex;
@@ -94,6 +95,7 @@ public class GroundSpawner : MonoBehaviour
         {
             blockIndex--;
             SetBlock(randomIndex);
+            blockCount--;
             currentBlock.transform.Rotate(0f, 180f, 0f);
             transform.Translate(60, -60, 0);
             currentIndex = randomIndex;
@@ -132,17 +134,17 @@ public class GroundSpawner : MonoBehaviour
     // Check Collisions of Spawner with other Spawners and Blocks
     void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.CompareTag("Block") && !isColliding))
+        if (other.gameObject.CompareTag("Block") && !isColliding)
         {
             SetBlock(0);
-            Debug.Log("BLOCK ENCOUNTERED");
+            //Debug.Log("BLOCK ENCOUNTERED");
             Destroy(gameObject);
             isColliding = true;
         }
         else if (other.gameObject.CompareTag("BlockSpawner"))
         {
             DestroySpawner();
-            Debug.Log("SPAWNER ENCOUNTERED");
+            //Debug.Log("SPAWNER ENCOUNTERED");
         }
     }
 
@@ -168,7 +170,7 @@ public class GroundSpawner : MonoBehaviour
         }
         blockCount--;
         previousBlock = currentBlock;
-        Debug.Log("BLOCK SPAWNED");
+        //Debug.Log("BLOCK SPAWNED");
     }
 
     void DestroySpawner()
