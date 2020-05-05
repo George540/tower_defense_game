@@ -44,7 +44,7 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            target = null;
+            target = transform.GetChild(0);
             childTarget = null;
         }
 
@@ -57,14 +57,13 @@ public class Turret : MonoBehaviour
         {
             return;
         }
-        if (childTarget != null)
+        if (target == gameObject.transform.GetChild(0))
         {
-            Vector3 direction = childTarget.gameObject.transform.position - transform.position - new Vector3(0.0f, 2.5f, 0.0f);
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-            Vector3 rotation2 = Quaternion.Lerp(partToRotate2.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-            partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-            partToRotate2.rotation = Quaternion.Euler(rotation2.x, rotation2.y, 0f);
+            FindTarget(target);
+        }
+        if (target.CompareTag("Enemy") && childTarget != null)
+        {
+            FindTarget(childTarget);
         }
     }
 
@@ -72,5 +71,15 @@ public class Turret : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    void FindTarget(Transform target)
+    {
+        Vector3 direction = target.gameObject.transform.position - transform.position - new Vector3(0.0f, 2.5f, 0.0f);
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        Vector3 rotation2 = Quaternion.Lerp(partToRotate2.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        partToRotate2.rotation = Quaternion.Euler(rotation2.x, rotation2.y, 0f);
     }
 }
