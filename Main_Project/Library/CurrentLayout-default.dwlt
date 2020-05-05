@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 153
+  controlID: 154
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 14003, y: 14042}
   vertical: 1
-  controlID: 154
+  controlID: 155
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 155
+  controlID: 156
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_MinSize: {x: 333, y: 271}
   m_MaxSize: {x: 14003, y: 10021}
   vertical: 0
-  controlID: 118
+  controlID: 119
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -358,9 +358,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -45.01016, y: 42.210938, z: -10.808292}
+    m_Target: {x: 49.69999, y: 22.828606, z: -4.2729535}
     speed: 2
-    m_Value: {x: -45.01016, y: 42.210938, z: -10.808292}
+    m_Value: {x: 49.69999, y: 22.828606, z: -4.2729535}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -382,10 +382,10 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 0, y: 0}
+      m_Size: {x: 1, y: 1}
     yGrid:
       m_Fade:
         m_Target: 1
@@ -406,13 +406,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.23259106, y: 0.33700722, z: -0.08421782, w: -0.90898746}
+    m_Target: {x: -0.18028529, y: 0.43399206, z: -0.08789978, w: -0.87893116}
     speed: 2
-    m_Value: {x: -0.23110944, y: 0.33696103, z: -0.08366851, w: -0.90887034}
+    m_Value: {x: -0.1800544, y: 0.43507114, z: -0.088121735, w: -0.8777973}
   m_Size:
-    m_Target: 17.367584
+    m_Target: 2.5842109
     speed: 2
-    m_Value: 17.367584
+    m_Value: 2.5842109
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -466,9 +466,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3cfbffff
-      m_LastClickedID: -1220
-      m_ExpandedIDs: 0c3afcffde67fcffc4c4fcff12cbfcffe038fdff043cfdffce3dfdff02befdff6cfbffff66370000
+      m_SelectedIDs: d49ffdff
+      m_LastClickedID: -155692
+      m_ExpandedIDs: a29ffdffc49ffdffcc9ffdffd49ffdffe251ffffb655ffffda55ffffe255ffff02a6ffff64f8ffff6cfbffff7e37000090370000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -648,20 +648,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 80
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts
   m_LastFoldersGridSize: 80
   m_LastProjectPath: C:\Users\G\Documents\GitHub\tower_defense_game\Main_Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 24390000
-    m_LastClickedID: 14628
-    m_ExpandedIDs: 00000000223900002439000026390000
+    m_SelectedIDs: b8390000
+    m_LastClickedID: 14776
+    m_ExpandedIDs: 000000009e390000a0390000a2390000b0390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -689,7 +689,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000223900002439000026390000
+    m_ExpandedIDs: 000000009e390000a0390000a2390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -717,7 +717,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000034600000666000009660000000000000
+    m_ExpandedInstanceIDs: c623000034600000666000009660000000000000ba4b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

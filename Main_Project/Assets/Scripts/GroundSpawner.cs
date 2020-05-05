@@ -59,13 +59,13 @@ public class GroundSpawner : MonoBehaviour
         }
         else if (blockIndex == 0)
         {
-            if (blockCount > 2)
+            if (blockCount > 3)
             {
-                randomIndex = Random.Range(1, 7);
+                randomIndex = Random.Range(2, 7);
             }
             else if (blockCount == 1)
             {
-                randomIndex = Random.Range(1, 5);
+                randomIndex = Random.Range(2, 5);
             }
         }
         blockIndex--;

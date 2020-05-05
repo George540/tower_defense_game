@@ -33,7 +33,6 @@ public class Manager : MonoBehaviour
         if (isMapCreated == true)
         {
             setBoundaries();
-            //Destroy(gameObject);
         }
     }
 

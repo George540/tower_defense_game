@@ -54,7 +54,9 @@ public class Turret : MonoBehaviour
     void Update()
     {
         if (target == null)
+        {
             return;
+        }
         if (childTarget != null)
         {
             Vector3 direction = childTarget.gameObject.transform.position - transform.position - new Vector3(0.0f, 2.5f, 0.0f);
@@ -64,8 +66,6 @@ public class Turret : MonoBehaviour
             partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
             partToRotate2.rotation = Quaternion.Euler(rotation2.x, rotation2.y, 0f);
         }
-        else
-            return;
     }
 
     private void OnDrawGizmosSelected()
