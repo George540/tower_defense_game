@@ -6,6 +6,7 @@ public class GroundSpawner : MonoBehaviour
 {
     public Manager manager;
     public GameObject[] groundPrefab = new GameObject[8];
+    public GameObject turretIndicator;
     public int currentIndex;
     public int randomSide;
     public GameObject currentBlock;
@@ -77,8 +78,10 @@ public class GroundSpawner : MonoBehaviour
 
             if (canSpawnIsland && random2 < 2)
             {
-                GameObject go = Instantiate(groundPrefab[7], islandSpawners[random1].transform.position, islandSpawners[random1].transform.rotation);
-                manager.grounds.Add(go);
+                currentBlock = Instantiate(groundPrefab[7], islandSpawners[random1].transform.position, islandSpawners[random1].transform.rotation);
+                if (currentBlock.transform.childCount > 0)
+                    spawnTurretIndicators(currentBlock.transform.childCount);
+                manager.grounds.Add(currentBlock);
             }
         }
         else if (randomIndex == 2)
@@ -152,7 +155,14 @@ public class GroundSpawner : MonoBehaviour
     {
         currentBlock = Instantiate(groundPrefab[index], transform.position, transform.rotation);
         manager.grounds.Add(currentBlock);
-        if (index == 4)
+
+
+        if (index == 1)
+        {
+            if (currentBlock.transform.childCount > 0)
+                spawnTurretIndicators(currentBlock.transform.childCount);
+        }
+        else if (index == 4)
         {
             currentBlock.transform.Rotate(0f, -90f, 0f, Space.Self);
         }
@@ -168,6 +178,7 @@ public class GroundSpawner : MonoBehaviour
         {
             currentBlock.transform.Rotate(0f, 180f, 0f, Space.Self);
         }
+
         blockCount--;
         previousBlock = currentBlock;
         //Debug.Log("BLOCK SPAWNED");
@@ -179,6 +190,14 @@ public class GroundSpawner : MonoBehaviour
         Destroy(currentBlock);
         Instantiate(groundPrefab[0], transform.position + new Vector3(-30, 0, 0), transform.rotation);
         Destroy(gameObject);
+    }
+
+    void spawnTurretIndicators(int children)
+    {
+        for(int i = 0; i < children; i++)
+        {
+            Instantiate(turretIndicator, currentBlock.transform.GetChild(i).position, currentBlock.transform.GetChild(i).rotation);
+        }
     }
 
 }

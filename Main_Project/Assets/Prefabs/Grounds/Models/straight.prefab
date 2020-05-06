@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2497830369903496195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3392574509532358504}
+  m_Layer: 0
+  m_Name: TurretSpawner1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3392574509532358504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497830369903496195}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 15.5, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1418874305151534898}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &2732422121709532449
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,8 +62,8 @@ Transform:
   m_LocalPosition: {x: 342.7, y: 97.14619, z: -234.53758}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6768896584916040928}
-  - {fileID: 7289636233242752590}
+  - {fileID: 3392574509532358504}
+  - {fileID: 5099316303362931237}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
+  waypoints: []
 --- !u!54 &4414989494714834421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,153 +157,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1001 &6420290230512105923
-PrefabInstance:
+--- !u!1 &3459851091906908625
+GameObject:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1418874305151534898}
-    m_Modifications:
-    - target: {fileID: 3644221095859235889, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_Name
-      value: TurretSpawner2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 01c570e580781034f8e277f32ee70892, type: 3}
---- !u!4 &7289636233242752590 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-    type: 3}
-  m_PrefabInstance: {fileID: 6420290230512105923}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7052494004009825133
-PrefabInstance:
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5099316303362931237}
+  m_Layer: 0
+  m_Name: TurretSpawner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5099316303362931237
+Transform:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1418874305151534898}
-    m_Modifications:
-    - target: {fileID: 3644221095859235889, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_Name
-      value: TurretSpawner1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 01c570e580781034f8e277f32ee70892, type: 3}
---- !u!4 &6768896584916040928 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4337123099567034253, guid: 01c570e580781034f8e277f32ee70892,
-    type: 3}
-  m_PrefabInstance: {fileID: 7052494004009825133}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3459851091906908625}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 15.5, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1418874305151534898}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
