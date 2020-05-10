@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1801357957244957345}
   - component: {fileID: 1801357957244957344}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: GroundSpawner
   m_TagString: BlockSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ffe102d7e1e3ee45b78739ded0cf8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   groundPrefab:
   - {fileID: 3894340956532940338, guid: ba95082429a2b4b4599895f227f5103d, type: 3}
   - {fileID: 2732422121709532449, guid: e6381173ba0c86b4789698e8d71bd13b, type: 3}
@@ -54,13 +55,17 @@ MonoBehaviour:
   - {fileID: 6207723057883636857, guid: e3efd472937ea374f87657c3f38b85b4, type: 3}
   - {fileID: 4409575237087346563, guid: b5d74ce0bb3fac4459b489e84ab76007, type: 3}
   - {fileID: 8820372622536835803, guid: 75e3ac694651cf94691689a5e2d88a76, type: 3}
+  - {fileID: 8820372622536835803, guid: 75e3ac694651cf94691689a5e2d88a76, type: 3}
+  turretIndicator: {fileID: 0}
   currentIndex: 1
   randomSide: 0
   currentBlock: {fileID: 0}
   previousBlock: {fileID: 0}
-  newSpawner: {fileID: 1801357957244957357}
-  blockCount: 100
+  blockCount: 50
   blockIndex: 3
+  islandSpawners:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!65 &1801357957244957358
 BoxCollider:
   m_ObjectHideFlags: 0

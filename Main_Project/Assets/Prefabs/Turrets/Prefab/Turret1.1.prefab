@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3758264534527548721}
   - component: {fileID: 525901735657935098}
   - component: {fileID: 1075565801449449321}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.026
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,9 +89,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3838630159053645379}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rotator1
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,9 +122,9 @@ GameObject:
   - component: {fileID: 2958229605282747975}
   - component: {fileID: 5763633306126470841}
   - component: {fileID: 1024512309450565780}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.009
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,9 +200,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 611005281487413933}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DefaultTarget
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,9 +233,10 @@ GameObject:
   - component: {fileID: 7417311266089689315}
   - component: {fileID: 3878474658177915930}
   - component: {fileID: -3473902863131185054}
-  m_Layer: 0
+  - component: {fileID: 7261026586481950303}
+  m_Layer: 9
   m_Name: Turret1.1
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,7 +321,20 @@ MonoBehaviour:
   range: 25
   partToRotate: {fileID: 3838630159053645379}
   partToRotate2: {fileID: 3934915985275971340}
-  turnSpeed: 2
+  turnSpeed: 3
+--- !u!65 &7261026586481950303
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3310086540303968454}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.05, z: 0.05}
+  m_Center: {x: 0, y: 0, z: 0.02}
 --- !u!1 &3622796961550609356
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,9 +344,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3934915985275971340}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rotator2
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,9 +377,9 @@ GameObject:
   - component: {fileID: 3978424184378187227}
   - component: {fileID: 2526336269663111693}
   - component: {fileID: 1671768725941708281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.025
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -443,9 +457,9 @@ GameObject:
   - component: {fileID: 2547365662123902918}
   - component: {fileID: 2955434470799463072}
   - component: {fileID: 7555911805924104465}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.028
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -522,9 +536,9 @@ GameObject:
   - component: {fileID: 8906286602546008151}
   - component: {fileID: 1959075400272390417}
   - component: {fileID: 4904383530073782157}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.024
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

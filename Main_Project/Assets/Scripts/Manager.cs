@@ -62,9 +62,9 @@ public class Manager : MonoBehaviour
         minY = grounds[0].transform.position.y;
         foreach (GameObject ground in grounds)
         {
-            if (ground.transform.position.x > maxY)
+            if (ground.transform.position.y > maxY)
                 maxY = ground.transform.position.y;
-            if (ground.transform.position.x < minY)
+            if (ground.transform.position.y < minY)
                 minY = ground.transform.position.y;
         }
     }

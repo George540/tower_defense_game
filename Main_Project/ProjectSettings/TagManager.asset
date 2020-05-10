@@ -11,6 +11,7 @@ TagManager:
   - Island
   - Waypoint
   - TurretSpawner
+  - Turret
   layers:
   - Default
   - TransparentFX
