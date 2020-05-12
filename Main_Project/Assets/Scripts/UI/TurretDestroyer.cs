@@ -8,11 +8,14 @@ public class TurretDestroyer : MonoBehaviour
     public Camera cam;
     public GameObject button;
 
-    private GameObject currentTurret = null;
+    public GameObject currentTurret = null;
     public GameObject spawner;
 
     private GameObject currentSelector;
     public GameObject selector;
+
+    private GameObject currentRanger;
+    public GameObject ranger;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +40,13 @@ public class TurretDestroyer : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.gameObject.CompareTag("Turret") && hit.transform.gameObject.layer == 9)
+                if (hit.transform.gameObject.CompareTag("Turret") && hit.transform.gameObject.layer == 9 && currentTurret != hit.transform.gameObject)
                 {
                     button.SetActive(true);
                     currentTurret = hit.transform.gameObject;
-                    currentSelector = Instantiate(selector, transform.position + new Vector3(0f, 20f, 0f), transform.rotation);
+                    currentSelector = Instantiate(selector, currentTurret.transform.position + new Vector3(0f, 15f, 0f), currentTurret.transform.rotation);
+                    currentRanger = Instantiate(ranger, currentTurret.transform.position + new Vector3(0f, 0f, 0f), currentTurret.transform.rotation * Quaternion.Euler(90f, 0f, 0f));
+                    currentRanger.transform.localScale = new Vector3(currentTurret.GetComponent<Turret>().range * 2, ranger.transform.localScale.y, currentTurret.GetComponent<Turret>().range * 2);
                 }
             }
         }
@@ -49,23 +54,26 @@ public class TurretDestroyer : MonoBehaviour
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.gameObject.layer == 5 || hit.transform.gameObject.layer == 9)
-                {
-                    if (hit.transform.gameObject.CompareTag("Turret"))
-                    {
-                        button.SetActive(true);
-                        Destroy(currentSelector);
-                        currentTurret = hit.transform.gameObject;
-                        currentSelector = Instantiate(selector, currentTurret.transform.position + new Vector3(0f, 15f, 0f), currentTurret.transform.rotation);
-                        return;
-                    }
-                }
-            }
+
             button.SetActive(false);
             currentTurret = null;
             Destroy(currentSelector);
+            Destroy(currentRanger);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.gameObject.CompareTag("Turret") && hit.transform.gameObject.layer == 9 && currentTurret != hit.transform.gameObject)
+                {
+                    button.SetActive(true);
+                    Destroy(currentSelector);
+                    currentTurret = hit.transform.gameObject;
+                    currentSelector = Instantiate(selector, currentTurret.transform.position + new Vector3(0f, 15f, 0f), currentTurret.transform.rotation);
+                    currentRanger = Instantiate(ranger, currentTurret.transform.position + new Vector3(0f, 0f, 0f), currentTurret.transform.rotation * Quaternion.Euler(90f, 0f, 0f));
+                    currentRanger.transform.localScale = new Vector3(currentTurret.GetComponent<Turret>().range * 2, ranger.transform.localScale.y, currentTurret.GetComponent<Turret>().range * 2);
+                    return;
+                }
+            }
+            
         }
     }
 
@@ -74,6 +82,7 @@ public class TurretDestroyer : MonoBehaviour
         Instantiate(spawner, currentTurret.transform.position, currentTurret.transform.rotation * Quaternion.Euler(0f, 90f, 90f));
         button.SetActive(false);
         Destroy(currentSelector);
+        Destroy(currentRanger);
         Destroy(currentTurret);
     }
 }

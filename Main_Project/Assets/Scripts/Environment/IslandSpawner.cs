@@ -21,7 +21,7 @@ public class IslandSpawner : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Block"))
+        if (other.gameObject.CompareTag("Block") || other.gameObject.CompareTag("Island"))
         {
             canSpawn = false;
         }

@@ -167,9 +167,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraManager: {fileID: 184557175}
   cameraRig: {fileID: 190331126}
+  selected: {fileID: 0}
   scale: 0.5
   speed: 500
   speedVertical: 500
+  scrollSpeed: 100
   maxX: 0
   minX: 0
   maxY: 0
@@ -658,9 +660,10 @@ GameObject:
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
   - component: {fileID: 534669907}
+  - component: {fileID: 534669908}
   m_Layer: 9
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,7 +727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.5, z: -5.4}
+  m_LocalPosition: {x: 0, y: 5.99, z: -35.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 190331126}
@@ -759,9 +762,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 534669904}
   button: {fileID: 2087732190}
+  currentTurret: {fileID: 0}
   spawner: {fileID: 3644221095859235889, guid: 01c570e580781034f8e277f32ee70892, type: 3}
   selector: {fileID: 9183145541682833989, guid: 8a3ce115f76e7204caca19a38e5f85f4,
     type: 3}
+  ranger: {fileID: 7061828856836226216, guid: 441633e9ba5931545913714a18904964, type: 3}
+--- !u!114 &534669908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5a9f99b6d039b4ea63fb826c9ccd0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 534669904}
+  selected: {fileID: 0}
 --- !u!1 &560978944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,6 +1094,70 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1647981391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647981392}
+  - component: {fileID: 1647981394}
+  - component: {fileID: 1647981393}
+  m_Layer: 0
+  m_Name: IslandRandomSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1647981392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647981391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -90, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1647981393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647981391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9864e940e8ef8314584b242e6614b9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfIslands: 10
+  manager: {fileID: 184557176}
+  turretIndicator: {fileID: 3644221095859235889, guid: 01c570e580781034f8e277f32ee70892,
+    type: 3}
+  island: {fileID: 5212624517695502389, guid: d643acc607dbdcf4c86a9ebad41bc4e9, type: 3}
+  currentIsland: {fileID: 0}
+  canSpawnIsland: 0
+--- !u!65 &1647981394
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647981391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1813573924
 PrefabInstance:
   m_ObjectHideFlags: 0

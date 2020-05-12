@@ -6,9 +6,11 @@ public class CameraTranslator : MonoBehaviour
 {
     public GameObject cameraManager;
     public Transform cameraRig;
+    public GameObject selected;
     public float scale;
     public float speed;
     public float speedVertical = 500f;
+    public float scrollSpeed = 40f;
 
     public float maxX;
     public float minX;
@@ -33,6 +35,11 @@ public class CameraTranslator : MonoBehaviour
             transform.eulerAngles = transform.eulerAngles = new Vector3(0, cameraRig.GetComponent<CameraRig>().getYaw(), 0f);
 
         transform.position = setCameraBoundaries();
+        selected = transform.GetChild(0).GetChild(0).GetComponent<SelectObject>().selected;
+        if (selected != null)
+        {
+            //moveCameraToSelected();
+        }
     }
 
     public void cameraTranslate()
@@ -86,5 +93,11 @@ public class CameraTranslator : MonoBehaviour
         position.y = Mathf.Clamp(transform.position.y, minY - offset, maxY + offset);
         position.z = Mathf.Clamp(transform.position.z, minZ - offset, maxZ + offset);
         return position;
+    }
+
+    void moveCameraToSelected()
+    {
+        Vector3 translation = Vector3.Lerp(transform.position, selected.transform.position, Time.deltaTime * scrollSpeed);
+        transform.position = translation;
     }
 }

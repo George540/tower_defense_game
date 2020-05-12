@@ -11,12 +11,18 @@ public class Turret : MonoBehaviour
     public Transform partToRotate2;
     public float turnSpeed;
 
-    private Vector3 rotation2;
+    public GameObject bullet;
+    public GameObject nozzle;
+
+    public float fireRate;
+    public float fireCountdown;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0.35f, 0.4f);
+        fireRate = 1f;
+        nozzle = transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject;
+        InvokeRepeating("UpdateTarget", 0.2f, 0.4f);
     }
 
     void UpdateTarget()
@@ -65,6 +71,13 @@ public class Turret : MonoBehaviour
         {
             FindTarget(childTarget);
         }
+
+        if (fireCountdown <= 0f && target != null && target.CompareTag("Enemy"))
+        {
+            Invoke("Fire", 0.3f);
+            fireCountdown = 1.0f / fireRate;
+        }
+        fireCountdown -= Time.deltaTime;
     }
 
     private void OnDrawGizmosSelected()
@@ -81,5 +94,17 @@ public class Turret : MonoBehaviour
         Vector3 rotation2 = Quaternion.Lerp(partToRotate2.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         partToRotate2.rotation = Quaternion.Euler(rotation2.x, rotation2.y, 0f);
+    }
+
+    void Fire()
+    {
+
+        GameObject bul = Instantiate(bullet, nozzle.transform.GetChild(0).position, nozzle.transform.GetChild(0).rotation);
+        bul.GetComponent<Bullet>().setBulletSpeed(150);
+        bul.GetComponent<Rigidbody>().velocity = nozzle.transform.GetChild(0).right * bul.GetComponent<Bullet>().getBulletSpeed();
+
+        bul = Instantiate(bullet, nozzle.transform.GetChild(1).position, nozzle.transform.GetChild(1).rotation);
+        bul.GetComponent<Bullet>().setBulletSpeed(150);
+        bul.GetComponent<Rigidbody>().velocity = nozzle.transform.GetChild(1).right * bul.GetComponent<Bullet>().getBulletSpeed();
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - Waypoint
   - TurretSpawner
   - Turret
+  - Camera
   layers:
   - Default
   - TransparentFX
