@@ -292,8 +292,8 @@ GameObject:
   - component: {fileID: 1996383208144919253}
   - component: {fileID: 7417311266089689315}
   - component: {fileID: 3878474658177915930}
-  - component: {fileID: -3473902863131185054}
   - component: {fileID: 7261026586481950303}
+  - component: {fileID: 6016786114310861080}
   m_Layer: 9
   m_Name: Turret1.1
   m_TagString: Turret
@@ -364,28 +364,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-3473902863131185054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3310086540303968454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d06b55dc3fa78d42bac6b5c85e4cfbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  childTarget: {fileID: 0}
-  range: 25
-  partToRotate: {fileID: 3838630159053645379}
-  partToRotate2: {fileID: 3934915985275971340}
-  turnSpeed: 7
-  bullet: {fileID: 7059173031939889404, guid: ed52ed3af5ebace418202bdaaa481fe5, type: 3}
-  nozzle: {fileID: 0}
-  fireRate: 2
-  fireCountdown: 0
 --- !u!65 &7261026586481950303
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -399,6 +377,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05, y: 0.05, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0.02}
+--- !u!114 &6016786114310861080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3310086540303968454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f604d3db7dba9c429e2919d93e25d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  childTarget: {fileID: 0}
+  range: 25
+  partToRotate: {fileID: 3838630159053645379}
+  partToRotate2: {fileID: 3934915985275971340}
+  turnSpeed: 5
+  bullet: {fileID: 7059173031939889404, guid: ed52ed3af5ebace418202bdaaa481fe5, type: 3}
+  fireRate: 2
+  fireCountdown: 0
+  nozzle: {fileID: 6584024627518666012}
 --- !u!1 &3622796961550609356
 GameObject:
   m_ObjectHideFlags: 0

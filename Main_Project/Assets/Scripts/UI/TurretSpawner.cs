@@ -7,17 +7,17 @@ using UnityEngine.UI;
 public class TurretSpawner : MonoBehaviour
 {
     public Camera cam;
-    public GameObject button;
+    public GameObject[] buttons = new GameObject[2];
 
     private GameObject currentSpawner = null;
-    public GameObject turret;
+    public GameObject[] turrets = new GameObject[2];
 
 
     // Start is called before the first frame update
     void Start()
     {
         cam = GetComponent<Camera>();
-        button.SetActive(false);
+        setButtonsVisibility(false);
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class TurretSpawner : MonoBehaviour
 
     void getClickUpdateSpawnTurret()
     {
-        if (Input.GetMouseButtonDown(0) && button.activeSelf == false)
+        if (Input.GetMouseButtonDown(0) && buttons[0].activeSelf == false && buttons[1].activeSelf == false)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -39,13 +39,13 @@ public class TurretSpawner : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("TurretSpawner") && hit.transform.gameObject.layer == 9)
                 {
-                    button.SetActive(true);
+                    setButtonsVisibility(true);
                     currentSpawner = hit.transform.gameObject;
                     setStatusColor(Color.green);
                 }
             }
         }
-        else if (Input.GetMouseButtonUp(0) && button.activeSelf == true)
+        else if (Input.GetMouseButtonUp(0) && buttons[0].activeSelf == false && buttons[1].activeSelf == false)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -55,7 +55,7 @@ public class TurretSpawner : MonoBehaviour
                 {
                     if (hit.transform.gameObject.CompareTag("TurretSpawner"))
                     {
-                        button.SetActive(true);
+                        setButtonsVisibility(true);
                         setStatusColor(Color.red);
                         currentSpawner = hit.transform.gameObject;
                         setStatusColor(Color.green);
@@ -63,7 +63,7 @@ public class TurretSpawner : MonoBehaviour
                     }
                 }
             }
-            button.SetActive(false);
+            setButtonsVisibility(false);
             setStatusColor(Color.red);
             currentSpawner = null;
         }
@@ -71,8 +71,15 @@ public class TurretSpawner : MonoBehaviour
 
     public void SpawnTurret()
     {
-        Instantiate(turret, currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -90f));
-        button.SetActive(false);
+        Instantiate(turrets[0], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -90f));
+        setButtonsVisibility(false);
+        Destroy(currentSpawner);
+    }
+
+    public void SpawnSniper()
+    {
+        Instantiate(turrets[1], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -180f));
+        setButtonsVisibility(false);
         Destroy(currentSpawner);
     }
 
@@ -81,6 +88,14 @@ public class TurretSpawner : MonoBehaviour
         if (currentSpawner != null)
         {
             currentSpawner.gameObject.GetComponent<Renderer>().material.color = color;
+        }
+    }
+
+    void setButtonsVisibility(bool switcher)
+    {
+        foreach (GameObject button in buttons)
+        {
+            button.SetActive(switcher);
         }
     }
 }

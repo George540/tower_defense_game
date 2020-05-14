@@ -6,6 +6,7 @@ using UnityEngineInternal;
 public class IslandRandomSpawner : MonoBehaviour
 {
     public int numberOfIslands;
+    public int OFFSET;
     public Manager manager;
     public GameObject turretIndicator;
     public GameObject island;
@@ -13,21 +14,28 @@ public class IslandRandomSpawner : MonoBehaviour
 
     public bool canSpawnIsland;
 
-    private const int OFFSET = 90;
+    private const int islandOFFSET = 5;
     private int randY;
 
     // Start is called before the first frame update
     void Start()
     {
-        canSpawnIsland = false;
+        numberOfIslands = Random.Range(numberOfIslands - islandOFFSET, numberOfIslands + islandOFFSET);
+        transform.GetComponent<BoxCollider>().size = new Vector3(89f, 90f, 89f);
+        //canSpawnIsland = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void LateUpdate()
+    {
         calculateIslandCoords();
         spawnIsland();
-        destroySpawner();
+        //destroySpawner();
     }
 
     void spawnTurretIndicators(int children)
@@ -40,20 +48,20 @@ public class IslandRandomSpawner : MonoBehaviour
 
     void calculateIslandCoords()
     {
-        if (manager.isMapCreated)
+        if (manager.isMapCreated && numberOfIslands > 0)
         {
-            transform.GetComponent<BoxCollider>().size = new Vector3(90f, manager.maxY - manager.minY + 210f, 90f);
+            transform.GetComponent<BoxCollider>().size = new Vector3(89f, manager.maxY - manager.minY + 300f, 89f);
             int OFFSET = (int)transform.GetComponent<BoxCollider>().size.y;
-            int randX = (int)Random.Range(-15, 15) * 30;
+            int randX = Random.Range(-10, 10) * 30;
             randY = (int)Random.Range(-transform.GetComponent<BoxCollider>().size.y/30, transform.GetComponent<BoxCollider>().size.y/30) * 30;
-            int randZ = (int)Random.Range(-15, 15) * 30;
+            int randZ = Random.Range(-10, 10) * 30;
             transform.position = new Vector3(randX, 0, randZ);
         }
     }
 
     void spawnIsland()
     {
-        if (canSpawnIsland == true && numberOfIslands > 0)
+        if (canSpawnIsland == true && numberOfIslands > 0 && manager.isMapCreated)
         {
             currentIsland = Instantiate(island, new Vector3(transform.position.x, randY, transform.position.z), transform.rotation);
             spawnTurretIndicators(currentIsland.transform.childCount);
@@ -63,7 +71,8 @@ public class IslandRandomSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        canSpawnIsland = false;
+        if (other.gameObject.CompareTag("Island") || other.gameObject.CompareTag("Block"))
+            canSpawnIsland = false;
     }
 
     private void OnTriggerExit(Collider other)

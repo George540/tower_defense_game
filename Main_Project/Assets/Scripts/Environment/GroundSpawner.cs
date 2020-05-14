@@ -66,7 +66,7 @@ public class GroundSpawner : MonoBehaviour
             }
             else
             {
-                randomIndex = Random.Range(randomMin, 5);
+                randomIndex = Random.Range(4, 5);
             }
         }
         if (randomIndex == 1)
