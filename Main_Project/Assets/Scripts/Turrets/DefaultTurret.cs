@@ -43,11 +43,11 @@ public class DefaultTurret : Turret
     override public void Fire()
     {
         GameObject bul = Instantiate(bullet, nozzle.transform.GetChild(0).position, nozzle.transform.GetChild(0).rotation);
-        bul.GetComponent<Bullet>().setBulletSpeed(150);
+        //bul.GetComponent<Bullet>().setBulletSpeed(150);
         bul.GetComponent<Rigidbody>().velocity = nozzle.transform.GetChild(0).right * bul.GetComponent<Bullet>().getBulletSpeed();
 
         bul = Instantiate(bullet, nozzle.transform.GetChild(1).position, nozzle.transform.GetChild(1).rotation);
-        bul.GetComponent<Bullet>().setBulletSpeed(150);
+        //bul.GetComponent<Bullet>().setBulletSpeed(150);
         bul.GetComponent<Rigidbody>().velocity = nozzle.transform.GetChild(1).right * bul.GetComponent<Bullet>().getBulletSpeed();
     }
 }

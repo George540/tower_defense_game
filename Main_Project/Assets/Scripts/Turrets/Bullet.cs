@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
     public void setBulletSpeed(float speed)
     {
-        this.bulletSpeed = speed;
+        bulletSpeed = speed;
     }
 
     /*
@@ -40,9 +40,9 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        destroyBullet();
         if (collision.gameObject.CompareTag("Enemy"))
-            collision.gameObject.GetComponent<Enemy>().health -= 50;
+            collision.gameObject.GetComponent<Enemy>().health -= damage;
+        destroyBullet();
     }
 
 

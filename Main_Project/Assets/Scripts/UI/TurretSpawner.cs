@@ -45,7 +45,7 @@ public class TurretSpawner : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetMouseButtonUp(0) && buttons[0].activeSelf == false && buttons[1].activeSelf == false)
+        else if (Input.GetMouseButtonUp(0) && buttons[0].activeSelf == true && buttons[1].activeSelf == true)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

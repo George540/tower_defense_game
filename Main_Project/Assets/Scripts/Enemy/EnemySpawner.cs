@@ -26,9 +26,9 @@ public class EnemySpawner : MonoBehaviour
         go.GetComponent<EnemyNavigator>().enemyObject = go2;
         go2.GetComponent<Enemy>().navigator = go;
         go2.GetComponent<Enemy>().turnSpeed = 15f;
-        go2.gameObject.transform.localScale = new Vector3(1.0f, Random.Range(0.5f, 4.0f), 1.0f);
-        //go.GetComponent<EnemyNavigator>().speed = Random.Range(10, 30);
-        go.GetComponent<EnemyNavigator>().speed = 20;
-        timer = Random.Range(3, 4);
+        go2.gameObject.transform.localScale = new Vector3(go2.gameObject.transform.localScale.x, Random.Range(2f, 4.0f), go2.gameObject.transform.localScale.z);
+        go.GetComponent<EnemyNavigator>().speed = Random.Range(10, 30);
+        //go.GetComponent<EnemyNavigator>().speed = 20;
+        //timer = Random.Range(1, 4);
     }
 }

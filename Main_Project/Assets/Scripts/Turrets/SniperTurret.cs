@@ -38,7 +38,7 @@ public class SniperTurret : Turret
     override public void Fire()
     {
         GameObject bul = Instantiate(bullet, nozzle.transform.position, nozzle.transform.rotation * Quaternion.Euler(0f, 0f, -90f));
-        bul.GetComponent<Bullet>().setBulletSpeed(300);
+        //bul.GetComponent<Bullet>().setBulletSpeed(400);
         bul.GetComponent<Rigidbody>().velocity = nozzle.transform.right * bul.GetComponent<Bullet>().getBulletSpeed();
     }
 }
