@@ -37,4 +37,12 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Explosion"))
+        {
+            health -= 500f;
+        }
+    }
 }

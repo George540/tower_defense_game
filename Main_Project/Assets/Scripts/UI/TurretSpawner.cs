@@ -31,7 +31,7 @@ public class TurretSpawner : MonoBehaviour
 
     void getClickUpdateSpawnTurret()
     {
-        if (Input.GetMouseButtonDown(0) && buttons[0].activeSelf == false && buttons[1].activeSelf == false)
+        if (Input.GetMouseButtonDown(0) && buttons[0].activeSelf == false && buttons[1].activeSelf == false && buttons[2].activeSelf == false && buttons[3].activeSelf == false)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -45,7 +45,7 @@ public class TurretSpawner : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetMouseButtonUp(0) && buttons[0].activeSelf == true && buttons[1].activeSelf == true)
+        else if (Input.GetMouseButtonUp(0) && buttons[0].activeSelf == true && buttons[1].activeSelf == true && buttons[2].activeSelf == true && buttons[3].activeSelf == true)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -76,9 +76,23 @@ public class TurretSpawner : MonoBehaviour
         Destroy(currentSpawner);
     }
 
+    public void SpawnAuto()
+    {
+        Instantiate(turrets[1], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -90f));
+        setButtonsVisibility(false);
+        Destroy(currentSpawner);
+    }
+
     public void SpawnSniper()
     {
-        Instantiate(turrets[1], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -180f));
+        Instantiate(turrets[2], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -180f));
+        setButtonsVisibility(false);
+        Destroy(currentSpawner);
+    }
+
+    public void SpawnRocket()
+    {
+        Instantiate(turrets[3], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -180f));
         setButtonsVisibility(false);
         Destroy(currentSpawner);
     }

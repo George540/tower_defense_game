@@ -7,16 +7,11 @@ public class Bullet : MonoBehaviour
 {
     public float bulletSpeed;
     public float damage;
+    public float lifespan;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("destroyBullet", 2f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Invoke("destroyBullet", lifespan);
     }
 
     public float getBulletSpeed()
@@ -29,15 +24,6 @@ public class Bullet : MonoBehaviour
         bulletSpeed = speed;
     }
 
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        destroyBullet();
-        if (other.gameObject.CompareTag("Enemy"))
-            other.GetComponent<Enemy>().health -= 50;
-    }
-    */
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -46,7 +32,7 @@ public class Bullet : MonoBehaviour
     }
 
 
-    void destroyBullet()
+    protected void destroyBullet()
     {
         Destroy(gameObject);
     }

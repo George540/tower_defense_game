@@ -13,6 +13,7 @@ TagManager:
   - TurretSpawner
   - Turret
   - Camera
+  - Explosion
   layers:
   - Default
   - TransparentFX

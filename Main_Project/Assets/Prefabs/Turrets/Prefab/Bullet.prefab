@@ -125,3 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 300
   damage: 60
+  lifespan: 2
