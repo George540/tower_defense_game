@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d70799c34640e4889066c9e6d25895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  costDeployment: 540
   target: {fileID: 0}
   childTarget: {fileID: 0}
   range: 50

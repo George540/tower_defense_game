@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -112,10 +112,10 @@ MonoBehaviour:
     y: 30
     width: 1858
     height: 987
-  m_MinSize: {x: 678, y: 492}
-  m_MaxSize: {x: 18004, y: 14042}
+  m_MinSize: {x: 677, y: 492}
+  m_MaxSize: {x: 18002, y: 14042}
   vertical: 0
-  controlID: 158
+  controlID: 156
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,9 +138,9 @@ MonoBehaviour:
     width: 1512
     height: 987
   m_MinSize: {x: 402, y: 492}
-  m_MaxSize: {x: 14003, y: 14042}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 1
-  controlID: 159
+  controlID: 157
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 160
+  controlID: 158
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -241,10 +241,10 @@ MonoBehaviour:
     y: 577
     width: 1512
     height: 410
-  m_MinSize: {x: 333, y: 271}
-  m_MaxSize: {x: 14003, y: 10021}
+  m_MinSize: {x: 332, y: 271}
+  m_MaxSize: {x: 14002, y: 10021}
   vertical: 0
-  controlID: 123
+  controlID: 121
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -316,8 +316,8 @@ MonoBehaviour:
     y: 0
     width: 346
     height: 987
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -385,9 +385,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -36.14849, y: 14.17099, z: -18.257502}
+    m_Target: {x: 109.747, y: 64.53028, z: -211.94661}
     speed: 2
-    m_Value: {x: -36.14849, y: 14.17099, z: -18.257502}
+    m_Value: {x: 109.747, y: 64.53028, z: -211.94661}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -433,13 +433,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.030312058, y: -0.94733334, z: 0.10286813, w: 0.30435216}
+    m_Target: {x: -0.33563894, y: 0.0930963, z: 0.037204392, w: 0.93748236}
     speed: 2
-    m_Value: {x: 0.03028827, y: -0.94658995, z: 0.102787405, w: 0.30411333}
+    m_Value: {x: -0.33537447, y: 0.09302294, z: 0.037175078, w: 0.9367437}
   m_Size:
-    m_Target: 29.044365
+    m_Target: 34.635944
     speed: 2
-    m_Value: 29.044365
+    m_Value: 34.635944
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -493,9 +493,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 02480000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 6cfbffff5037000078370000b8370000
+      m_SelectedIDs: 7a370000
+      m_LastClickedID: 14202
+      m_ExpandedIDs: 6cfbffffe0370000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -675,34 +675,34 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Turrets/Prefab
+    - Assets/Scripts/UI
   m_ViewMode: 1
   m_StartGridSize: 80
   m_LastFolders:
-  - Assets/Prefabs/Turrets/Prefab
+  - Assets/Scripts/UI
   m_LastFoldersGridSize: 80
   m_LastProjectPath: C:\Users\G\Documents\GitHub\tower_defense_game\Main_Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3e3b0000
-    m_LastClickedID: 15166
-    m_ExpandedIDs: 00000000243b0000263b0000283b00002a3b00002c3b00004c3b0000
+    m_SelectedIDs: da3b0000
+    m_LastClickedID: 15322
+    m_ExpandedIDs: 00000000b63b0000b83b0000ba3b0000bc3b0000be3b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Turrets
-      m_OriginalName: Turrets
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 15174
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_SearchString: 
@@ -716,7 +716,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000243b0000263b0000283b00002a3b00002c3b0000
+    m_ExpandedIDs: 00000000b63b0000b83b0000ba3b0000bc3b0000be3b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -809,4 +809,4 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 310
+  m_LastVerticalScrollValue: 207

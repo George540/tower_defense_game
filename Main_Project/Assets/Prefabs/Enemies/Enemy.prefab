@@ -128,6 +128,7 @@ MonoBehaviour:
   navigator: {fileID: 0}
   turnSpeed: 0
   health: 100
+  currencyDrop: 20
 --- !u!65 &4947110920483184854
 BoxCollider:
   m_ObjectHideFlags: 0

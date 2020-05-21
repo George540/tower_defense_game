@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f604d3db7dba9c429e2919d93e25d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  costDeployment: 102
   target: {fileID: 0}
   childTarget: {fileID: 0}
   range: 25

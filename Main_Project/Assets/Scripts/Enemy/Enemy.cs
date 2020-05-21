@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public GameObject navigator;
     public float turnSpeed;
     public float health = 100;
+    public float currencyDrop;
 
     // Start is called before the first frame update
     void Start()

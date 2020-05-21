@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour
     public float maxZ;
     public float minZ;
 
-    public
+    public float currency;
     // Start is called before the first frame update
     void Start()
     {

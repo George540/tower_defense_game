@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Turret : MonoBehaviour
 {
+    public float costDeployment;
     public Transform target;
     public Transform childTarget;
     public float range = 25f;
