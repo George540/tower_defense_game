@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Manager manager;
     public GameObject navigator;
     public float turnSpeed;
+    public float moveSpeed;
     public float health = 100;
     public float currencyDrop;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = FindObjectOfType<Manager>();
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
+            manager.currency += currencyDrop;
             Destroy(navigator);
             Destroy(gameObject);
         }

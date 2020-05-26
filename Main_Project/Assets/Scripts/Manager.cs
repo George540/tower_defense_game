@@ -8,6 +8,7 @@ public class Manager : MonoBehaviour
     public List<GameObject> grounds = new List<GameObject>();
     public List<GroundSpawner> groundSpawners = new List<GroundSpawner>();
     public List<Waypoint> waypoints = new List<Waypoint>();
+    public List<GameObject> terminals = new List<GameObject>();
 
     public float maxX;
     public float minX;
@@ -17,15 +18,26 @@ public class Manager : MonoBehaviour
     public float minZ;
 
     public float currency;
+
+    public float baseHealth = 50;
+    public float totalBaseHealth;
+
+    public int numberOfWaves;
+    public int currentWave = 0;
+
+    public GameObject startButton;
     // Start is called before the first frame update
     void Start()
     {
-        
+        startButton = GameObject.Find("Canvas").transform.Find("StartWave").gameObject;
+        Invoke("setHealth", 0.5f);
+        Invoke("setWaves", 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        checkoutCurrency();
         if (groundSpawners.Count == 0)
         {
             isMapCreated = true;
@@ -33,6 +45,11 @@ public class Manager : MonoBehaviour
         if (isMapCreated == true)
         {
             setBoundaries();
+        }
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (startButton.GetComponent<StartWave>().getisWavePlaying() == false && enemies.Length == 0)
+        {
+            startButton.SetActive(true);
         }
     }
 
@@ -79,6 +96,35 @@ public class Manager : MonoBehaviour
                 maxZ = ground.transform.position.z;
             if (ground.transform.position.z < minZ)
                 minZ = ground.transform.position.z;
+        }
+    }
+
+    void checkoutCurrency()
+    {
+        if (currency < 0)
+        {
+            currency = 0;
+        }
+    }
+
+    void setHealth()
+    {
+        totalBaseHealth = baseHealth * terminals.Count;
+    }
+
+    void setWaves()
+    {
+        if (terminals.Count == 1)
+        {
+            numberOfWaves = 10;
+        }
+        else if (terminals.Count > 1 && terminals.Count < 3)
+        {
+            numberOfWaves = 15;
+        }
+        else
+        {
+            numberOfWaves = 20;
         }
     }
 }

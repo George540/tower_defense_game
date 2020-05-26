@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class TextIndicator : MonoBehaviour
 {
     public Text currencyText;
-    public GameObject manager;
+    public Text baseHealth;
+    public Text waveNumber;
+    public Manager manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,11 @@ public class TextIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currencyText.GetComponent<Text>().text = "Currency: " + manager.GetComponent<Manager>().currency.ToString();
+        if (manager.isMapCreated == true)
+        {
+            currencyText.GetComponent<Text>().text = "Currency: " + manager.currency.ToString();
+            baseHealth.GetComponent<Text>().text = "Health: " + manager.totalBaseHealth.ToString();
+            waveNumber.GetComponent<Text>().text = "Wave: " + manager.currentWave.ToString() + "/" + manager.numberOfWaves.ToString();
+        }
     }
 }

@@ -57,6 +57,8 @@ MonoBehaviour:
   - {fileID: 8820372622536835803, guid: 75e3ac694651cf94691689a5e2d88a76, type: 3}
   - {fileID: 8820372622536835803, guid: 75e3ac694651cf94691689a5e2d88a76, type: 3}
   turretIndicator: {fileID: 0}
+  terminal: {fileID: 6275079252086344325, guid: ba317c2796c18fd45ba847256129357a,
+    type: 3}
   currentIndex: 1
   randomSide: 0
   currentBlock: {fileID: 0}

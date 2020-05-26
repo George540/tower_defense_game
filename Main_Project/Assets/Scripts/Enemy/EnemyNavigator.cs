@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyNavigator : MonoBehaviour
 {
+    public Manager manager;
     public GameObject enemyObject;
     public float speed;
     public GameObject currentWaypoint;
@@ -13,7 +14,8 @@ public class EnemyNavigator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = FindObjectOfType<Manager>();
+        speed = enemyObject.GetComponent<Enemy>().moveSpeed;
     }
 
     // Update is called once per frame
@@ -50,6 +52,7 @@ public class EnemyNavigator : MonoBehaviour
             {
                 if (currentWaypoint.gameObject.GetComponent<Waypoint>().getIndex() == 0)
                 {
+                    manager.totalBaseHealth--;
                     Destroy(enemyObject);
                     Destroy(gameObject);
                 }

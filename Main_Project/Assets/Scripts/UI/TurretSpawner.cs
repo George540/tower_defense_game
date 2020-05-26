@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TurretSpawner : MonoBehaviour
 {
+    public Manager manager;
+    public Text errorText;
+
     public Camera cam;
     public GameObject[] buttons = new GameObject[2];
 
@@ -18,6 +22,7 @@ public class TurretSpawner : MonoBehaviour
     {
         cam = GetComponent<Camera>();
         setButtonsVisibility(false);
+        errorText.enabled = false;
     }
 
     // Update is called once per frame
@@ -71,30 +76,67 @@ public class TurretSpawner : MonoBehaviour
 
     public void SpawnTurret()
     {
-        Instantiate(turrets[0], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -90f));
-        setButtonsVisibility(false);
-        Destroy(currentSpawner);
+        if (canBuy(0))
+        {
+            GameObject turret = Instantiate(turrets[0], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -90f));
+            setButtonsVisibility(false);
+            Destroy(currentSpawner);
+            manager.currency -= turret.GetComponent<Turret>().costDeployment;
+        }
+        if (errorText.enabled == false)
+        {
+            errorText.enabled = true;
+            Invoke("setInvisibleError", 2f);
+        }
     }
 
     public void SpawnAuto()
     {
-        Instantiate(turrets[1], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -90f));
-        setButtonsVisibility(false);
-        Destroy(currentSpawner);
+        if (canBuy(1))
+        {
+            GameObject turret = Instantiate(turrets[1], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -90f));
+            setButtonsVisibility(false);
+            Destroy(currentSpawner);
+            manager.currency -= turret.GetComponent<Turret>().costDeployment;
+        }
+        if (errorText.enabled == false)
+        {
+            errorText.enabled = true;
+            Invoke("setInvisibleError", 2f);
+        }
     }
 
     public void SpawnSniper()
     {
-        Instantiate(turrets[2], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -180f));
-        setButtonsVisibility(false);
-        Destroy(currentSpawner);
+        if (canBuy(2))
+        {
+            GameObject turret = Instantiate(turrets[2], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -180f));
+            setButtonsVisibility(false);
+            Destroy(currentSpawner);
+            manager.currency -= turret.GetComponent<Turret>().costDeployment;
+
+        }
+        if (errorText.enabled == false)
+        {
+            errorText.enabled = true;
+            Invoke("setInvisibleError", 2f);
+        }
     }
 
     public void SpawnRocket()
     {
-        Instantiate(turrets[3], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -180f));
-        setButtonsVisibility(false);
-        Destroy(currentSpawner);
+        if (canBuy(3))
+        {
+            GameObject turret = Instantiate(turrets[3], currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -180f));
+            setButtonsVisibility(false);
+            Destroy(currentSpawner);
+            manager.currency -= turret.GetComponent<Turret>().costDeployment;
+        }
+        if (errorText.enabled == false)
+        {
+            errorText.enabled = true;
+            Invoke("setInvisibleError", 2f);
+        }
     }
 
     void setStatusColor(Color color)
@@ -111,5 +153,18 @@ public class TurretSpawner : MonoBehaviour
         {
             button.SetActive(switcher);
         }
+    }
+
+    bool canBuy(int i)
+    {
+        if (manager.currency < turrets[i].GetComponent<Turret>().costDeployment)
+            return false;
+        else
+            return true;
+    }
+
+    void setInvisibleError()
+    {
+        errorText.enabled = false;
     }
 }

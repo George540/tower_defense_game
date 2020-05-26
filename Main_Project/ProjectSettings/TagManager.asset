@@ -14,6 +14,7 @@ TagManager:
   - Turret
   - Camera
   - Explosion
+  - Terminal
   layers:
   - Default
   - TransparentFX

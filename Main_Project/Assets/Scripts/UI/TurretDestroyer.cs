@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class TurretDestroyer : MonoBehaviour
 {
+    public Manager manager;
+    public Text errorText;
+
     public Camera cam;
     public GameObject button;
 
@@ -81,6 +84,7 @@ public class TurretDestroyer : MonoBehaviour
     {
         Instantiate(spawner, currentTurret.transform.position, currentTurret.transform.rotation * Quaternion.Euler(0f, 90f, 90f));
         button.SetActive(false);
+        manager.currency += currentTurret.GetComponent<Turret>().costDeployment/2;
         Destroy(currentSelector);
         Destroy(currentRanger);
         Destroy(currentTurret);
