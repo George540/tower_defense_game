@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7262792046534836511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.31, y: 1.709999, z: 0}
+  m_LocalPosition: {x: 8.45, y: 0.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7791945672342326734}
@@ -136,7 +136,7 @@ Transform:
   m_GameObject: {fileID: 7791945672342326729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 249.73633, y: 288.00137, z: -504.8241}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7366890452400702778}
   - {fileID: 7791945672530568413}
@@ -160,7 +160,7 @@ MonoBehaviour:
   turnSpeed: 15
   moveSpeed: 50
   health: 40
-  currencyDrop: 30
+  currencyDrop: 15
 --- !u!65 &4551235778875611591
 BoxCollider:
   m_ObjectHideFlags: 0

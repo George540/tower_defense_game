@@ -29,7 +29,6 @@ public class EnemySpawner : MonoBehaviour
         if (numberOfEnemies == 0)
         {
             startButton.gameObject.GetComponent<StartWave>().setisWavePlaying(false);
-            //startButton.gameObject.SetActive(true);
             Destroy(gameObject);
         }
         if (timerCooldown <= 0)
@@ -76,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 picker = 1;
             }
-            else if (rand >= 6 && rand <= 7)
+            else if (rand >= 6 && rand <= 8)
             {
                 picker = 2;
             }
@@ -110,10 +109,6 @@ public class EnemySpawner : MonoBehaviour
         {
             numberOfEnemies = (int)Random.Range(70, 100);
         }
-        else if (manager.currentWave > 4 && manager.currentWave < 10)
-        {
-            numberOfEnemies = (int)Random.Range(70, 100);
-        }
         else if (manager.currentWave > 9 && manager.currentWave < 15)
         {
             numberOfEnemies = (int)Random.Range(100, 130);
@@ -140,11 +135,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (manager.currentWave > 4 && manager.currentWave < 10)
         {
-            timer = Random.Range(0.6f, 4f);
-        }
-        else if (manager.currentWave > 4 && manager.currentWave < 10)
-        {
-            timer = Random.Range(0.6f, 2f);
+            timer = Random.Range(0.6f, 1.5f);
         }
         else if (manager.currentWave > 9 && manager.currentWave < 15)
         {
@@ -152,11 +143,11 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (manager.currentWave > 14 && manager.currentWave < 20)
         {
-            timer = Random.Range(0.5f, 2f);
+            timer = Random.Range(0.4f, 1f);
         }
         else if (manager.currentWave > 19 && manager.currentWave < 26)
         {
-            timer = Random.Range(0.4f, 1.8f);
+            timer = Random.Range(0.2f, 1.3f);
         }
     }
 }

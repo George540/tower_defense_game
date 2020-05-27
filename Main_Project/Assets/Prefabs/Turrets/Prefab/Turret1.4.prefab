@@ -336,7 +336,7 @@ MonoBehaviour:
   range: 50
   partToRotate: {fileID: 7709289576265250376}
   partToRotate2: {fileID: 1827630272248184699}
-  turnSpeed: 3
+  turnSpeed: 5
   bullet: {fileID: 1190634589391810782, guid: 3037695f2d8bd844a95aeb91ce72623d, type: 3}
   fireRate: 0.3
   fireCountdown: 0

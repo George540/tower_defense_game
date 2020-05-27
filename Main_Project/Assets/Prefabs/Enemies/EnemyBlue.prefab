@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 6612643119621356864}
   - component: {fileID: 4947110920483184854}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyBlue
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 1705767728694801624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -30, y: 15, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 2140023658196335659}
   - {fileID: 1705767729050770892}
@@ -130,7 +130,7 @@ MonoBehaviour:
   turnSpeed: 15
   moveSpeed: 20
   health: 100
-  currencyDrop: 20
+  currencyDrop: 10
 --- !u!65 &4947110920483184854
 BoxCollider:
   m_ObjectHideFlags: 0
