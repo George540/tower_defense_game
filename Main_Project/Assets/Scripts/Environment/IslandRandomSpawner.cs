@@ -38,6 +38,7 @@ public class IslandRandomSpawner : MonoBehaviour
         //destroySpawner();
     }
 
+    /*
     void spawnTurretIndicators(int children)
     {
         for (int i = 0; i < children; i++)
@@ -45,6 +46,7 @@ public class IslandRandomSpawner : MonoBehaviour
             Instantiate(turretIndicator, currentIsland.transform.GetChild(i).position, currentIsland.transform.GetChild(i).rotation);
         }
     }
+    */
 
     void calculateIslandCoords()
     {
@@ -64,7 +66,7 @@ public class IslandRandomSpawner : MonoBehaviour
         if (canSpawnIsland == true && numberOfIslands > 0 && manager.isMapCreated)
         {
             currentIsland = Instantiate(island, new Vector3(transform.position.x, randY, transform.position.z), transform.rotation);
-            spawnTurretIndicators(currentIsland.transform.childCount);
+            //spawnTurretIndicators(currentIsland.transform.childCount);
             numberOfIslands--;
         }
     }

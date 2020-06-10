@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2497830369903496195}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 15.5, z: 10}
+  m_LocalPosition: {x: -10, y: 15.5, z: 11.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1418874305151534898}
@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 7992723953660706052}
   - component: {fileID: 4456124355448422909}
   - component: {fileID: 5911235177457800027}
-  - component: {fileID: 9170683762456928765}
   - component: {fileID: 4414989494714834421}
+  - component: {fileID: 1471488152109986106}
   m_Layer: 0
   m_Name: straight
   m_TagString: Block
@@ -63,7 +63,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3392574509532358504}
+  - {fileID: 7632610010722920023}
+  - {fileID: 7989335585840227399}
   - {fileID: 5099316303362931237}
+  - {fileID: 874789625481379318}
+  - {fileID: 4102166342989100452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -127,20 +131,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 29, y: 29, z: 29}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9170683762456928765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2732422121709532449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbbda2b39300b6f4f9b157a081bb44f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 1
-  waypoints: []
 --- !u!54 &4414989494714834421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -157,6 +147,67 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1471488152109986106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2732422121709532449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd28fde9186fa104b81e48c325c15f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 1
+  waypoints: []
+  turretSpawnEmpties:
+  - {fileID: 2497830369903496195}
+  - {fileID: 7699051782416840141}
+  - {fileID: 3194456864195525387}
+  - {fileID: 3459851091906908625}
+  - {fileID: 7623143065604110985}
+  - {fileID: 6831430932791326062}
+  offenseIndicator: {fileID: 3644221095859235889, guid: 01c570e580781034f8e277f32ee70892,
+    type: 3}
+  vegetation:
+  - {fileID: 8613504557737419086, guid: fb405eef184da7c4c9733a6e315a8174, type: 3}
+  - {fileID: 6412264502273877497, guid: e03eb7683ed709e4e82833db8d6e0e88, type: 3}
+  - {fileID: 3700311792253073386, guid: 14e315ea0db1edb4d946c40ced9b884e, type: 3}
+  - {fileID: 1338311753511481616, guid: 272eb39fcfbc3f64a9aba9b1a1bb17df, type: 3}
+  rand1: 0
+  rand2: 0
+  rand3: 0
+--- !u!1 &3194456864195525387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7989335585840227399}
+  m_Layer: 0
+  m_Name: TurretSpawner3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7989335585840227399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3194456864195525387}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 10, y: 15.5, z: 10.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1418874305151534898}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &3459851091906908625
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5099316303362931237}
   m_Layer: 0
-  m_Name: TurretSpawner2
+  m_Name: TurretSpawner4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,9 +232,99 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3459851091906908625}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 15.5, z: -10}
+  m_LocalPosition: {x: -10, y: 15.5, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1418874305151534898}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &6831430932791326062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4102166342989100452}
+  m_Layer: 0
+  m_Name: TurretSpawner6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4102166342989100452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6831430932791326062}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 10, y: 15.5, z: -10.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1418874305151534898}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &7623143065604110985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874789625481379318}
+  m_Layer: 0
+  m_Name: TurretSpawner5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &874789625481379318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7623143065604110985}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 15.5, z: -11.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1418874305151534898}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &7699051782416840141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7632610010722920023}
+  m_Layer: 0
+  m_Name: TurretSpawner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7632610010722920023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699051782416840141}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 15.5, z: 9.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1418874305151534898}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}

@@ -6,7 +6,8 @@ public class GroundSpawner : MonoBehaviour
 {
     public Manager manager;
     public GameObject[] groundPrefab = new GameObject[8];
-    public GameObject turretIndicator;
+    public GameObject offenseIndicator;
+    public GameObject supportIndicator;
     public GameObject terminal;
     public int currentIndex;
     public int randomSide;
@@ -81,8 +82,10 @@ public class GroundSpawner : MonoBehaviour
             if (canSpawnIsland && random2 < 2)
             {
                 currentBlock = Instantiate(groundPrefab[7], islandSpawners[random1].transform.position, islandSpawners[random1].transform.rotation);
+                /*
                 if (currentBlock.transform.childCount > 0)
                     spawnTurretIndicators(currentBlock.transform.childCount);
+                */
                 manager.grounds.Add(currentBlock);
             }
         }
@@ -165,11 +168,13 @@ public class GroundSpawner : MonoBehaviour
             GameObject tm = Instantiate(terminal, currentBlock.transform.GetChild(0).position, currentBlock.transform.GetChild(0).rotation);
             manager.terminals.Add(tm);
         }
+        /*
         else if (index == 1)
         {
             if (currentBlock.transform.childCount > 0)
                 spawnTurretIndicators(currentBlock.transform.childCount);
         }
+        */
         else if (index == 4)
         {
             currentBlock.transform.Rotate(0f, -90f, 0f, Space.Self);
@@ -200,6 +205,7 @@ public class GroundSpawner : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /*
     void spawnTurretIndicators(int children)
     {
         for(int i = 0; i < children; i++)
@@ -207,5 +213,6 @@ public class GroundSpawner : MonoBehaviour
             Instantiate(turretIndicator, currentBlock.transform.GetChild(i).position, currentBlock.transform.GetChild(i).rotation);
         }
     }
+    */
 
 }
