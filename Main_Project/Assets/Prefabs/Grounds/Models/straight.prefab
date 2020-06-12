@@ -175,9 +175,15 @@ MonoBehaviour:
   - {fileID: 6412264502273877497, guid: e03eb7683ed709e4e82833db8d6e0e88, type: 3}
   - {fileID: 3700311792253073386, guid: 14e315ea0db1edb4d946c40ced9b884e, type: 3}
   - {fileID: 1338311753511481616, guid: 272eb39fcfbc3f64a9aba9b1a1bb17df, type: 3}
+  secondaryVegetation:
+  - {fileID: 5925211833729883196, guid: 4756ee8fe53568e48a358861b7ca705c, type: 3}
+  - {fileID: 2995903942014299387, guid: 0b8035a8feb95c44e8d7d72ef45bd763, type: 3}
+  - {fileID: 4848975105791610585, guid: c4bd4c223fd30504497a17e38aa6f623, type: 3}
+  - {fileID: 8182842719670859966, guid: 263f5d4f07b841c48b0043ea0737a7ee, type: 3}
   rand1: 0
   rand2: 0
   rand3: 0
+  rand4: 0
 --- !u!1 &3194456864195525387
 GameObject:
   m_ObjectHideFlags: 0

@@ -71,11 +71,11 @@ public class CameraTranslator : MonoBehaviour
         {
             if (Input.GetAxis("Mouse Y") > 0)
             {
-                transform.position += new Vector3(0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speedVertical, 0f);
+                transform.position += new Vector3(0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speedVertical * 2, 0f);
             }
             else if (Input.GetAxis("Mouse Y") < 0)
             {
-                transform.position += new Vector3(0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speedVertical, 0f);
+                transform.position += new Vector3(0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speedVertical * 2, 0f);
             }
         }
     }

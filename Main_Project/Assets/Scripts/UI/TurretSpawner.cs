@@ -14,6 +14,10 @@ public class TurretSpawner : MonoBehaviour
     private GameObject currentSpawner = null;
     public GameObject[] turrets = new GameObject[2];
 
+    public GameObject build;
+    public GameObject noBuild;
+    public GameObject turretBoard;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,8 @@ public class TurretSpawner : MonoBehaviour
         cam = GetComponent<Camera>();
         setButtonsVisibility(false);
         errorText.enabled = false;
+        noBuild.SetActive(false);
+        turretBoard.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,7 +46,7 @@ public class TurretSpawner : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.gameObject.CompareTag("TurretSpawner") && hit.transform.gameObject.layer == 9)
+                if (hit.transform.gameObject.CompareTag("OffenseSpawner") && hit.transform.gameObject.layer == 9)
                 {
                     setButtonsVisibility(true);
                     currentSpawner = hit.transform.gameObject;
@@ -56,7 +62,7 @@ public class TurretSpawner : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == 5 || hit.transform.gameObject.layer == 9)
                 {
-                    if (hit.transform.gameObject.CompareTag("TurretSpawner"))
+                    if (hit.transform.gameObject.CompareTag("OffenseSpawner"))
                     {
                         setButtonsVisibility(true);
                         setStatusColor(Color.red);
@@ -164,5 +170,35 @@ public class TurretSpawner : MonoBehaviour
     void setInvisibleError()
     {
         errorText.enabled = false;
+    }
+
+    public void enableBuilds()
+    {
+        foreach (GameObject spawner in manager.turretSpawners)
+        {
+            spawner.SetActive(true);
+        }
+        foreach (GameObject spawner in manager.supportSpawners)
+        {
+            spawner.SetActive(true);
+        }
+        build.SetActive(false);
+        noBuild.SetActive(true);
+        turretBoard.SetActive(true);
+    }
+
+    public void disableBuilds()
+    {
+        foreach (GameObject spawner in manager.turretSpawners)
+        {
+            spawner.SetActive(false);
+        }
+        foreach (GameObject spawner in manager.supportSpawners)
+        {
+            spawner.SetActive(false);
+        }
+        build.SetActive(true);
+        noBuild.SetActive(false);
+        turretBoard.SetActive(false);
     }
 }

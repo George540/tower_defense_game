@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class DeployableIsland : Ground
 {
+    public Manager manager;
     public GameObject[] turretSpawnEmpties = new GameObject[4];
     public GameObject supportIndicator;
     public GameObject[] vegetation = new GameObject[4];
+    public GameObject[] secondaryVegetation = new GameObject[4];
 
     public int rand1;
     public int rand2;
     public int rand3;
+    public int rand4;
     // Start is called before the first frame update
     void Start()
     {
+        manager = (Manager)GameObject.FindObjectOfType<Manager>();
         if (index == 7)
         {
             rand1 = Random.Range(0, turretSpawnEmpties.Length / 2);
@@ -29,7 +33,16 @@ public class DeployableIsland : Ground
 
             int chance = Random.Range(0, 3);
             if (chance == 1)
-                spawnVegetation(rand3);
+                spawnVegetation();
+
+            do
+            {
+                rand4 = Random.Range(0, turretSpawnEmpties.Length);
+            } while (rand4 == rand1 || rand4 == rand2 || rand4 == rand3);
+
+            chance = Random.Range(0, 3);
+            if (chance == 1 || chance == 2)
+                spawnSecondary();
         }
     }
 
@@ -41,15 +54,28 @@ public class DeployableIsland : Ground
 
     void spawnTurretIndicator(int i)
     {
-        Instantiate(supportIndicator, turretSpawnEmpties[i].transform.position, turretSpawnEmpties[i].transform.rotation);
+        GameObject go = Instantiate(supportIndicator, turretSpawnEmpties[i].transform.position, turretSpawnEmpties[i].transform.rotation);
+        manager.supportSpawners.Add(go);
+        go.SetActive(false);
     }
 
-    void spawnVegetation(int i)
+    void spawnVegetation()
     {
         int rand = Random.Range(0, vegetation.Length);
         if (rand == 3 && rand == 4)
             Instantiate(vegetation[rand], turretSpawnEmpties[rand3].transform.position, UnityEngine.Quaternion.Euler(-90, 0, Random.Range(0, 360)));
         else
             Instantiate(vegetation[rand], turretSpawnEmpties[rand3].transform.position + new UnityEngine.Vector3(0, -2f, 0), UnityEngine.Quaternion.Euler(-90, 0, Random.Range(0, 360)));
+    }
+
+    void spawnSecondary()
+    {
+        int rand = Random.Range(0, vegetation.Length);
+        if (rand == 1 && rand == 3)
+            Instantiate(secondaryVegetation[rand], turretSpawnEmpties[rand4].transform.position, UnityEngine.Quaternion.Euler(-90, 0, Random.Range(0, 360)));
+        else if (rand == 0)
+            Instantiate(secondaryVegetation[rand], turretSpawnEmpties[rand4].transform.position + new UnityEngine.Vector3(0, -0.5f, 0), UnityEngine.Quaternion.Euler(-90, 0, Random.Range(0, 360)));
+        else
+            Instantiate(secondaryVegetation[rand], turretSpawnEmpties[rand4].transform.position + new UnityEngine.Vector3(0, 0.4f, 0), UnityEngine.Quaternion.Euler(-90, 0, Random.Range(0, 360)));
     }
 }

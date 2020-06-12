@@ -10,6 +10,10 @@ public class Manager : MonoBehaviour
     public List<Waypoint> waypoints = new List<Waypoint>();
     public List<GameObject> terminals = new List<GameObject>();
 
+    public List<GameObject> turretSpawners = new List<GameObject>();
+    public List<GameObject> supportSpawners = new List<GameObject>();
+    public bool isBuilding = false;
+
     public float maxX;
     public float minX;
     public float maxY;
@@ -25,11 +29,18 @@ public class Manager : MonoBehaviour
     public int numberOfWaves;
     public int currentWave = 0;
 
+    // Random Island Stuff
+    public GameObject islandCounter;
+    public float medianX;
+    public float medianY;
+    public float medianZ;
+
     public GameObject startButton;
     // Start is called before the first frame update
     void Start()
     {
         startButton = GameObject.Find("Canvas").transform.Find("StartWave").gameObject;
+        Invoke("spawnIslandCounter", 0.5f);
         Invoke("setHealth", 0.5f);
         Invoke("setWaves", 0.5f);
     }
@@ -45,6 +56,7 @@ public class Manager : MonoBehaviour
         if (isMapCreated == true)
         {
             setBoundaries();
+            setMedians();
         }
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (startButton.GetComponent<StartWave>().getisWavePlaying() == false && enemies.Length == 0)
@@ -126,5 +138,28 @@ public class Manager : MonoBehaviour
         {
             numberOfWaves = 20;
         }
+    }
+
+    void setMedians()
+    {
+        float sumX = 0;
+        float sumY = 0;
+        float sumZ = 0;
+
+        foreach (GameObject ground in grounds)
+        {
+            sumX += ground.transform.position.x;
+            sumY += ground.transform.position.y;
+            sumZ += ground.transform.position.z;
+        }
+
+        medianX = sumX / grounds.Count;
+        medianY = sumY / grounds.Count;
+        medianZ = sumZ / grounds.Count;
+    }
+
+    void spawnIslandCounter()
+    {
+        Instantiate(islandCounter, new Vector3(medianX, medianY, medianZ), transform.rotation);
     }
 }
