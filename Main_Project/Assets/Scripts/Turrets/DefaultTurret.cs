@@ -13,7 +13,6 @@ public class DefaultTurret : Turret
     {
         fireRate = 1f;
         InvokeRepeating("UpdateTarget", 0.2f, 0.4f);
-        nozzle = transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -42,12 +41,7 @@ public class DefaultTurret : Turret
 
     override public void Fire()
     {
-        GameObject bul = Instantiate(bullet, nozzle.transform.GetChild(0).position, nozzle.transform.GetChild(0).rotation);
-        //bul.GetComponent<Bullet>().setBulletSpeed(150);
-        bul.GetComponent<Rigidbody>().velocity = nozzle.transform.GetChild(0).right * bul.GetComponent<Bullet>().getBulletSpeed();
-
-        bul = Instantiate(bullet, nozzle.transform.GetChild(1).position, nozzle.transform.GetChild(1).rotation);
-        //bul.GetComponent<Bullet>().setBulletSpeed(150);
-        bul.GetComponent<Rigidbody>().velocity = nozzle.transform.GetChild(1).right * bul.GetComponent<Bullet>().getBulletSpeed();
+        GameObject bul = Instantiate(bullet, nozzle.transform.position, nozzle.transform.rotation * Quaternion.Euler(0f, 0f, -90f));
+        bul.GetComponent<Rigidbody>().velocity = nozzle.transform.right * bul.GetComponent<Bullet>().getBulletSpeed();
     }
 }

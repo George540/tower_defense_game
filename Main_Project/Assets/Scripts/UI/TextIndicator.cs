@@ -8,6 +8,7 @@ public class TextIndicator : MonoBehaviour
     public Text currencyText;
     public Text baseHealth;
     public Text waveNumber;
+    public Text turretNumber;
     public Manager manager;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class TextIndicator : MonoBehaviour
             currencyText.GetComponent<Text>().text = "Currency: " + manager.currency.ToString();
             baseHealth.GetComponent<Text>().text = "Health: " + manager.totalBaseHealth.ToString() + " (" + manager.terminals.Count.ToString() + ")";
             waveNumber.GetComponent<Text>().text = "Wave: " + manager.currentWave.ToString() + "/" + manager.numberOfWaves.ToString();
+            turretNumber.GetComponent<Text>().text = "Turrets: " + manager.numberOfTurrets.ToString();
         }
     }
 }

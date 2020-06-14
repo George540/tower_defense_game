@@ -51,7 +51,7 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            target = transform.GetChild(0);
+            target = null;
             childTarget = null;
         }
 

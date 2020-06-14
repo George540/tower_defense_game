@@ -23,7 +23,6 @@ public class TurretDestroyer : MonoBehaviour
     void Start()
     {
         cam = GetComponent<Camera>();
-        button.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,7 +44,6 @@ public class TurretDestroyer : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("Turret") && hit.transform.gameObject.layer == 9 && currentTurret != hit.transform.gameObject)
                 {
-                    button.SetActive(true);
                     currentTurret = hit.transform.gameObject;
                     currentSelector = Instantiate(selector, currentTurret.transform.position + new Vector3(0f, 15f, 0f), currentTurret.transform.rotation);
                     currentRanger = Instantiate(ranger, currentTurret.transform.position + new Vector3(0f, 0f, 0f), currentTurret.transform.rotation * Quaternion.Euler(90f, 0f, 0f));
@@ -58,7 +56,6 @@ public class TurretDestroyer : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            button.SetActive(false);
             currentTurret = null;
             Destroy(currentSelector);
             Destroy(currentRanger);
@@ -83,7 +80,6 @@ public class TurretDestroyer : MonoBehaviour
     public void DestroyTurret()
     {
         Instantiate(spawner, currentTurret.transform.position, currentTurret.transform.rotation * Quaternion.Euler(0f, 90f, 90f));
-        button.SetActive(false);
         manager.currency += currentTurret.GetComponent<Turret>().costDeployment/2;
         Destroy(currentSelector);
         Destroy(currentRanger);

@@ -22,7 +22,7 @@ public class Manager : MonoBehaviour
     public float minZ;
 
     public float currency;
-
+    public int numberOfTurrets;
     public float baseHealth = 50;
     public float totalBaseHealth;
 

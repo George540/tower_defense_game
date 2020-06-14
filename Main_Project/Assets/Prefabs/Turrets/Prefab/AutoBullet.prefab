@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5474544231443893171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.250767, y: 15, z: -25.70398}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -125,4 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 300
   damage: 10
-  lifespan: 3
+  lifespan: 2

@@ -18,7 +18,7 @@ public class DeployableGround : Ground
     // Start is called before the first frame update
     void Start()
     {
-        manager = (Manager)GameObject.FindObjectOfType<Manager>();
+        manager = FindObjectOfType<Manager>();
         if (index == 1)
         {
             rand1 = Random.Range(0, turretSpawnEmpties.Length/2);
@@ -63,8 +63,10 @@ public class DeployableGround : Ground
     void spawnVegetation()
     {
         int rand = Random.Range(0, vegetation.Length);
-        if (rand == 3 && rand == 4)
+        if (rand == 4)
             Instantiate(vegetation[rand], turretSpawnEmpties[rand3].transform.position, UnityEngine.Quaternion.Euler(-90, 0, Random.Range(0, 360)));
+        else if (rand == 2)
+            Instantiate(vegetation[rand], turretSpawnEmpties[rand3].transform.position + new UnityEngine.Vector3(0, 2f, 0), UnityEngine.Quaternion.Euler(-90, 0, Random.Range(0, 360)));
         else
             Instantiate(vegetation[rand], turretSpawnEmpties[rand3].transform.position + new UnityEngine.Vector3(0, -2f, 0), UnityEngine.Quaternion.Euler(-90, 0, Random.Range(0, 360)));
     }
