@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4143874617444157986}
   - component: {fileID: 5136650191677980285}
   - component: {fileID: 1049838034135984621}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.022
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 6448676380358792160}
   - component: {fileID: 7431725945803057122}
   - component: {fileID: 8137012051359798735}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.023
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,9 +173,9 @@ GameObject:
   - component: {fileID: 251921180479858261}
   - component: {fileID: 3321381311800703080}
   - component: {fileID: 619870192073675859}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Auto Blaster
-  m_TagString: Untagged
+  m_TagString: OffenseTurret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,16 +254,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bfca054c4d3d44a97a9eae960b81b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []
   costDeployment: 220
   target: {fileID: 0}
   childTarget: {fileID: 0}
   range: 35
   partToRotate: {fileID: 4673895003328797194}
   partToRotate2: {fileID: 2304412092910161444}
-  turnSpeed: 7
+  turnSpeed: 10
   bullet: {fileID: 5474544231443893171, guid: d5d8b1c35fc51c84dbd04c6aa777abd5, type: 3}
   fireRate: 13
   fireCountdown: 0
+  isAimingAtTarget: 0
+  turretName: Auto Blaster
+  maxHealth: 100
+  health: 100
+  enemiesDestroyed: 0
+  assists: 0
+  board: {fileID: 7824558216938689966, guid: 0a92605b0bc61624eb3b4706a0eea11b, type: 3}
   nozzle: {fileID: 7069266996621315224}
 --- !u!65 &619870192073675859
 BoxCollider:
@@ -287,7 +295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4673895003328797194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rotator1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2304412092910161444}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rotator2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +359,7 @@ GameObject:
   - component: {fileID: 6721063511423927866}
   - component: {fileID: 1787133683266238769}
   - component: {fileID: 1353333555679994750}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.036
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 988399951276818601}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Nozzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +469,7 @@ GameObject:
   - component: {fileID: 6586188175689091394}
   - component: {fileID: 6416606055310647639}
   - component: {fileID: 331566439783311555}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.021
   m_TagString: Untagged
   m_Icon: {fileID: 0}

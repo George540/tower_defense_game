@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1705767727874176967}
   - component: {fileID: 1705767727874176965}
   - component: {fileID: 1705767727874176966}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 1705767728694801631}
   - component: {fileID: 6612643119621356864}
   - component: {fileID: 4947110920483184854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyBlue
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -142,8 +142,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 1.7, z: 0}
+  m_Size: {x: 3.3423526, y: 3.4624114, z: 3}
+  m_Center: {x: -0.016995113, y: 1.7329401, z: 0}
 --- !u!1 &1705767729050770893
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,9 +155,9 @@ GameObject:
   - component: {fileID: 1705767729050770892}
   - component: {fileID: 1705767729050770897}
   - component: {fileID: 1705767729050770898}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2140023658196335659}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2252935724826048526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.31, y: 1.709999, z: 0}
+  m_LocalPosition: {x: 3.14, y: 1.709999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1705767728694801631}

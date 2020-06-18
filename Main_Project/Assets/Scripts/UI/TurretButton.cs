@@ -23,7 +23,7 @@ public class TurretButton : MonoBehaviour
     {
         button = GetComponent<Button>();
         buttonImage = GetComponent<Button>().GetComponent<Image>();
-        cost = turret.GetComponent<Turret>().costDeployment;
+        checkCost();
         costText = transform.GetChild(0).GetComponent<Text>();
         costText.text = cost.ToString();
     }
@@ -82,6 +82,15 @@ public class TurretButton : MonoBehaviour
             manager.supportSpawners.Remove(currentSpawner);
         }
         manager.currency -= cost;
+        manager.numberOfTurrets++;
         Destroy(currentSpawner);
+    }
+
+    void checkCost()
+    {
+        if (turret.GetComponent<Turret>() != null)
+            cost = turret.GetComponent<Turret>().costDeployment;
+        else if (turret.GetComponent<Healer>() != null)
+            cost = turret.GetComponent<Healer>().costDeployment;
     }
 }

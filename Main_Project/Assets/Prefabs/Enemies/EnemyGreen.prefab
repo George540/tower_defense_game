@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4843901148168495371}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 5270901468791865580}
   - component: {fileID: 5270901468791865585}
   - component: {fileID: 5270901468791865586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 5270901469829802727}
   - component: {fileID: 5270901469829802725}
   - component: {fileID: 5270901469829802726}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 5270901470045432319}
   - component: {fileID: 382464716288548960}
   - component: {fileID: 1886358879404752374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyGreen
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -252,5 +252,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3.9970827, z: 3}
-  m_Center: {x: 0, y: 2.1985412, z: 0}
+  m_Size: {x: 3.460678, y: 4.377716, z: 3.2885132}
+  m_Center: {x: -0.0032577515, y: 2.1857452, z: -0.009613037}

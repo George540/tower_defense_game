@@ -27,7 +27,7 @@ public class StartWave : MonoBehaviour
         gameObject.SetActive(false);
         if (manager.currentWave < manager.numberOfWaves)
         {
-            Instantiate(enemySpawner, new Vector3(-60f, 15.5f, 0f), Quaternion.identity);
+            Instantiate(enemySpawner, new Vector3(-120f, 15.5f, 0f), Quaternion.identity);
             manager.currentWave++;
         }
     }

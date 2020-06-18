@@ -2,37 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class AutoTurret : Turret
 {
     public GameObject nozzle;
-    // Start is called before the first frame update
-    void Start()
-    {
-        fireRate = 20f;
-        InvokeRepeating("UpdateTarget", 0.2f, 0.4f);
-    }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateTarget();
+        isTargeting();
         if (target == null)
         {
+            fireCountdown = 0.5f;
             return;
-        }
-        if (target == gameObject.transform.GetChild(0))
-        {
-            FindTarget(target);
         }
         if (target.CompareTag("Enemy") && childTarget != null)
         {
+            fireCountdown -= Time.deltaTime;
             FindTarget(childTarget);
         }
-        if (fireCountdown <= 0f && target != null && target.CompareTag("Enemy"))
+
+        if (fireCountdown <= 0f && target != null && target.CompareTag("Enemy") && isAimingAtTarget == true)
         {
-            Invoke("Fire", 0.3f);
+            Fire();
             fireCountdown = 1.0f / fireRate;
         }
-        fireCountdown -= Time.deltaTime;
     }
 
     override public void Fire()
@@ -40,7 +35,28 @@ public class AutoTurret : Turret
         float random1 = Random.Range(-1, 1);
         float random2 = Random.Range(-1, 1);
         float random3 = Random.Range(-1, 1);
-        GameObject bul = Instantiate(bullet, nozzle.transform.position, nozzle.transform.rotation * Quaternion.Euler(random1, random2, -90f + random3));
+        GameObject bul = Instantiate(bullet, nozzle.transform.position, nozzle.transform.rotation * Quaternion.Euler(0f, 0f, -90f));
         bul.GetComponent<Rigidbody>().velocity = nozzle.transform.right * bul.GetComponent<Bullet>().getBulletSpeed();
+    }
+
+    void isTargeting()
+    {
+        Debug.DrawRay(nozzle.transform.position, nozzle.transform.right * range, Color.red);
+        RaycastHit hit;
+        if (Physics.Raycast(nozzle.transform.position, nozzle.transform.right, out hit, range))
+        {
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                isAimingAtTarget = true;
+            }
+            else
+            {
+                isAimingAtTarget = false;
+            }
+        }
+        else if (!Physics.Raycast(nozzle.transform.position, nozzle.transform.right, out hit, range))
+        {
+            isAimingAtTarget = false;
+        }
     }
 }

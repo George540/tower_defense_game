@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Rocket : Bullet
 {
-    public GameObject explosionArea;
     public float explosiveAreaRadius;
     // Start is called before the first frame update
     void Start()
@@ -16,9 +15,26 @@ public class Rocket : Bullet
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            GameObject go = Instantiate(explosionArea, transform.position, Quaternion.identity);
-            go.GetComponent<Explosion>().scale = 15f;
+            explode();
             destroyBullet();
         }
+    }
+
+    void explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosiveAreaRadius);
+        foreach(Collider collider in colliders)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                collider.gameObject.GetComponent<Enemy>().health -= damage;
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explosiveAreaRadius);
     }
 }

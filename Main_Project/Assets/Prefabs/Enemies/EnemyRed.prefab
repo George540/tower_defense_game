@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7366890452400702778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 7791945671559679702}
   - component: {fileID: 7791945671559679700}
   - component: {fileID: 7791945671559679703}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 7791945672342326734}
   - component: {fileID: 2326747035081950289}
   - component: {fileID: 4551235778875611591}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyRed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -172,8 +172,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 1.495404, z: 3}
-  m_Center: {x: 0, y: 0.94770205, z: 0}
+  m_Size: {x: 3.404129, y: 1.7771301, z: 3}
+  m_Center: {x: 0.07595062, y: 0.91838074, z: 0}
 --- !u!1 &7791945672530568412
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 7791945672530568413}
   - component: {fileID: 7791945672530568384}
   - component: {fileID: 7791945672530568387}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

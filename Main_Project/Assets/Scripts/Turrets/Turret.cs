@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Turret : MonoBehaviour
 {
+    public List<GameObject> enemies = new List<GameObject>();
     public float costDeployment;
     public Transform target;
     public Transform childTarget;
@@ -15,15 +16,23 @@ public class Turret : MonoBehaviour
     public float turnSpeed;
 
     public GameObject bullet;
-
     public float fireRate;
     public float fireCountdown;
+    public bool isAimingAtTarget;
+
+    // STATS
+    public string turretName;
+    public int maxHealth;
+    public int health;
+    public int enemiesDestroyed;
+    public int assists;
+
+    public GameObject board;
 
     // Start is called before the first frame update
     void Start()
     {
-        fireRate = 1f;
-        InvokeRepeating("UpdateTarget", 0.2f, 0.4f);
+        health = maxHealth;
     }
 
     public void UpdateTarget()
@@ -60,13 +69,10 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //UpdateTarget();
         if (target == null)
         {
             return;
-        }
-        if (target == gameObject.transform.GetChild(0))
-        {
-            FindTarget(target);
         }
         if (target.CompareTag("Enemy") && childTarget != null)
         {
@@ -89,7 +95,7 @@ public class Turret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
-    public void FindTarget(Transform target)
+    public virtual void FindTarget(Transform target)
     {
         Vector3 direction = target.gameObject.transform.position - transform.position - new Vector3(0.0f, 2.5f, 0.0f);
         Quaternion lookRotation = Quaternion.LookRotation(direction);

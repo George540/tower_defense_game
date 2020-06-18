@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5376734688756771723}
   - component: {fileID: 1701323449055676722}
   - component: {fileID: -2427717014244802085}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyNavigator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1586ab3103669458d4a093bb37f9f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   enemyObject: {fileID: 1705767728694801624, guid: 809f7e8785a876c49a0900458b1bbeb9,
     type: 3}
   speed: 0

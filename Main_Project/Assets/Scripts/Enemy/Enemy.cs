@@ -49,4 +49,12 @@ public class Enemy : MonoBehaviour
             health -= 500f;
         }
     }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.CompareTag("Flame"))
+        {
+            health -= 1;
+        }
+    }
 }

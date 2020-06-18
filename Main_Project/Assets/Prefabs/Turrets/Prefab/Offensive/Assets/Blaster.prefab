@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2298578955016037758}
   - component: {fileID: 7224494809326855432}
   - component: {fileID: 6584813229366980572}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.048
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,9 +93,9 @@ GameObject:
   - component: {fileID: 782924278806021138}
   - component: {fileID: 4337197495147214652}
   - component: {fileID: 8940319784278532511}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Blaster
-  m_TagString: Untagged
+  m_TagString: OffenseTurret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f604d3db7dba9c429e2919d93e25d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []
   costDeployment: 102
   target: {fileID: 0}
   childTarget: {fileID: 0}
@@ -182,8 +183,15 @@ MonoBehaviour:
   partToRotate2: {fileID: 6582493293800432096}
   turnSpeed: 5
   bullet: {fileID: 7059173031939889404, guid: ed52ed3af5ebace418202bdaaa481fe5, type: 3}
-  fireRate: 2
+  fireRate: 1
   fireCountdown: 0
+  isAimingAtTarget: 0
+  turretName: Blaster
+  maxHealth: 150
+  health: 150
+  enemiesDestroyed: 0
+  assists: 0
+  board: {fileID: 7824558216938689966, guid: 0a92605b0bc61624eb3b4706a0eea11b, type: 3}
   nozzle: {fileID: 3062146150990857683}
 --- !u!65 &8940319784278532511
 BoxCollider:
@@ -209,7 +217,7 @@ GameObject:
   - component: {fileID: 1586150508603870799}
   - component: {fileID: 8138590191486555825}
   - component: {fileID: 3546956172833550492}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8905664237921569538}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Nozzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3062146150990857683}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.00768, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0083, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2298578955016037758}
@@ -317,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6493852058066532441}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rotator1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +358,7 @@ GameObject:
   - component: {fileID: 4942666673545857119}
   - component: {fileID: 2611689686078239001}
   - component: {fileID: 8863439804899880837}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.024
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6582493293800432096}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rotator2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +469,7 @@ GameObject:
   - component: {fileID: 1883606131007356864}
   - component: {fileID: 7873589188882052310}
   - component: {fileID: 3225764349771864981}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.047
   m_TagString: Untagged
   m_Icon: {fileID: 0}
