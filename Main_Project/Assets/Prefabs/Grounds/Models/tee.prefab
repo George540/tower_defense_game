@@ -91,10 +91,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8820372622536835803}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 29, y: 29, z: 29}
+  m_Size: {x: 29, y: 28, z: 29}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6973049151340779832
 MonoBehaviour:
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 6
+  waypoints: []
 --- !u!54 &514103821993377951
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -21,6 +21,17 @@ public class Ground : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if ((collision.gameObject.CompareTag("Block") && !collision.gameObject.GetComponent<Ground>().isDestroyed) || collision.gameObject.CompareTag("Island"))
+        {
+            if (index == 0 && collision.gameObject.GetComponent<Ground>().GetIndex() == 0)
+            {
+                collision.gameObject.GetComponent<Ground>().isDestroyed = true;
+                Destroy(collision.gameObject);
+            }
+        }
+    }
     void OnTriggerEnter(Collider other)
     {
         if ((other.gameObject.CompareTag("Block") && !other.gameObject.GetComponent<Ground>().isDestroyed) || other.gameObject.CompareTag("Island"))

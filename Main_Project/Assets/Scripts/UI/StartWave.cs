@@ -30,6 +30,12 @@ public class StartWave : MonoBehaviour
             Instantiate(enemySpawner, new Vector3(-120f, 15.5f, 0f), Quaternion.identity);
             manager.currentWave++;
         }
+
+        GameObject[] mines = GameObject.FindGameObjectsWithTag("Mine");
+        foreach (GameObject mine in mines)
+        {
+            Destroy(mine);
+        }
     }
 
     public bool getisWavePlaying()

@@ -81,6 +81,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &193615782068858070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145805201444594130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e8bed56e2ebff46b1d25042595f00f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turret: {fileID: -824931096084792980}
 --- !u!1 &4166301782289610673
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +107,7 @@ GameObject:
   - component: {fileID: -824931096084792980}
   m_Layer: 9
   m_Name: Flamethrower
-  m_TagString: SupportTurret
+  m_TagString: OffenseTurret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +169,7 @@ MonoBehaviour:
   health: 170
   enemiesDestroyed: 0
   assists: 0
-  board: {fileID: 0}
+  board: {fileID: 7824558216938689966, guid: 0a92605b0bc61624eb3b4706a0eea11b, type: 3}
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -686,6 +699,51 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key0.a
       value: 0.53333336
       objectReference: {fileID: 0}
+    - target: {fileID: 615638418540389811, guid: 2a78b484c105d594abb86ece8b045c64,
+        type: 3}
+      propertyPath: TriggerModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 615638418540389811, guid: 2a78b484c105d594abb86ece8b045c64,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 615638418540389811, guid: 2a78b484c105d594abb86ece8b045c64,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 615638418540389811, guid: 2a78b484c105d594abb86ece8b045c64,
+        type: 3}
+      propertyPath: CollisionModule.plane0
+      value: 
+      objectReference: {fileID: 6086807250269646383}
+    - target: {fileID: 615638418540389811, guid: 2a78b484c105d594abb86ece8b045c64,
+        type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 615638418540389811, guid: 2a78b484c105d594abb86ece8b045c64,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 615638418540389811, guid: 2a78b484c105d594abb86ece8b045c64,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615638418540389811, guid: 2a78b484c105d594abb86ece8b045c64,
+        type: 3}
+      propertyPath: TriggerModule.inside
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615638418540389811, guid: 2a78b484c105d594abb86ece8b045c64,
+        type: 3}
+      propertyPath: CollisionModule.quality
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1332445598049547104, guid: 2a78b484c105d594abb86ece8b045c64,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -701,6 +759,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flame
       objectReference: {fileID: 0}
+    - target: {fileID: 3235072738147862810, guid: 2a78b484c105d594abb86ece8b045c64,
+        type: 3}
+      propertyPath: m_TagString
+      value: Flame
+      objectReference: {fileID: 0}
     - target: {fileID: 8609563831886464743, guid: 2a78b484c105d594abb86ece8b045c64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -709,12 +772,12 @@ PrefabInstance:
     - target: {fileID: 8609563831886464743, guid: 2a78b484c105d594abb86ece8b045c64,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0062
+      value: 0.0067
       objectReference: {fileID: 0}
     - target: {fileID: 8609563831886464743, guid: 2a78b484c105d594abb86ece8b045c64,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8609563831886464743, guid: 2a78b484c105d594abb86ece8b045c64,
         type: 3}
@@ -758,6 +821,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a78b484c105d594abb86ece8b045c64, type: 3}
+--- !u!1 &1145805201444594130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3235072738147862810, guid: 2a78b484c105d594abb86ece8b045c64,
+    type: 3}
+  m_PrefabInstance: {fileID: 2523139773233424584}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6086807250269646383 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8609563831886464743, guid: 2a78b484c105d594abb86ece8b045c64,

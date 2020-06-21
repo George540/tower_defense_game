@@ -23,12 +23,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617366439663774462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04035, y: -0, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0857, y: -0, z: -0.0118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 994802247418612117}
-  m_RootOrder: 1
+  m_Father: {fileID: 9159003577257315512}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3154672270270584045
 GameObject:
@@ -60,7 +60,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8515862736173932428}
-  - {fileID: 8975273242400370523}
   m_Father: {fileID: 2843984147424681771}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -136,9 +135,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4523083968081712296}
-  m_LocalRotation: {x: 0.00000019861236, y: -0.7071068, z: -0.7071068, w: 0.00000019861236}
-  m_LocalPosition: {x: 0, y: -0.48800004, z: 0}
-  m_LocalScale: {x: 99.999954, y: 100, z: 100}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+  m_LocalPosition: {x: 0, y: -0.48799998, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 994802247418612117}
   m_Father: {fileID: 3725756716293882411}
@@ -203,6 +202,7 @@ GameObject:
   - component: {fileID: 162225815465719438}
   - component: {fileID: 5871813129124481655}
   - component: {fileID: 6005672936957402291}
+  - component: {fileID: 9131441661964216670}
   m_Layer: 9
   m_Name: Mine Dispenser
   m_TagString: OffenseTurret
@@ -221,6 +221,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
+  - {fileID: 8975273242400370523}
   - {fileID: 3725756716293882411}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -285,6 +286,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.035762765, y: 0.040470332, z: 0.04569728}
   m_Center: {x: 0.002353759, y: 9.2096225e-17, z: 0.017304705}
+--- !u!114 &9131441661964216670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5278228534083632811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2364dfdd3f29347aba2899f4e6bf76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  costDeployment: 989
+  target: {fileID: 8975273242400370523}
+  childTarget: {fileID: 0}
+  range: 13
+  partToRotate: {fileID: 3725756716293882411}
+  partToRotate2: {fileID: 0}
+  turnSpeed: 5
+  bullet: {fileID: 2775391876733428196, guid: d998f61f38f88024280ccd9a9026c9b7, type: 3}
+  fireRate: 0.5
+  fireCountdown: 0
+  isAimingAtTarget: 0
+  turretName: Mine Dispenser
+  maxHealth: 170
+  health: 170
+  enemiesDestroyed: 0
+  assists: 0
+  board: {fileID: 7824558216938689966, guid: 0a92605b0bc61624eb3b4706a0eea11b, type: 3}
+  nozzle: {fileID: 5869215192748189563}
+  thrust: 500
 --- !u!1 &5869215192748189563
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,11 +371,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8279115266335626928}
-  m_LocalRotation: {x: -0.00000019861236, y: 0.7071068, z: 0.7071068, w: 0.00000019861236}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: -0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0.00488}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 2843984147424681771}
   m_Father: {fileID: 9159003577257315512}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 179.99998}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -180, y: 90, z: 90}

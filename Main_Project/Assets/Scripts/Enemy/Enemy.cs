@@ -11,6 +11,10 @@ public class Enemy : MonoBehaviour
     public float health = 100;
     public float currencyDrop;
 
+    public FlameTurret flamethrower;
+    public int pushDamage;
+    public bool isStealthy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,19 +46,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Explosion"))
-        {
-            health -= 500f;
-        }
-    }
-
     private void OnParticleCollision(GameObject other)
     {
         if (other.CompareTag("Flame"))
         {
-            health -= 1;
+            health -= other.gameObject.GetComponent<Flame>().getFlameDamage();
         }
     }
 }

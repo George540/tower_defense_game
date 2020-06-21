@@ -141,6 +141,23 @@ public class GroundSpawner : MonoBehaviour
     }
 
     // Check Collisions of Spawner with other Spawners and Blocks
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if ((collision.gameObject.CompareTag("Block") || collision.gameObject.CompareTag("Island")) && !isColliding)
+        {
+            SetBlock(0);
+            //Debug.Log("BLOCK ENCOUNTERED");
+            Destroy(gameObject);
+            isColliding = true;
+        }
+        else if (collision.gameObject.CompareTag("BlockSpawner"))
+        {
+            DestroySpawner();
+            //Debug.Log("SPAWNER ENCOUNTERED");
+        }
+    }
+    /*
     void OnTriggerEnter(Collider other)
     {
         if ((other.gameObject.CompareTag("Block") || other.gameObject.CompareTag("Island")) && !isColliding)
@@ -156,6 +173,7 @@ public class GroundSpawner : MonoBehaviour
             //Debug.Log("SPAWNER ENCOUNTERED");
         }
     }
+    */
 
     void SetBlock(int index)
     {

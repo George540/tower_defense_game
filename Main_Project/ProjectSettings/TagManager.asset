@@ -21,6 +21,10 @@ TagManager:
   - OffenseTurret
   - SupportTurret
   - Flame
+  - Place
+  - PlaceArea
+  - Manager
+  - Mine
   layers:
   - Default
   - TransparentFX
@@ -33,7 +37,7 @@ TagManager:
   - PostProcessing
   - Selections
   - Flame
-  - 
+  - Placeable
   - 
   - 
   - 
