@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class Manager : MonoBehaviour
 
     public int numberOfWaves;
     public int currentWave = 0;
+    public bool isWavePlaying;
+    public float extraCredits;
+    public bool isExtraGiven;
 
     // Random Island Stuff
     public GameObject islandCounter;
@@ -36,9 +40,13 @@ public class Manager : MonoBehaviour
     public float medianZ;
 
     public GameObject startButton;
+    private bool isGamePaused;
+    public float chronoScale;
     // Start is called before the first frame update
     void Start()
     {
+        chronoScale = Time.timeScale;
+        isGamePaused = false;
         startButton = GameObject.Find("Canvas").transform.Find("StartWave").gameObject;
         Invoke("spawnIslandCounter", 0.5f);
         Invoke("setHealth", 0.5f);
@@ -61,7 +69,13 @@ public class Manager : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (startButton.GetComponent<StartWave>().getisWavePlaying() == false && enemies.Length == 0)
         {
-            startButton.SetActive(true);
+            var tempColor = startButton.GetComponent<Button>().GetComponent<Image>().color;
+            tempColor.a = 1f;
+            startButton.GetComponent<Button>().GetComponent<Image>().color = tempColor;
+            startButton.GetComponent<Button>().interactable = true;
+            startButton.transform.GetChild(0).gameObject.GetComponent<Text>().text = "START WAVE";
+            isWavePlaying = false;
+            giveExtraCredits();
         }
     }
 
@@ -161,5 +175,24 @@ public class Manager : MonoBehaviour
     void spawnIslandCounter()
     {
         Instantiate(islandCounter, new Vector3(medianX, medianY, medianZ), transform.rotation);
+    }
+
+    public bool isPaused()
+    {
+        return isGamePaused;
+    }
+
+    public void setPaused(bool paused)
+    {
+        isGamePaused = paused;
+    }
+
+    void giveExtraCredits()
+    {
+        if (isExtraGiven == false)
+        {
+            currency += extraCredits;
+            isExtraGiven = true;
+        }
     }
 }

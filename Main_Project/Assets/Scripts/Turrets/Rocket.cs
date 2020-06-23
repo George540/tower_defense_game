@@ -5,6 +5,7 @@ using UnityEngine;
 public class Rocket : Bullet
 {
     public float explosiveAreaRadius;
+    public ParticleSystem explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class Rocket : Bullet
                 collider.gameObject.GetComponent<Enemy>().health -= damage;
             }
         }
+        Instantiate(explosion, transform.position, transform.rotation);
     }
 
     private void OnDrawGizmosSelected()

@@ -9,7 +9,7 @@ public class EnemyNavigator : MonoBehaviour
     public float speed;
     public GameObject currentWaypoint;
     public bool canRotate = false;
-    public const float OFFSET = 1.0f;
+    public float OFFSET = 10.0f;
 
     // Start is called before the first frame update
     void Start()

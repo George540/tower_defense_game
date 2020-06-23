@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MineDispenser : Turret
 {
@@ -18,7 +19,7 @@ public class MineDispenser : Turret
     {
         FindTarget();
 
-        if (fireCountdown <= 0f && waveManager.activeSelf == false)
+        if (fireCountdown <= 0f && waveManager.GetComponent<Button>().GetComponent<Image>().color.a == 0)
         {
             Fire();
             fireCountdown = 1.0f / fireRate;
@@ -29,7 +30,7 @@ public class MineDispenser : Turret
             currentPosition.y = Mathf.Clamp(currentPosition.y, -0.1f, 0.1f);
             target.localPosition = currentPosition;
         }
-        if (waveManager.activeSelf == true)
+        if (waveManager.GetComponent<Button>().GetComponent<Image>().color.a == 1)
         {
             fireCountdown = 1.0f / fireRate;
             Vector3 currentPosition = target.transform.localPosition;
@@ -46,13 +47,13 @@ public class MineDispenser : Turret
     {
         Vector3 direction = target.transform.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed * Time.timeScale).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
     override public void Fire()
     {
-        float random = Random.Range(-30f, 30f);
+        float random = Random.Range(-20f, 20f);
         GameObject bul = Instantiate(bullet, nozzle.transform.position, Quaternion.Euler(-90f, 0f, -90f + random));
         bul.GetComponent<Rigidbody>().AddForce(nozzle.transform.forward * thrust);
         //bul.GetComponent<Rigidbody>().velocity = nozzle.transform.right * bul.GetComponent<Bullet>().getBulletSpeed();

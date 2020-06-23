@@ -37,7 +37,7 @@ public class FlameTurret : Turret
     {
         Vector3 direction = target.gameObject.transform.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed * Time.timeScale).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 

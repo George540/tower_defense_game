@@ -24,7 +24,13 @@ public class StartWave : MonoBehaviour
     public void start()
     {
         setisWavePlaying(true);
-        gameObject.SetActive(false);
+        var tempColor = GetComponent<Button>().GetComponent<Image>().color;
+        tempColor.a = 0f;
+        GetComponent<Button>().GetComponent<Image>().color = tempColor;
+        GetComponent<Button>().interactable = false;
+        transform.GetChild(0).GetComponent<Text>().text = "";
+        manager.isWavePlaying = true;
+        manager.isExtraGiven = false;
         if (manager.currentWave < manager.numberOfWaves)
         {
             Instantiate(enemySpawner, new Vector3(-120f, 15.5f, 0f), Quaternion.identity);

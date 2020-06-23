@@ -2,25 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Healer : MonoBehaviour
+public class Healer : Turret
 {
-    public float costDeployment;
-    public float range;
     public float rotationSpeedScale;
     public float rotationSpeed;
-
-    public float fireRate;
-    public float fireCountdown;
-
-    // STATS
-    public string turretName;
-    public int maxHealth;
-    public int health;
     public int turretsInRange;
     public int healRate;
     private int healCountdown;
-
-    public GameObject board;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +24,7 @@ public class Healer : MonoBehaviour
         if (healCountdown <= 0f)
         {
             repairTurrets();
-            healCountdown = healRate;
+            fireCountdown = fireRate;
         }
     }
 
@@ -49,7 +37,7 @@ public class Healer : MonoBehaviour
     void spinHalo(int index, float speed)
     {
         Transform halo = transform.GetChild(index);
-        halo.Rotate(new Vector3(0, 0, 1) * speed * rotationSpeedScale * Time.deltaTime);
+        halo.Rotate(new Vector3(0, 0, 1) * speed * rotationSpeedScale * Time.deltaTime * Time.timeScale);
     }
 
     void repairTurrets()
@@ -63,7 +51,7 @@ public class Healer : MonoBehaviour
             {
                 if (turret.GetComponent<Turret>() != null && turret.GetComponent<Turret>().health < turret.GetComponent<Turret>().maxHealth && Vector3.Distance(transform.position, turret.transform.position) <= range)
                 {
-                    turret.GetComponent<Turret>().health += healRate;
+                    turret.GetComponent<Turret>().health += (int)fireRate;
                 }
 
             }
@@ -75,13 +63,13 @@ public class Healer : MonoBehaviour
             {
                 if (turret.GetComponent<Healer>() != null && turret.GetComponent<Healer>().health < turret.GetComponent<Healer>().maxHealth && Vector3.Distance(transform.position, turret.transform.position) <= range)
                 {
-                    turret.GetComponent<Healer>().health += healRate;
+                    turret.GetComponent<Healer>().health += (int)fireRate;
                 }
             }
         }
 
         if (health < maxHealth)
-            health += healRate;
+            health += (int)fireRate;
     }
 
 

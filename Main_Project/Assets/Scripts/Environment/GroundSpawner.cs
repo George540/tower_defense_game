@@ -79,7 +79,7 @@ public class GroundSpawner : MonoBehaviour
             int random2 = Random.Range(0, 10); // get the chance to spawn an island
             canSpawnIsland = islandSpawners[0].getCanSpawn() && islandSpawners[1].getCanSpawn();
 
-            if (canSpawnIsland && random2 < 2)
+            if (canSpawnIsland && random2 < 3)
             {
                 currentBlock = Instantiate(groundPrefab[7], islandSpawners[random1].transform.position, islandSpawners[random1].transform.rotation);
                 /*

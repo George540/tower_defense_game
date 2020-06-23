@@ -48,19 +48,19 @@ public class CameraTranslator : MonoBehaviour
         {
             if (Input.GetAxis("Mouse X") > 0)
             {
-                transform.Translate(scale * speed * Time.deltaTime, 0, 0);
+                transform.Translate(scale * speed, 0, 0);
             }
             else if (Input.GetAxis("Mouse X") < 0)
             {
-                transform.Translate(scale * -speed * Time.deltaTime, 0, 0);
+                transform.Translate(scale * -speed, 0, 0);
             }
             if (Input.GetAxis("Mouse Y") > 0)
             {
-                transform.Translate(0, 0, scale * speed * Time.deltaTime);
+                transform.Translate(0, 0, scale * speed);
             }
             else if (Input.GetAxis("Mouse Y") < 0)
             {
-                transform.Translate(0, 0, scale * -speed * Time.deltaTime);
+                transform.Translate(0, 0, scale * -speed);
             }
         }
     }
@@ -71,11 +71,11 @@ public class CameraTranslator : MonoBehaviour
         {
             if (Input.GetAxis("Mouse Y") > 0)
             {
-                transform.position += new Vector3(0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speedVertical * 2, 0f);
+                transform.position += new Vector3(0f, Input.GetAxisRaw("Mouse Y") * speedVertical * 2, 0f);
             }
             else if (Input.GetAxis("Mouse Y") < 0)
             {
-                transform.position += new Vector3(0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speedVertical * 2, 0f);
+                transform.position += new Vector3(0f, Input.GetAxisRaw("Mouse Y") * speedVertical * 2, 0f);
             }
         }
     }

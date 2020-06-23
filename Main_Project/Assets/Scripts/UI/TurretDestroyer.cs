@@ -153,6 +153,8 @@ public class TurretDestroyer : MonoBehaviour
         else if (currentTurret.CompareTag("SupportTurret"))
         {
             go = Instantiate(spawners[1], currentTurret.transform.position, currentTurret.transform.rotation * Quaternion.Euler(-90f, 00f, 90f));
+            if (currentTurret.GetComponent<SniperTurret>() != null || currentTurret.GetComponent<Outpost>() != null)
+                go.transform.Rotate(0f, 0f, 90f);
             manager.supportSpawners.Add(go);
         }
         manager.numberOfTurrets--;

@@ -49,6 +49,7 @@ MonoBehaviour:
   damage: 200
   lifespan: 3
   explosiveAreaRadius: 7
+  explosion: {fileID: 51128450218048248, guid: a10cbb131eb2584438ab9ae424b55bb0, type: 3}
 --- !u!54 &-5567232236252615149
 Rigidbody:
   m_ObjectHideFlags: 0

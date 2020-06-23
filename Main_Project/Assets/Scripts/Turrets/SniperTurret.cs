@@ -29,6 +29,37 @@ public class SniperTurret : Turret
         }
     }
 
+    public new void UpdateTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        // Finding nearest target
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
+            }
+        }
+
+        if (nearestEnemy != null && shortestDistance <= range)
+        {
+            target = nearestEnemy.transform;
+            if (target.childCount > 0)
+                childTarget = nearestEnemy.transform.GetChild(0);
+        }
+        else
+        {
+            target = null;
+            childTarget = null;
+        }
+
+    }
+
     override public void Fire()
     {
         GameObject bul = Instantiate(bullet, nozzle.transform.position, nozzle.transform.rotation * Quaternion.Euler(0f, 0f, -90f));

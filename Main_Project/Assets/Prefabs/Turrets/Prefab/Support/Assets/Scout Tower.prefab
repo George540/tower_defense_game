@@ -106,8 +106,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb6a4efb3fecf4999ce193b6942379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costDeployment: 730
+  enemies: []
+  costDeployment: 615
+  target: {fileID: 0}
+  childTarget: {fileID: 0}
   range: 80
-  turretName: Scout Detector
+  partToRotate: {fileID: 0}
+  partToRotate2: {fileID: 0}
+  turnSpeed: 0
+  bullet: {fileID: 0}
+  fireRate: 0
+  fireCountdown: 0
+  isAimingAtTarget: 0
+  isRangeIncreased: 0
+  turretName: Radar Detector
   maxHealth: 70
   health: 70
+  enemiesDestroyed: 0
+  assists: 0
+  board: {fileID: 0}

@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2191000931142075613}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -19.93, y: 15.54, z: 9.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 3797613930041902119}
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7874b0d136f4f54188f87354157cf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costDeployment: 615
+  costDeployment: 730
   range: 150
   rotationSpeedScale: 1
   rotationSpeed: 200
@@ -185,6 +185,7 @@ MonoBehaviour:
   health: 210
   turretsInRange: 0
   healRate: 1
+  board: {fileID: 0}
 --- !u!65 &8963185307238844826
 BoxCollider:
   m_ObjectHideFlags: 0

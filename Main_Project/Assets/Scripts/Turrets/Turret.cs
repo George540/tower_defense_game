@@ -19,6 +19,7 @@ public class Turret : MonoBehaviour
     public float fireRate;
     public float fireCountdown;
     public bool isAimingAtTarget;
+    public bool isRangeIncreased;
 
     // STATS
     public string turretName;
@@ -52,7 +53,7 @@ public class Turret : MonoBehaviour
             }
         }
 
-        if (nearestEnemy != null && shortestDistance <= range)
+        if (nearestEnemy != null && shortestDistance <= range && nearestEnemy.GetComponent<Enemy>().isStealthy == false)
         {
             target = nearestEnemy.transform;
             if (target.childCount > 0)

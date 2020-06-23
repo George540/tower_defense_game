@@ -512,7 +512,7 @@ MonoBehaviour:
   costDeployment: 910
   target: {fileID: 0}
   childTarget: {fileID: 0}
-  range: 100
+  range: 120
   partToRotate: {fileID: 8035942074526999841}
   partToRotate2: {fileID: 5640197901139070943}
   turnSpeed: 19
@@ -520,6 +520,7 @@ MonoBehaviour:
   fireRate: 0.5
   fireCountdown: 0
   isAimingAtTarget: 0
+  isRangeIncreased: 0
   turretName: Sharpshooter
   maxHealth: 70
   health: 70
