@@ -50,6 +50,7 @@ MonoBehaviour:
   speed: 0
   currentWaypoint: {fileID: 0}
   canRotate: 0
+  OFFSET: 5
 --- !u!65 &-2427717014244802085
 BoxCollider:
   m_ObjectHideFlags: 0

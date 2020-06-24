@@ -8,10 +8,9 @@ public class Enemy : MonoBehaviour
     public GameObject navigator;
     public float turnSpeed;
     public float moveSpeed;
-    public float health = 100;
+    public float health;
     public float currencyDrop;
 
-    public FlameTurret flamethrower;
     public int pushDamage;
     public bool isStealthy;
 

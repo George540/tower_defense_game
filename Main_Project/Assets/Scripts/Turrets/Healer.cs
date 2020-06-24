@@ -26,6 +26,7 @@ public class Healer : Turret
             repairTurrets();
             fireCountdown = fireRate;
         }
+        fireCountdown -= Time.deltaTime;
     }
 
     private void OnDrawGizmosSelected()

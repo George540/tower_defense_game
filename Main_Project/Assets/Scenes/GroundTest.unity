@@ -169,8 +169,8 @@ MonoBehaviour:
   cameraRig: {fileID: 190331126}
   selected: {fileID: 0}
   scale: 0.5
-  speed: 5
-  speedVertical: 5
+  speed: 2
+  speedVertical: 2
   scrollSpeed: 100
   maxX: 0
   minX: 0
@@ -4053,7 +4053,7 @@ RectTransform:
   m_GameObject: {fileID: 1390428834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6484375, y: 0.6484375, z: 0.6484375}
+  m_LocalScale: {x: 0.64739585, y: 0.64739585, z: 0.64739585}
   m_Children:
   - {fileID: 79297463}
   - {fileID: 1692320434}
@@ -4077,8 +4077,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 622.5, y: 289.5}
-  m_SizeDelta: {x: 0, y: 892.91565}
+  m_AnchoredPosition: {x: 621.5, y: 290}
+  m_SizeDelta: {x: 0, y: 895.897}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1390428839
 MonoBehaviour:

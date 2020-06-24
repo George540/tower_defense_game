@@ -9,6 +9,12 @@ public class FlameTurret : Turret
     public ParticleSystem flame;
     public int fireDamage;
 
+
+    void Start()
+    {
+        health = maxHealth;
+        flame.Stop();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -24,7 +30,7 @@ public class FlameTurret : Turret
         }
         if (target.CompareTag("Enemy") && childTarget != null)
         {
-            FindTarget(childTarget);
+            FindTarget(target);
         }
 
         if (target != null && target.CompareTag("Enemy") && isAimingAtTarget == true)

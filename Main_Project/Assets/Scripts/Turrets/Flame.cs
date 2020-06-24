@@ -13,11 +13,25 @@ public class Flame : MonoBehaviour
 
     void Update()
     {
-        
+        checkDamage();
+        var main = GetComponent<ParticleSystem>().main;
+        if (Time.timeScale == 1)
+        {
+            main.startSize = 5;
+        }
+        else if (Time.timeScale > 1)
+        {
+            main.startSize = 6;
+        }
     }
 
     public int getFlameDamage()
     {
         return flameDamage;
+    }
+
+    void checkDamage()
+    {
+        flameDamage = (int)(2 * Time.timeScale * Time.timeScale * Time.timeScale);
     }
 }

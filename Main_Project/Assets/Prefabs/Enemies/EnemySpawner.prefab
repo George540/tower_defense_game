@@ -47,8 +47,11 @@ MonoBehaviour:
   enemyNavigator: {fileID: 6688876839523292188, guid: 48574ed53c9401e408d73ec8192f8b15,
     type: 3}
   enemies:
-  - {fileID: 1705767728694801624, guid: 809f7e8785a876c49a0900458b1bbeb9, type: 3}
-  - {fileID: 5270901470045432312, guid: e6b3a6c9fb32dff438fe92d38cb6f603, type: 3}
+  - {fileID: 1632507741071725595, guid: c7b1bbe2e8aa9644894d2ad7d5da6547, type: 3}
+  - {fileID: 5491258507242709002, guid: a148dea36abb3134ea18b6b0b3a5df89, type: 3}
   - {fileID: 7791945672342326729, guid: 17f70642cefd5254299e8095378f078e, type: 3}
+  startButton: {fileID: 456765385886924443, guid: ce7ecdda3e9b5a442be0a540f2d34a92,
+    type: 3}
   timer: 3
   timerCooldown: 0
+  numberOfEnemies: 0
