@@ -8,13 +8,13 @@ public class Waypoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        index = gameObject.transform.parent.GetComponent<Ground>().GetIndex();
     }
 
     // Update is called once per frame
     void Update()
     {
-        index = gameObject.transform.parent.GetComponent<Ground>().GetIndex();
+        //index = gameObject.transform.parent.GetComponent<Ground>().GetIndex();
     }
 
     public int getIndex()

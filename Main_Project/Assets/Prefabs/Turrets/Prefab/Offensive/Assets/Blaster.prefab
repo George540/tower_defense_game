@@ -178,7 +178,7 @@ MonoBehaviour:
   costDeployment: 102
   target: {fileID: 0}
   childTarget: {fileID: 0}
-  range: 25
+  range: 35
   partToRotate: {fileID: 6493852058066532441}
   partToRotate2: {fileID: 6582493293800432096}
   turnSpeed: 5
@@ -186,6 +186,7 @@ MonoBehaviour:
   fireRate: 1
   fireCountdown: 0
   isAimingAtTarget: 0
+  isRangeIncreased: 0
   turretName: Blaster
   maxHealth: 150
   health: 150
@@ -310,7 +311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3062146150990857683}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.0083, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0117, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2298578955016037758}

@@ -55,7 +55,7 @@ public class MineDispenser : Turret
     {
         float random = Random.Range(-20f, 20f);
         GameObject bul = Instantiate(bullet, nozzle.transform.position, Quaternion.Euler(-90f, 0f, -90f + random));
-        bul.GetComponent<Rigidbody>().AddForce(nozzle.transform.forward * thrust);
+        bul.GetComponent<Rigidbody>().AddForce(nozzle.transform.forward * (thrust + Random.Range(-40f, 70f)));
         //bul.GetComponent<Rigidbody>().velocity = nozzle.transform.right * bul.GetComponent<Bullet>().getBulletSpeed();
     }
 }

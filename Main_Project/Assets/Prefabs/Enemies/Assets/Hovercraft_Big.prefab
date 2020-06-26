@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1636751448993969768}
   - component: {fileID: 7777134340502916190}
   - component: {fileID: 4094166859050447015}
-  - component: {fileID: 3982128017955305342}
   m_Layer: 9
   m_Name: Hovercraft_Big (1)
   m_TagString: Untagged
@@ -31,7 +30,7 @@ Transform:
   m_LocalScale: {x: 80, y: 80, z: 80}
   m_Children: []
   m_Father: {fileID: 7825941098269792129}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!33 &7777134340502916190
 MeshFilter:
@@ -80,19 +79,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3982128017955305342
-BoxCollider:
+--- !u!1 &4723806344266230501
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2372747319783375995}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05220368, y: 0.09442263, z: 0.0750642}
-  m_Center: {x: 0.00026441217, y: 0.019513741, z: 0.0025969015}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3833117145911538265}
+  m_Layer: 9
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3833117145911538265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4723806344266230501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.258, y: 1.78, z: 0}
+  m_LocalScale: {x: 80, y: 80, z: 80}
+  m_Children: []
+  m_Father: {fileID: 7825941098269792129}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5491258507242709002
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +120,7 @@ GameObject:
   - component: {fileID: 7825941098269792129}
   - component: {fileID: 8154447223205011412}
   - component: {fileID: -3692337395893117502}
+  - component: {fileID: 84039832907492690}
   m_Layer: 9
   m_Name: Hovercraft_Big
   m_TagString: Enemy
@@ -122,6 +139,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 3833117145911538265}
   - {fileID: 1636751448993969768}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -141,9 +159,9 @@ MonoBehaviour:
   manager: {fileID: 0}
   navigator: {fileID: 0}
   turnSpeed: 10
-  moveSpeed: 10
-  health: 500
-  currencyDrop: 20
+  moveSpeed: 20
+  health: 300
+  currencyDrop: 2
   pushDamage: 30
   isStealthy: 0
 --- !u!54 &-3692337395893117502
@@ -162,3 +180,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &84039832907492690
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491258507242709002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.5699005, y: 5.2876215, z: 4}
+  m_Center: {x: 0.49627113, y: 1.4002433, z: 0}

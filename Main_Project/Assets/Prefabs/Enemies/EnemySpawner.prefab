@@ -49,9 +49,13 @@ MonoBehaviour:
   enemies:
   - {fileID: 1632507741071725595, guid: c7b1bbe2e8aa9644894d2ad7d5da6547, type: 3}
   - {fileID: 5491258507242709002, guid: a148dea36abb3134ea18b6b0b3a5df89, type: 3}
-  - {fileID: 7791945672342326729, guid: 17f70642cefd5254299e8095378f078e, type: 3}
-  startButton: {fileID: 456765385886924443, guid: ce7ecdda3e9b5a442be0a540f2d34a92,
-    type: 3}
+  - {fileID: 456765385886924443, guid: ce7ecdda3e9b5a442be0a540f2d34a92, type: 3}
+  - {fileID: 6613385714753992399, guid: e9052d2ed03ce2e419bf4d2380eb6025, type: 3}
+  - {fileID: 5798045411635557769, guid: ce96a29b23430f149ae636d7bb015582, type: 3}
+  - {fileID: 14602014211458749, guid: dbf372e64e21d6e41966e2b7e86a6eec, type: 3}
+  startButton: {fileID: 0}
   timer: 3
   timerCooldown: 0
   numberOfEnemies: 0
+  stealthEnemy: {fileID: 5798045411635557769, guid: ce96a29b23430f149ae636d7bb015582,
+    type: 3}

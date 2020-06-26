@@ -266,6 +266,7 @@ MonoBehaviour:
   fireRate: 13
   fireCountdown: 0
   isAimingAtTarget: 0
+  isRangeIncreased: 0
   turretName: Auto Blaster
   maxHealth: 100
   health: 100
@@ -452,7 +453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7069266996621315224}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.02041, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0248, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6448676380358792160}

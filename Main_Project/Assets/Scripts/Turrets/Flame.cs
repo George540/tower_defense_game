@@ -32,6 +32,9 @@ public class Flame : MonoBehaviour
 
     void checkDamage()
     {
-        flameDamage = (int)(2 * Time.timeScale * Time.timeScale * Time.timeScale);
+        if (Time.timeScale != 1)
+            flameDamage = (int)(Time.timeScale);
+        else
+            flameDamage = turret.fireDamage;
     }
 }

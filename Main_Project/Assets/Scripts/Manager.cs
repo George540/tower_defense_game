@@ -42,6 +42,9 @@ public class Manager : MonoBehaviour
     public GameObject startButton;
     private bool isGamePaused;
     public float chronoScale;
+
+    // STEALTH WAVES
+    public int[] stealthWaves = new int[5];
     // Start is called before the first frame update
     void Start()
     {
@@ -152,6 +155,11 @@ public class Manager : MonoBehaviour
         {
             numberOfWaves = 20;
         }
+
+        for (int i = 0; i < stealthWaves.Length; i++)
+        {
+            stealthWaves[i] = Random.Range(8, numberOfWaves + 5);
+        }
     }
 
     void setMedians()
@@ -194,5 +202,15 @@ public class Manager : MonoBehaviour
             currency += extraCredits;
             isExtraGiven = true;
         }
+    }
+
+    public bool isWaveStealthy()
+    {
+        for (int i = 0; i < stealthWaves.Length; i++)
+        {
+            if (currentWave == stealthWaves[i])
+                return true;
+        }
+        return false;
     }
 }

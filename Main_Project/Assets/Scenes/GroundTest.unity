@@ -1365,7 +1365,7 @@ MonoBehaviour:
   minY: 0
   maxZ: 0
   minZ: 0
-  currency: 10000
+  currency: 1000
   numberOfTurrets: 0
   baseHealth: 50
   totalBaseHealth: 0
@@ -1381,6 +1381,7 @@ MonoBehaviour:
   medianZ: 0
   startButton: {fileID: 171067253}
   chronoScale: 0
+  stealthWaves: 00000000000000000000000000000000
 --- !u!4 &184557177
 Transform:
   m_ObjectHideFlags: 0
@@ -4077,8 +4078,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 621.5, y: 290}
-  m_SizeDelta: {x: 0, y: 895.897}
+  m_AnchoredPosition: {x: 621.5, y: 289.5}
+  m_SizeDelta: {x: 0, y: 894.35236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1390428839
 MonoBehaviour:

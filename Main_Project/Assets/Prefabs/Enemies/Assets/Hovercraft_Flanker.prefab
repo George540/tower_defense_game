@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2808760847482200568}
   - component: {fileID: 2031651319621419439}
   - component: {fileID: -638747330785039320}
+  - component: {fileID: 793720849830114987}
   m_Layer: 9
   m_Name: Hovercraft_Flanker
   m_TagString: Enemy
@@ -29,6 +30,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5381581635534872268}
   - {fileID: 1877179164675100646}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,10 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   navigator: {fileID: 0}
-  turnSpeed: 15
+  turnSpeed: 20
   moveSpeed: 50
   health: 40
-  currencyDrop: 15
+  currencyDrop: 1
   pushDamage: 3
   isStealthy: 0
 --- !u!54 &-638747330785039320
@@ -69,6 +71,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &793720849830114987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456765385886924443}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4173326, y: 2.6072817, z: 3}
+  m_Center: {x: 0.21100354, y: 0.6376376, z: 0}
 --- !u!1 &3194826033630002677
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +95,6 @@ GameObject:
   - component: {fileID: 1877179164675100646}
   - component: {fileID: 7446159092423751120}
   - component: {fileID: 3777002028761188649}
-  - component: {fileID: 6705289189688065128}
   m_Layer: 9
   m_Name: Hovercraft_Flanker (1)
   m_TagString: Untagged
@@ -97,12 +111,11 @@ Transform:
   m_GameObject: {fileID: 3194826033630002677}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -0.247, y: 0.998, z: 0}
-  m_LocalScale: {x: 80, y: 80, z: 80}
+  m_LocalScale: {x: 70, y: 70, z: 70}
   m_Children:
-  - {fileID: 5381581635534872268}
   - {fileID: 3215451842981279525}
   m_Father: {fileID: 2808760847482200568}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!33 &7446159092423751120
 MeshFilter:
@@ -151,19 +164,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6705289189688065128
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3194826033630002677}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.041802336, y: 0.049818378, z: 0.04359083}
-  m_Center: {x: 0.000012417137, y: 0.006584382, z: -0.0039014206}
 --- !u!1 &3901001457984265022
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,11 +187,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3901001457984265022}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0.1289, z: 0}
-  m_LocalScale: {x: 0.014285715, y: 0.014285715, z: 0.014285715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.065001, y: 0.998, z: 0}
+  m_LocalScale: {x: 1.1428572, y: 1.1428572, z: 1.1428572}
   m_Children: []
-  m_Father: {fileID: 1877179164675100646}
+  m_Father: {fileID: 2808760847482200568}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!1 &6016509289025984253
@@ -224,7 +224,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1877179164675100646}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7078437752930529834
 MeshFilter:

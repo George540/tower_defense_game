@@ -23,7 +23,7 @@ public class LaserTurret : Turret
         }
         if (target.CompareTag("Enemy") && childTarget != null)
         {
-            FindTarget(target);
+            FindTarget(target.transform.GetChild(1));
         }
 
         if (target != null && target.CompareTag("Enemy") && isAimingAtTarget == true)
@@ -45,7 +45,7 @@ public class LaserTurret : Turret
         if (lineRenderer.enabled == true)
         {
             lineRenderer.SetPosition(0, nozzle.transform.position);
-            lineRenderer.SetPosition(1, target.transform.GetChild(1).GetChild(1).position);
+            lineRenderer.SetPosition(1, target.transform.GetChild(1).position);
             if (fireCountdown <= 0)
             {
                 target.GetComponent<Enemy>().health -= laserDamage;

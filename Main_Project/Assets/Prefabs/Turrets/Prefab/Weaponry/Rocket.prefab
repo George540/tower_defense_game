@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089e10e38ef8b3c478732ea9be6ea488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 200
+  bulletSpeed: 370
   damage: 200
   lifespan: 3
-  explosiveAreaRadius: 7
+  explosiveAreaRadius: 15
   explosion: {fileID: 51128450218048248, guid: a10cbb131eb2584438ab9ae424b55bb0, type: 3}
 --- !u!54 &-5567232236252615149
 Rigidbody:

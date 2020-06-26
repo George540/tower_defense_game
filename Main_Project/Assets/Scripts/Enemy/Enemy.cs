@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float turnSpeed;
     public float moveSpeed;
     public float health;
+    protected float healthMax;
     public float currencyDrop;
 
     public int pushDamage;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         manager = FindObjectOfType<Manager>();
+        healthMax = health;
     }
 
     // Update is called once per frame
@@ -29,19 +31,23 @@ public class Enemy : MonoBehaviour
         checkHealth();
     }
 
-    void rotate()
+    protected void rotate()
     {
         Vector3 rotation = Quaternion.Lerp(transform.rotation, navigator.transform.rotation, Time.deltaTime * turnSpeed).eulerAngles;
-        transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        transform.rotation = Quaternion.Euler(0f, rotation.y, rotation.z);
     }
 
-    void checkHealth()
+    protected void checkHealth()
     {
         if (health <= 0)
         {
             manager.currency += currencyDrop;
             Destroy(navigator);
             Destroy(gameObject);
+        }
+        else if (health > healthMax)
+        {
+            health = healthMax;
         }
     }
 

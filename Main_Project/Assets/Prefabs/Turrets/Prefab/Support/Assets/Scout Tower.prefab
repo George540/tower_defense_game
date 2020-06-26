@@ -110,7 +110,7 @@ MonoBehaviour:
   costDeployment: 615
   target: {fileID: 0}
   childTarget: {fileID: 0}
-  range: 80
+  range: 100
   partToRotate: {fileID: 0}
   partToRotate2: {fileID: 0}
   turnSpeed: 0

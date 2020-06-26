@@ -24,9 +24,13 @@ public class Scout : Turret
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < range && enemy.GetComponent<Enemy>().isStealthy == true)
+            if (distanceToEnemy < range && enemy.GetComponent<Enemy>() != null && enemy.GetComponent<Enemy>().isStealthy == true)
             {
                 enemy.GetComponent<Enemy>().isStealthy = false;
+            }
+            else if (distanceToEnemy >= range && enemy.GetComponent<Enemy>() != null && enemy.GetComponent<Enemy>().isStealthy == true)
+            {
+                enemy.GetComponent<Enemy>().isStealthy = true;
             }
         }
     }

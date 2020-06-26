@@ -184,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4818437449568527736}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.0001, y: 0, z: -0.00942}
+  m_LocalPosition: {x: -0.0069, y: 0, z: -0.00942}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6824521002946797378}
@@ -564,9 +564,10 @@ MonoBehaviour:
   partToRotate2: {fileID: 1771684325160507679}
   turnSpeed: 5
   bullet: {fileID: 123528038811154022, guid: 3037695f2d8bd844a95aeb91ce72623d, type: 3}
-  fireRate: 0.3
+  fireRate: 1
   fireCountdown: 0
   isAimingAtTarget: 0
+  isRangeIncreased: 0
   turretName: Rocket Launcher
   maxHealth: 320
   health: 320

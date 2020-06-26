@@ -14,6 +14,11 @@ public class EnemySpawner : MonoBehaviour
     public float timerCooldown;
 
     public int numberOfEnemies;
+
+    //Stealth
+    public GameObject stealthEnemy;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +38,17 @@ public class EnemySpawner : MonoBehaviour
         }
         if (timerCooldown <= 0)
         {
-            SpawnEnemy(pickEnemy());
-            setTimer();
-            timerCooldown = timer;
+            if (!manager.isWaveStealthy())
+            {
+                SpawnEnemy(pickEnemy());
+                setTimer();
+                timerCooldown = timer;
+            }
+            else {
+                SpawnEnemy(stealthEnemy);
+                setTimer();
+                timerCooldown = Random.Range(2f, 3f);
+            }
         }
         timerCooldown -= Time.deltaTime;
     }
@@ -44,6 +57,15 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject go = Instantiate(enemyNavigator, transform.position, transform.rotation);
         GameObject go2 = Instantiate(enemies[index], transform.position, transform.rotation);
+        go.GetComponent<EnemyNavigator>().enemyObject = go2;
+        go2.GetComponent<Enemy>().navigator = go;
+        numberOfEnemies--;
+    }
+
+    void SpawnEnemy(GameObject enemy)
+    {
+        GameObject go = Instantiate(enemyNavigator, transform.position, transform.rotation);
+        GameObject go2 = Instantiate(enemy, transform.position, transform.rotation);
         go.GetComponent<EnemyNavigator>().enemyObject = go2;
         go2.GetComponent<Enemy>().navigator = go;
         numberOfEnemies--;
@@ -58,10 +80,14 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (manager.currentWave > 3 && manager.currentWave < 8)
         {
-            int rand = Random.Range(1, 11);
-            if (rand >= 3 && rand <= 5)
+            int rand = Random.Range(1, 20);
+            if (rand >= 3 && rand <= 8)
             {
                 picker = 1;
+            }
+            else if (rand == 10)
+            {
+                picker = 3;
             }
             else
             {
@@ -70,7 +96,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (manager.currentWave > 7 && manager.currentWave < 16)
         {
-            int rand = Random.Range(1, 11);
+            int rand = Random.Range(1, 20);
             if (rand >= 3 && rand <= 5)
             {
                 picker = 1;
@@ -78,6 +104,14 @@ public class EnemySpawner : MonoBehaviour
             else if (rand >= 6 && rand <= 8)
             {
                 picker = 2;
+            }
+            else if (rand >= 9 && rand <= 11)
+            {
+                picker = 3;
+            }
+            else if (rand == 14)
+            {
+                picker = 5;
             }
             else
             {
@@ -93,61 +127,75 @@ public class EnemySpawner : MonoBehaviour
 
     void setNumberOfEnemies()
     {
-        if (manager.currentWave == 1)
+        if (manager.isWaveStealthy())
         {
-            numberOfEnemies = (int)Random.Range(10, 16);
+            numberOfEnemies = (int)Random.Range(30, 60);
         }
-        else if (manager.currentWave == 2)
+        else
         {
-            numberOfEnemies = (int)Random.Range(20, 30);
-        }
-        else if (manager.currentWave > 2 && manager.currentWave < 5)
-        {
-            numberOfEnemies = (int)Random.Range(40, 60);
-        }
-        else if (manager.currentWave > 4 && manager.currentWave < 10)
-        {
-            numberOfEnemies = (int)Random.Range(70, 100);
-        }
-        else if (manager.currentWave > 9 && manager.currentWave < 15)
-        {
-            numberOfEnemies = (int)Random.Range(100, 130);
-        }
-        else if (manager.currentWave > 14 && manager.currentWave < 20)
-        {
-            numberOfEnemies = (int)Random.Range(130, 170);
-        }
-        else if (manager.currentWave > 19 && manager.currentWave < 26)
-        {
-            numberOfEnemies = (int)Random.Range(140, 170);
+            if (manager.currentWave == 1)
+            {
+                numberOfEnemies = (int)Random.Range(10, 16);
+            }
+            else if (manager.currentWave == 2)
+            {
+                numberOfEnemies = (int)Random.Range(20, 30);
+            }
+            else if (manager.currentWave > 2 && manager.currentWave < 5)
+            {
+                numberOfEnemies = (int)Random.Range(40, 60);
+            }
+            else if (manager.currentWave > 4 && manager.currentWave < 10)
+            {
+                numberOfEnemies = (int)Random.Range(70, 110);
+            }
+            else if (manager.currentWave > 9 && manager.currentWave < 15)
+            {
+                numberOfEnemies = (int)Random.Range(60, 80);
+            }
+            else if (manager.currentWave > 14 && manager.currentWave < 20)
+            {
+                numberOfEnemies = (int)Random.Range(130, 170);
+            }
+            else if (manager.currentWave > 19 && manager.currentWave < 26)
+            {
+                numberOfEnemies = (int)Random.Range(140, 170);
+            }
         }
     }
 
     void setTimer()
     {
-        if (manager.currentWave <= 2)
+        if (manager.isWaveStealthy())
         {
-            timer = 3;
+            timer = Random.Range(1.5f, 3f);
         }
-        else if (manager.currentWave > 2 && manager.currentWave < 5)
+        else
         {
-            timer = Random.Range(0.8f, 2f);
-        }
-        else if (manager.currentWave > 4 && manager.currentWave < 10)
-        {
-            timer = Random.Range(0.6f, 1.5f);
-        }
-        else if (manager.currentWave > 9 && manager.currentWave < 15)
-        {
-            timer = Random.Range(0.7f, 5f);
-        }
-        else if (manager.currentWave > 14 && manager.currentWave < 20)
-        {
-            timer = Random.Range(0.4f, 1f);
-        }
-        else if (manager.currentWave > 19 && manager.currentWave < 26)
-        {
-            timer = Random.Range(0.2f, 1.3f);
+            if (manager.currentWave <= 2)
+            {
+                timer = 3;
+            }
+            else if (manager.currentWave > 2 && manager.currentWave < 5)
+            {
+                timer = Random.Range(0.8f, 2f);
+            }
+            else if (manager.currentWave > 4 && manager.currentWave < 10)
+            {
+                timer = Random.Range(0.5f, 1.1f);
+            }
+            else if (manager.currentWave > 9 && manager.currentWave < 15)
+            {
+                timer = Random.Range(0.7f, 5f);
+            }
+            else if (manager.currentWave > 14 && manager.currentWave < 20)
+            {
+                timer = Random.Range(0.3f, 1f);
+            }
+            else if (manager.currentWave > 19 && manager.currentWave < 26)
+            {
+                timer = Random.Range(0.2f, 1.3f);
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ public class DefaultTurret : Turret
         isTargeting();
         if (target == null)
         {
-            fireCountdown = 0.5f;
+            fireCountdown = 1.0f / fireRate;
             return;
         }
         if (target.CompareTag("Enemy") && childTarget != null)

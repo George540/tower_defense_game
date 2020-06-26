@@ -15,7 +15,10 @@ public class EnemyNavigator : MonoBehaviour
     void Start()
     {
         manager = FindObjectOfType<Manager>();
-        speed = enemyObject.GetComponent<Enemy>().moveSpeed;
+        if (manager.currentWave <= 2)
+            speed = enemyObject.GetComponent<Enemy>().moveSpeed;
+        else
+            speed = Random.Range(enemyObject.GetComponent<Enemy>().moveSpeed - 2, enemyObject.GetComponent<Enemy>().moveSpeed + 2);
     }
 
     // Update is called once per frame
