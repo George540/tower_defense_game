@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
-  costDeployment: 630
+  costDeployment: 770
   target: {fileID: 0}
   childTarget: {fileID: 0}
   range: 50
@@ -564,7 +564,7 @@ MonoBehaviour:
   partToRotate2: {fileID: 1771684325160507679}
   turnSpeed: 5
   bullet: {fileID: 123528038811154022, guid: 3037695f2d8bd844a95aeb91ce72623d, type: 3}
-  fireRate: 1
+  fireRate: 0.75
   fireCountdown: 0
   isAimingAtTarget: 0
   isRangeIncreased: 0

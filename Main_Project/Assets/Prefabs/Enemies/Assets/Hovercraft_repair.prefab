@@ -291,7 +291,7 @@ MonoBehaviour:
   navigator: {fileID: 0}
   turnSpeed: 12
   moveSpeed: 15
-  health: 200
+  health: 150
   currencyDrop: 2
   pushDamage: 15
   isStealthy: 0

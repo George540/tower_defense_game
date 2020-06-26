@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
-  costDeployment: 770
+  costDeployment: 616
   target: {fileID: 0}
   childTarget: {fileID: 0}
   range: 40
@@ -181,6 +181,7 @@ MonoBehaviour:
   fireRate: 0.1
   fireCountdown: 0
   isAimingAtTarget: 1
+  isRangeIncreased: 0
   turretName: Laser Battery
   maxHealth: 250
   health: 250
