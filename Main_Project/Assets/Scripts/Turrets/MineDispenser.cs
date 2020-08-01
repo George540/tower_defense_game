@@ -17,6 +17,7 @@ public class MineDispenser : Turret
 
     void Update()
     {
+        checkHealth();
         FindTarget();
 
         if (fireCountdown <= 0f && waveManager.GetComponent<Button>().GetComponent<Image>().color.a == 0)

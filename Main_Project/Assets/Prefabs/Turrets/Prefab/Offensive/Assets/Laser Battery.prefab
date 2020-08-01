@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262334547aad7ea49bdd7dbc2594b72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 3644221095859235889, guid: 01c570e580781034f8e277f32ee70892, type: 3}
   enemies: []
   costDeployment: 616
   target: {fileID: 0}

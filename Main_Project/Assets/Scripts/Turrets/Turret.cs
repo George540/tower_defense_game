@@ -6,6 +6,9 @@ using UnityEngine;
 [System.Serializable]
 public class Turret : MonoBehaviour
 {
+    protected Manager manager;
+    public GameObject spawner;
+
     public List<GameObject> enemies = new List<GameObject>();
     public float costDeployment;
     public Transform target;
@@ -33,6 +36,7 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = FindObjectOfType<Manager>();
         health = maxHealth;
     }
 
@@ -109,5 +113,44 @@ public class Turret : MonoBehaviour
     public virtual void Fire()
     {
 
+    }
+
+    protected void checkHealth()
+    {
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+        else if (health <= 0)
+        {
+            DestroyTurret();
+        }
+    }
+
+    protected void DestroyTurret()
+    {
+        GameObject go;
+        if (gameObject.CompareTag("OffenseTurret"))
+        {
+            go = Instantiate(spawner, transform.position, transform.rotation * Quaternion.Euler(-90f, 90f, 90f));
+            manager.turretSpawners.Add(go);
+        }
+        else if (gameObject.CompareTag("SupportTurret"))
+        {
+            go = Instantiate(spawner, transform.position, transform.rotation * Quaternion.Euler(-90f, 0f, 90f));
+            if (GetComponent<SniperTurret>() != null || GetComponent<Outpost>() != null)
+                go.transform.Rotate(0f, 0f, 90f);
+            manager.supportSpawners.Add(go);
+        }
+        manager.numberOfTurrets--;
+        manager.currency +=costDeployment / 2;
+
+        if (GameObject.Find("TurretSelector(Clone)") != null)
+            Destroy(GameObject.Find("TurretSelector(Clone)"));
+        if (GameObject.Find("TurretRanger(Clone)") != null)
+            Destroy(GameObject.Find("TurretRanger(Clone)"));
+        if (GameObject.FindGameObjectWithTag("Inspector"))
+            Destroy(GameObject.FindGameObjectWithTag("Inspector"));
+        Destroy(gameObject);
     }
 }

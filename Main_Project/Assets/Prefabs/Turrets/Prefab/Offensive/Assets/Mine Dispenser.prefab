@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2364dfdd3f29347aba2899f4e6bf76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 3644221095859235889, guid: 01c570e580781034f8e277f32ee70892, type: 3}
   enemies: []
   costDeployment: 989
   target: {fileID: 8975273242400370523}
@@ -310,6 +311,7 @@ MonoBehaviour:
   fireRate: 0.5
   fireCountdown: 0
   isAimingAtTarget: 0
+  isRangeIncreased: 0
   turretName: Mine Dispenser
   maxHealth: 170
   health: 170
@@ -317,6 +319,7 @@ MonoBehaviour:
   assists: 0
   board: {fileID: 7824558216938689966, guid: 0a92605b0bc61624eb3b4706a0eea11b, type: 3}
   nozzle: {fileID: 5869215192748189563}
+  waveManager: {fileID: 0}
   thrust: 500
 --- !u!1 &5869215192748189563
 GameObject:

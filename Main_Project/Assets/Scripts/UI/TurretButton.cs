@@ -72,7 +72,7 @@ public class TurretButton : MonoBehaviour
 
     public void spawnTurret()
     {
-        Instantiate(turret, currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -180f));
+        GameObject go = Instantiate(turret, currentSpawner.transform.position, currentSpawner.transform.rotation * Quaternion.Euler(-90f, 0f, -180f));
         if (currentSpawner.CompareTag("OffenseSpawner"))
         {
             manager.turretSpawners.Remove(currentSpawner);
@@ -80,6 +80,10 @@ public class TurretButton : MonoBehaviour
         else if (currentSpawner.CompareTag("SupportSpawner"))
         {
             manager.supportSpawners.Remove(currentSpawner);
+            if (go.GetComponent<Mortar>())
+            {
+                go.transform.Rotate(0f, 0f, -90f);
+            }
         }
         manager.currency -= cost;
         manager.numberOfTurrets++;

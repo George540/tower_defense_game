@@ -297,7 +297,7 @@ MonoBehaviour:
   isStealthy: 0
   healVeil: {fileID: 7557922751428714344}
   range: 35
-  healRate: 50
+  healRate: 30
   healingRate: 1
 --- !u!54 &-8927876088204873576
 Rigidbody:

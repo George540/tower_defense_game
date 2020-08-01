@@ -106,8 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdb6a4efb3fecf4999ce193b6942379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 7072532888341681360, guid: c1f4b66258a3069498201a7dcc852fd5, type: 3}
   enemies: []
-  costDeployment: 615
+  costDeployment: 780
   target: {fileID: 0}
   childTarget: {fileID: 0}
   range: 100
@@ -124,4 +125,4 @@ MonoBehaviour:
   health: 70
   enemiesDestroyed: 0
   assists: 0
-  board: {fileID: 0}
+  board: {fileID: 7824558216938689966, guid: 0a92605b0bc61624eb3b4706a0eea11b, type: 3}

@@ -13,7 +13,7 @@ public class Scout : Turret
     // Update is called once per frame
     void Update()
     {
-        
+        checkHealth();
     }
 
     public void detectStealthy()

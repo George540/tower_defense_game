@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MiningDrill : Turret
 {
-    public Manager manager;
     private Transform drill;
     private float originalY;
     public float strength;
@@ -22,6 +21,7 @@ public class MiningDrill : Turret
     // Update is called once per frame
     void Update()
     {
+        checkHealth();
         if (fireCountdown <= 0)
         {
             manager.currency += currencyRate;

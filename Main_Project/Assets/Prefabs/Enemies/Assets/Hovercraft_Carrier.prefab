@@ -60,7 +60,7 @@ MonoBehaviour:
   flanker: {fileID: 456765385886924443, guid: ce7ecdda3e9b5a442be0a540f2d34a92, type: 3}
   flankerNavigator: {fileID: 6688876839523292188, guid: 48574ed53c9401e408d73ec8192f8b15,
     type: 3}
-  spawnRate: 2
+  spawnRate: 3
   spawnCooldown: 0
 --- !u!54 &5905405802547691531
 Rigidbody:
@@ -89,8 +89,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 11.926868, y: 9.849134, z: 4}
-  m_Center: {x: 1.9265594, y: -1.3917646, z: 0}
+  m_Size: {x: 11.926868, y: 4.5276623, z: 4}
+  m_Center: {x: 1.9265594, y: 1.2689714, z: 0}
 --- !u!1 &735048226033715866
 GameObject:
   m_ObjectHideFlags: 0

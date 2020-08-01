@@ -53,6 +53,9 @@ MonoBehaviour:
   - {fileID: 6613385714753992399, guid: e9052d2ed03ce2e419bf4d2380eb6025, type: 3}
   - {fileID: 5798045411635557769, guid: ce96a29b23430f149ae636d7bb015582, type: 3}
   - {fileID: 14602014211458749, guid: dbf372e64e21d6e41966e2b7e86a6eec, type: 3}
+  - {fileID: 283559721325799235, guid: 4529aa2b8776e29409e16d1bc9c06681, type: 3}
+  - {fileID: 5608016707770058140, guid: d904c3d0917b17e4e939db0a5b8df256, type: 3}
+  - {fileID: 2908002748146804215, guid: 4af82aaf3ccfaf442b77778d96e8e7e6, type: 3}
   startButton: {fileID: 0}
   timer: 3
   timerCooldown: 0

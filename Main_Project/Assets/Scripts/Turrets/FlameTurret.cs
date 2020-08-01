@@ -18,6 +18,7 @@ public class FlameTurret : Turret
     // Update is called once per frame
     void Update()
     {
+        checkHealth();
         UpdateTarget();
         isTargeting();
         if (target == null)

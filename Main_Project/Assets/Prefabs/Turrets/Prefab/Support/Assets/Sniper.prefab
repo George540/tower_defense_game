@@ -508,6 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1e9b22ecce23e4faa75c393c3e77c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 7072532888341681360, guid: c1f4b66258a3069498201a7dcc852fd5, type: 3}
   enemies: []
   costDeployment: 910
   target: {fileID: 0}

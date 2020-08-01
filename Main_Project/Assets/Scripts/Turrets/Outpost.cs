@@ -15,6 +15,7 @@ public class Outpost : Turret
     // Update is called once per frame
     void Update()
     {
+        checkHealth();
         antena.Rotate(0f, 0f, 1f * Time.timeScale);
     }
 

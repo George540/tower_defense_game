@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5272114205248542806}
   - component: {fileID: 3778882173607502432}
   - component: {fileID: 7443817121049845401}
-  - component: {fileID: -8111380106537931069}
+  - component: {fileID: 5442782074300156267}
   m_Layer: 0
   m_Name: TurretSelector
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-8111380106537931069
+--- !u!114 &5442782074300156267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

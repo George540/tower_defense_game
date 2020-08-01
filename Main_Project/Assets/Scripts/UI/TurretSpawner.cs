@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class TurretSpawner : MonoBehaviour
 {
     public Manager manager;
-    public Text errorText;
 
     public Camera cam;
     private GameObject currentSpawner = null;
@@ -23,7 +22,6 @@ public class TurretSpawner : MonoBehaviour
     {
         cam = GetComponent<Camera>();
         //setButtonsVisibility(false);
-        errorText.enabled = false;
         noBuild.SetActive(false);
         turretBoard.SetActive(false);
     }

@@ -22,9 +22,14 @@ public class Mine : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if ((other.gameObject.CompareTag("Enemy") && other.gameObject.GetComponent<Enemy>().detectsMines == false))
         {
             explode();
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("MineDetector"))
+        {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
@@ -47,7 +52,7 @@ public class Mine : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosiveAreaRadius);
         foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("Enemy"))
+            if (collider.CompareTag("Enemy") && collider.gameObject.GetComponent<Enemy>().detectsMines == false)
             {
                 collider.gameObject.GetComponent<Enemy>().health -= damage;
             }

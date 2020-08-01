@@ -25,6 +25,11 @@ TagManager:
   - PlaceArea
   - Manager
   - Mine
+  - MineDetector
+  - Inspector
+  - EnemyBullet
+  - Bullet
+  - MortarTarget
   layers:
   - Default
   - TransparentFX

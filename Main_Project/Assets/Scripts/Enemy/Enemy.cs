@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     public int pushDamage;
     public bool isStealthy;
+    public bool detectsMines;
 
     // Start is called before the first frame update
     void Start()

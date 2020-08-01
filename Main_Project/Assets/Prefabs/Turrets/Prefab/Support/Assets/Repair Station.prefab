@@ -174,18 +174,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7874b0d136f4f54188f87354157cf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 7072532888341681360, guid: c1f4b66258a3069498201a7dcc852fd5, type: 3}
+  enemies: []
   costDeployment: 730
+  target: {fileID: 0}
+  childTarget: {fileID: 0}
   range: 150
-  rotationSpeedScale: 1
-  rotationSpeed: 200
-  fireRate: 0
+  partToRotate: {fileID: 0}
+  partToRotate2: {fileID: 0}
+  turnSpeed: 0
+  bullet: {fileID: 0}
+  fireRate: 10
   fireCountdown: 0
+  isAimingAtTarget: 0
+  isRangeIncreased: 0
   turretName: Repair Station
   maxHealth: 210
   health: 210
+  enemiesDestroyed: 0
+  assists: 0
+  board: {fileID: 7824558216938689966, guid: 0a92605b0bc61624eb3b4706a0eea11b, type: 3}
+  rotationSpeedScale: 1
+  rotationSpeed: 200
   turretsInRange: 0
   healRate: 1
-  board: {fileID: 0}
 --- !u!65 &8963185307238844826
 BoxCollider:
   m_ObjectHideFlags: 0

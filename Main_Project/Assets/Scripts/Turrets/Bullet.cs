@@ -28,6 +28,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
             collision.gameObject.GetComponent<Enemy>().health -= damage;
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
         destroyBullet();
     }
 

@@ -45,12 +45,16 @@ public class TurretDestroyer : MonoBehaviour
 
     void getClickUpdateSpawnTurret()
     {
-        if (Input.GetMouseButtonDown(0) && currentTurret == null)
+        if (Input.GetMouseButtonUp(0) && currentTurret == null)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
+                if (hit.transform.gameObject.layer == 5)
+                {
+                    return;
+                }
                 if ((hit.transform.gameObject.CompareTag("OffenseTurret") || hit.transform.gameObject.CompareTag("SupportTurret")) && hit.transform.gameObject.layer == 9 && currentTurret != hit.transform.gameObject)
                 {
                     currentTurret = hit.transform.gameObject;
@@ -101,6 +105,10 @@ public class TurretDestroyer : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
+                if (hit.transform.gameObject.layer == 5)
+                {
+                    return;
+                }
                 if ((hit.transform.gameObject.CompareTag("OffenseTurret") || hit.transform.gameObject.CompareTag("SupportTurret")) && hit.transform.gameObject.layer == 9 && currentTurret != hit.transform.gameObject)
                 {
                     currentTurret = hit.transform.gameObject;
@@ -153,8 +161,12 @@ public class TurretDestroyer : MonoBehaviour
         else if (currentTurret.CompareTag("SupportTurret"))
         {
             go = Instantiate(spawners[1], currentTurret.transform.position, currentTurret.transform.rotation * Quaternion.Euler(-90f, 00f, 90f));
-            if (currentTurret.GetComponent<SniperTurret>() != null || currentTurret.GetComponent<Outpost>() != null)
+            if (currentTurret.GetComponent<SniperTurret>() != null || currentTurret.GetComponent<Outpost>() != null || currentTurret.GetComponent<Mortar>() != null)
+            {
                 go.transform.Rotate(0f, 0f, 90f);
+                if (currentTurret.GetComponent<Mortar>() != null)
+                    go.transform.Rotate(0f, 90f, 0f);
+            }
             manager.supportSpawners.Add(go);
         }
         manager.numberOfTurrets--;

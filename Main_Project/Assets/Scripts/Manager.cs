@@ -22,6 +22,7 @@ public class Manager : MonoBehaviour
     public float maxZ;
     public float minZ;
 
+    public GameObject currentTurret;
     public float currency;
     public int numberOfTurrets;
     public float baseHealth = 50;
@@ -59,7 +60,6 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        checkoutCurrency();
         if (groundSpawners.Count == 0)
         {
             isMapCreated = true;
@@ -128,14 +128,6 @@ public class Manager : MonoBehaviour
         }
     }
 
-    void checkoutCurrency()
-    {
-        if (currency < 0)
-        {
-            currency = 0;
-        }
-    }
-
     void setHealth()
     {
         totalBaseHealth = baseHealth * terminals.Count;
@@ -143,17 +135,17 @@ public class Manager : MonoBehaviour
 
     void setWaves()
     {
-        if (terminals.Count == 1)
+        if (terminals.Count <= 1)
         {
-            numberOfWaves = 10;
+            numberOfWaves = 20;
         }
         else if (terminals.Count > 1 && terminals.Count < 3)
         {
-            numberOfWaves = 15;
+            numberOfWaves = 30;
         }
         else
         {
-            numberOfWaves = 20;
+            numberOfWaves = 50;
         }
 
         for (int i = 0; i < stealthWaves.Length; i++)
