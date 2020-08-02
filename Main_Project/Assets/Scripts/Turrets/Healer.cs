@@ -9,17 +9,15 @@ public class Healer : Turret
     public int turretsInRange;
     public int healRate;
     private int healCountdown;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        spinHalo(0, rotationSpeed);
-        spinHalo(1, -rotationSpeed/2);
+        if (manager.isWavePlaying)
+        {
+            spinHalo(0, rotationSpeed);
+            spinHalo(1, -rotationSpeed / 2);
+        }
 
         if (healCountdown <= 0f)
         {

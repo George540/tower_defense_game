@@ -80,8 +80,8 @@ public class TurretDestroyer : MonoBehaviour
 
                     if (currentTurret.GetComponent<Turret>() != null)
                         currentRanger.transform.localScale = new Vector3(currentTurret.GetComponent<Turret>().range * 2, ranger.transform.localScale.y, currentTurret.GetComponent<Turret>().range * 2);
-                    else if (currentTurret.GetComponent<Healer>() != null)
-                        currentRanger.transform.localScale = new Vector3(currentTurret.GetComponent<Healer>().range * 2, ranger.transform.localScale.y, currentTurret.GetComponent<Healer>().range * 2);
+                    //else if (currentTurret.GetComponent<Healer>() != null)
+                    //    currentRanger.transform.localScale = new Vector3(currentTurret.GetComponent<Healer>().range * 2, ranger.transform.localScale.y, currentTurret.GetComponent<Healer>().range * 2);
 
                     currentBoard = Instantiate(board, inspector.transform.position, inspector.transform.rotation);
                     currentBoard.transform.SetParent(canvas.transform);
@@ -134,8 +134,8 @@ public class TurretDestroyer : MonoBehaviour
 
                     if (currentTurret.GetComponent<Turret>() != null)
                         currentRanger.transform.localScale = new Vector3(currentTurret.GetComponent<Turret>().range * 2, ranger.transform.localScale.y, currentTurret.GetComponent<Turret>().range * 2);
-                    else if (currentTurret.GetComponent<Healer>() != null)
-                        currentRanger.transform.localScale = new Vector3(currentTurret.GetComponent<Healer>().range * 2, ranger.transform.localScale.y, currentTurret.GetComponent<Healer>().range * 2);
+                    //else if (currentTurret.GetComponent<Healer>() != null)
+                    //    currentRanger.transform.localScale = new Vector3(currentTurret.GetComponent<Healer>().range * 2, ranger.transform.localScale.y, currentTurret.GetComponent<Healer>().range * 2);
 
                     currentBoard = Instantiate(board, inspector.transform.position, inspector.transform.rotation);
                     currentBoard.transform.SetParent(canvas.transform);
@@ -161,16 +161,20 @@ public class TurretDestroyer : MonoBehaviour
         else if (currentTurret.CompareTag("SupportTurret"))
         {
             go = Instantiate(spawners[1], currentTurret.transform.position, currentTurret.transform.rotation * Quaternion.Euler(-90f, 00f, 90f));
-            if (currentTurret.GetComponent<SniperTurret>() != null || currentTurret.GetComponent<Outpost>() != null || currentTurret.GetComponent<Mortar>() != null)
+            if (currentTurret.GetComponent<Mortar>() != null || currentTurret.GetComponent<Scout>() != null || currentTurret.GetComponent<Healer>() != null || currentTurret.GetComponent<MiningDrill>() != null || currentTurret.GetComponent<Outpost>() != null)
             {
-                go.transform.Rotate(0f, 0f, 90f);
-                if (currentTurret.GetComponent<Mortar>() != null)
+                go.transform.Rotate(0f, 0f, 0f);
+                if (currentTurret.GetComponent<Mortar>() != null || currentTurret.GetComponent<Scout>() != null || currentTurret.GetComponent<Healer>() != null || currentTurret.GetComponent<MiningDrill>() != null || currentTurret.GetComponent<Outpost>() != null)
                     go.transform.Rotate(0f, 90f, 0f);
             }
+            if (currentTurret.GetComponent<SniperTurret>() != null)
+                go.transform.Rotate(0f, 0f, 90f);
             manager.supportSpawners.Add(go);
         }
         manager.numberOfTurrets--;
         manager.currency += currentTurret.GetComponent<Turret>().costDeployment/2;
+        manager.currency = Mathf.Floor(manager.currency);
+
         Destroy(currentSelector);
         Destroy(currentRanger);
         Destroy(currentTurret);

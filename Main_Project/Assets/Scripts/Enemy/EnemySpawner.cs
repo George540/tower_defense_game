@@ -18,6 +18,9 @@ public class EnemySpawner : MonoBehaviour
     //Stealth
     public GameObject stealthEnemy;
 
+    // Boss
+    public GameObject bossEnemy;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +43,10 @@ public class EnemySpawner : MonoBehaviour
         {
             if (!manager.isWaveStealthy())
             {
-                SpawnEnemy(pickEnemy());
+                if (manager.currentWave <= 39)
+                    SpawnEnemy(pickEnemy());
+                else
+                    SpawnEnemy(bossEnemy);
                 setTimer();
                 timerCooldown = timer;
             }
@@ -76,7 +82,7 @@ public class EnemySpawner : MonoBehaviour
         int picker = 0;
         if (manager.currentWave > 0 && manager.currentWave < 4)
         {
-            picker = 6;
+            picker = 0;
         }
         else if (manager.currentWave > 3 && manager.currentWave < 8)
         {
@@ -84,10 +90,6 @@ public class EnemySpawner : MonoBehaviour
             if (rand >= 3 && rand <= 8)
             {
                 picker = 1;
-            }
-            else if (rand == 10)
-            {
-                picker = 3;
             }
             else
             {
@@ -166,7 +168,127 @@ public class EnemySpawner : MonoBehaviour
                 picker = 0;
             }
         }
-        else
+        else if (manager.currentWave > 22 && manager.currentWave < 28)
+        {
+            int rand = Random.Range(1, 30);
+            if (rand >= 3 && rand <= 11)
+            {
+                picker = 1;
+            }
+            else if (rand >= 12 && rand <= 14)
+            {
+                picker = 2;
+            }
+            else if (rand >= 15 && rand <= 18)
+            {
+                picker = 3;
+            }
+            else if (rand >= 22 && rand <= 24)
+            {
+                picker = 5;
+            }
+            else
+            {
+                picker = 0;
+            }
+        }
+        else if (manager.currentWave > 22 && manager.currentWave < 28)
+        {
+            int rand = Random.Range(1, 30);
+            if (rand >= 3 && rand <= 11)
+            {
+                picker = 1;
+            }
+            else if (rand >= 12 && rand <= 14)
+            {
+                picker = 2;
+            }
+            else if (rand >= 15 && rand <= 18)
+            {
+                picker = 3;
+            }
+            else if (rand >= 22 && rand <= 24)
+            {
+                picker = 5;
+            }
+            else if (rand >= 25 && rand <= 26)
+            {
+                picker = 6;
+            }
+            else
+            {
+                picker = 0;
+            }
+        }
+        else if (manager.currentWave > 22 && manager.currentWave < 28)
+        {
+            int rand = Random.Range(1, 30);
+            if (rand >= 3 && rand <= 15)
+            {
+                picker = 1;
+            }
+            else if (rand >= 12 && rand <= 16)
+            {
+                picker = 2;
+            }
+            else if (rand >= 17 && rand <= 20)
+            {
+                picker = 3;
+            }
+            else if (rand >= 22 && rand <= 25)
+            {
+                picker = 5;
+            }
+            else if (rand == 27)
+            {
+                picker = 4;
+            }
+            else if (rand == 28 || rand == 29)
+            {
+                picker = 6;
+            }
+            else
+            {
+                picker = 0;
+            }
+        }
+        else if (manager.currentWave > 27 && manager.currentWave < 34)
+        {
+            int rand = Random.Range(1, 30);
+            if (rand >= 3 && rand <= 10)
+            {
+                picker = 1;
+            }
+            else if (rand >= 11 && rand <= 14)
+            {
+                picker = 2;
+            }
+            else if (rand >= 15 && rand <= 18)
+            {
+                picker = 3;
+            }
+            else if (rand >= 18 && rand <= 22)
+            {
+                picker = 5;
+            }
+            else if (rand == 23 || rand == 24)
+            {
+                picker = 4;
+            }
+            else if (rand >= 25 || rand <= 27)
+            {
+                picker = 6;
+            }
+            else if (rand == 28)
+            {
+                picker = 7;
+            }
+            else
+            {
+                picker = 0;
+            }
+        }
+        else if (manager.currentWave > 33)
         {
             picker = Random.Range(0, enemies.Length);
         }
@@ -177,37 +299,63 @@ public class EnemySpawner : MonoBehaviour
     {
         if (manager.isWaveStealthy())
         {
-            numberOfEnemies = (int)Random.Range(20, 40);
+            numberOfEnemies = Random.Range(20, 40);
         }
         else
         {
             if (manager.currentWave == 1)
             {
-                numberOfEnemies = (int)Random.Range(10, 16);
+                numberOfEnemies = Random.Range(10, 16);
             }
             else if (manager.currentWave == 2)
             {
-                numberOfEnemies = (int)Random.Range(20, 30);
+                numberOfEnemies = Random.Range(20, 30);
             }
             else if (manager.currentWave > 2 && manager.currentWave < 5)
             {
-                numberOfEnemies = (int)Random.Range(40, 60);
+                numberOfEnemies = Random.Range(40, 60);
             }
             else if (manager.currentWave > 4 && manager.currentWave < 10)
             {
-                numberOfEnemies = (int)Random.Range(70, 110);
+                numberOfEnemies = Random.Range(70, 110);
             }
             else if (manager.currentWave > 9 && manager.currentWave < 15)
             {
-                numberOfEnemies = (int)Random.Range(60, 80);
+                if (manager.currentWave >= 11 && manager.currentWave < 14)
+                    numberOfEnemies = Random.Range(30, 60);
+                else
+                    numberOfEnemies = Random.Range(60, 80);
             }
             else if (manager.currentWave > 14 && manager.currentWave < 20)
             {
-                numberOfEnemies = (int)Random.Range(130, 170);
+
+                if (manager.currentWave == 18)
+                    numberOfEnemies = Random.Range(60, 90);
+                else
+                    numberOfEnemies = Random.Range(130, 170);
             }
             else if (manager.currentWave > 19 && manager.currentWave < 26)
             {
-                numberOfEnemies = (int)Random.Range(80, 140);
+                numberOfEnemies = Random.Range(40, 90);
+            }
+            else if (manager.currentWave > 25 && manager.currentWave < 32)
+            {
+                if (manager.currentWave == 28)
+                    numberOfEnemies = Random.Range(30, 60);
+                else
+                    numberOfEnemies = Random.Range(80, 120);
+            }
+            else if (manager.currentWave > 31 && manager.currentWave < 38)
+            {
+                numberOfEnemies = Random.Range(80, 100);
+            }
+            else if (manager.currentWave == 38 || manager.currentWave == 39)
+            {
+                numberOfEnemies = Random.Range(120, 140);
+            }
+            else if (manager.currentWave == 40)
+            {
+                numberOfEnemies = 1;
             }
         }
     }
@@ -224,25 +372,47 @@ public class EnemySpawner : MonoBehaviour
             {
                 timer = 3;
             }
-            else if (manager.currentWave > 2 && manager.currentWave < 5)
+            else if (manager.currentWave > 2 && manager.currentWave < 6)
             {
-                timer = Random.Range(0.8f, 2f);
+                if (manager.currentWave == 4)
+                    timer = 0.3f;
+                else
+                    timer = Random.Range(0.8f, 2f);
             }
-            else if (manager.currentWave > 4 && manager.currentWave < 10)
+            else if (manager.currentWave > 5 && manager.currentWave < 11)
             {
-                timer = Random.Range(0.5f, 1.1f);
+                timer = Random.Range(0.4f, 1.0f);
             }
-            else if (manager.currentWave > 9 && manager.currentWave < 15)
+            else if (manager.currentWave > 10 && manager.currentWave < 15)
             {
                 timer = Random.Range(0.7f, 5f);
             }
             else if (manager.currentWave > 14 && manager.currentWave < 20)
             {
-                timer = Random.Range(0.3f, 1f);
+                timer = Random.Range(0.3f, 0.8f);
             }
             else if (manager.currentWave > 19 && manager.currentWave < 26)
             {
-                timer = Random.Range(0.2f, 1.3f);
+                timer = Random.Range(0.05f, 1.3f);
+            }
+            else if (manager.currentWave > 25 && manager.currentWave < 32)
+            {
+                timer = Random.Range(0.05f, 0.9f);
+            }
+            else if (manager.currentWave > 31 && manager.currentWave < 38)
+            {
+                if(manager.currentWave == 35)
+                    timer = Random.Range(0.01f, 0.04f);
+                else
+                    timer = Random.Range(0.08f, 1.5f);
+            }
+            else if (manager.currentWave == 38 || manager.currentWave == 39)
+            {
+                timer = Random.Range(0.01f, 0.03f);
+            }
+            else if (manager.currentWave == 40)
+            {
+                timer = Random.Range(4f, 7f);
             }
         }
     }

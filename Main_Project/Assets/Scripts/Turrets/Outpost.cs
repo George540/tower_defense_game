@@ -9,6 +9,8 @@ public class Outpost : Turret
     // Start is called before the first frame update
     void Start()
     {
+        manager = FindObjectOfType<Manager>();
+        health = maxHealth;
         InvokeRepeating("increaseRange", 0f, 0.2f);
     }
 
@@ -16,7 +18,8 @@ public class Outpost : Turret
     void Update()
     {
         checkHealth();
-        antena.Rotate(0f, 0f, 1f * Time.timeScale);
+        if (manager.isWavePlaying)
+            antena.Rotate(0f, 0f, 1f * Time.timeScale);
     }
 
     public void increaseRange()

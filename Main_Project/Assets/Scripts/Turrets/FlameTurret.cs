@@ -12,6 +12,7 @@ public class FlameTurret : Turret
 
     void Start()
     {
+        manager = FindObjectOfType<Manager>();
         health = maxHealth;
         flame.Stop();
     }

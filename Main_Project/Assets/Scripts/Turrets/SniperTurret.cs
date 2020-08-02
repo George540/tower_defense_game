@@ -6,6 +6,12 @@ public class SniperTurret : Turret
 {
     public GameObject nozzle;
 
+    void Start()
+    {
+        manager = FindObjectOfType<Manager>();
+        health = maxHealth;
+    }
+
     // Update is called once per frame
     void Update()
     {

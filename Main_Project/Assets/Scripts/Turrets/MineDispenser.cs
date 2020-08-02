@@ -11,6 +11,7 @@ public class MineDispenser : Turret
     // Start is called before the first frame update
     void Start()
     {
+        manager = FindObjectOfType<Manager>();
         waveManager = GameObject.Find("StartWave");
         health = maxHealth;
     }

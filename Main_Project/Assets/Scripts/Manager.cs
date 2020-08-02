@@ -145,12 +145,12 @@ public class Manager : MonoBehaviour
         }
         else
         {
-            numberOfWaves = 50;
+            numberOfWaves = 40;
         }
 
         for (int i = 0; i < stealthWaves.Length; i++)
         {
-            stealthWaves[i] = Random.Range(8, numberOfWaves + 5);
+            stealthWaves[i] = Random.Range(8, numberOfWaves + 4);
         }
     }
 

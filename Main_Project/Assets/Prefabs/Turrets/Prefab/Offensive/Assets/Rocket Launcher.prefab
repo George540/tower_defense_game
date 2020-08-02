@@ -557,7 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 3644221095859235889, guid: 01c570e580781034f8e277f32ee70892, type: 3}
   enemies: []
-  costDeployment: 770
+  costDeployment: 898
   target: {fileID: 0}
   childTarget: {fileID: 0}
   range: 50

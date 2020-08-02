@@ -7,6 +7,8 @@ public class Scout : Turret
     // Start is called before the first frame update
     void Start()
     {
+        manager = FindObjectOfType<Manager>();
+        health = maxHealth;
         InvokeRepeating("detectStealthy", 0f, 0.2f);
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -138,12 +139,17 @@ public class Turret : MonoBehaviour
         else if (gameObject.CompareTag("SupportTurret"))
         {
             go = Instantiate(spawner, transform.position, transform.rotation * Quaternion.Euler(-90f, 0f, 90f));
-            if (GetComponent<SniperTurret>() != null || GetComponent<Outpost>() != null)
+            if (gameObject.GetComponent<Mortar>() != null || gameObject.GetComponent<Scout>() != null || gameObject.GetComponent<Healer>() != null || gameObject.GetComponent<MiningDrill>() != null || gameObject.GetComponent<Outpost>() != null)
+            {
                 go.transform.Rotate(0f, 0f, 90f);
+                if (gameObject.GetComponent<Mortar>() != null || gameObject.GetComponent<Scout>() != null || gameObject.GetComponent<Healer>() != null || gameObject.GetComponent<MiningDrill>() != null || gameObject.GetComponent<Outpost>() != null)
+                    go.transform.Rotate(0f, 90f, 0f);
+            }
             manager.supportSpawners.Add(go);
         }
         manager.numberOfTurrets--;
         manager.currency +=costDeployment / 2;
+        manager.currency = Mathf.Floor(manager.currency);
 
         if (GameObject.Find("TurretSelector(Clone)") != null)
             Destroy(GameObject.Find("TurretSelector(Clone)"));

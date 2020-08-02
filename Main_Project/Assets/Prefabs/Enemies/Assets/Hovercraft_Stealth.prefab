@@ -82,9 +82,10 @@ MonoBehaviour:
   turnSpeed: 12
   moveSpeed: 35
   health: 120
-  currencyDrop: 1
+  currencyDrop: 0
   pushDamage: 6
   isStealthy: 1
+  detectsMines: 0
 --- !u!54 &3206591268360203654
 Rigidbody:
   m_ObjectHideFlags: 0

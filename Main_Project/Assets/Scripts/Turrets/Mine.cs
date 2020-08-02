@@ -30,7 +30,6 @@ public class Mine : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("MineDetector"))
         {
-            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

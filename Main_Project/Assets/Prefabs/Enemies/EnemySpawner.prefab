@@ -62,3 +62,5 @@ MonoBehaviour:
   numberOfEnemies: 0
   stealthEnemy: {fileID: 5798045411635557769, guid: ce96a29b23430f149ae636d7bb015582,
     type: 3}
+  bossEnemy: {fileID: 2384597850086401028, guid: 84edbb8bf369e344591af8fcc0a4729c,
+    type: 3}

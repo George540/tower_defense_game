@@ -285,9 +285,9 @@ MonoBehaviour:
   manager: {fileID: 0}
   navigator: {fileID: 0}
   turnSpeed: 15
-  moveSpeed: 30
+  moveSpeed: 40
   health: 150
-  currencyDrop: 2
+  currencyDrop: 0
   pushDamage: 20
   isStealthy: 0
   detectsMines: 1

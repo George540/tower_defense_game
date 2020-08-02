@@ -16,6 +16,7 @@ public class MiningDrill : Turret
         manager = GameObject.Find("MANAGER").GetComponent<Manager>();
         drill = transform.GetChild(0);
         originalY = drill.position.y;
+        health = maxHealth;
     }
 
     // Update is called once per frame

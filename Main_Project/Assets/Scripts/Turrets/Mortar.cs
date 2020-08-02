@@ -19,14 +19,16 @@ public class Mortar : Turret
     void Start()
     {
         mortarFire = transform.GetChild(1).GetComponent<ParticleSystem>();
-        manager = GameObject.Find("MANAGER").GetComponent<Manager>();
+        manager = FindObjectOfType<Manager>();
+        health = maxHealth;
         cam = GameObject.Find("CameraTranslator").transform.GetChild(0).GetChild(0).GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        checkMortarFire();
+        if (manager.isWavePlaying)
+            checkMortarFire();
         if (target != null && target.GetComponent<MortarTarget>().isTargetSet)
             FindTarget();
 
