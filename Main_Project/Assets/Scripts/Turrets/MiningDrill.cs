@@ -23,19 +23,18 @@ public class MiningDrill : Turret
     void Update()
     {
         checkHealth();
-        if (fireCountdown <= 0)
+        if (fireCountdown <= 0 && manager.isWavePlaying)
         {
             manager.currency += currencyRate;
             fireCountdown = fireRate;
         }
         if (manager.isWavePlaying)
         {
-            fireCountdown -= Time.deltaTime * Time.timeScale;
+            fireCountdown -= Time.deltaTime;
             pumpDrill();
         }
         else
         {
-            fireCountdown = fireRate;
             drill.position = new Vector3(transform.position.x, originalY, transform.position.z);
         }
     }

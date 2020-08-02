@@ -8,7 +8,6 @@ public class Healer : Turret
     public float rotationSpeed;
     public int turretsInRange;
     public int healRate;
-    private int healCountdown;
 
     // Update is called once per frame
     void Update()
@@ -17,14 +16,14 @@ public class Healer : Turret
         {
             spinHalo(0, rotationSpeed);
             spinHalo(1, -rotationSpeed / 2);
+            fireCountdown -= Time.deltaTime;
         }
 
-        if (healCountdown <= 0f)
+        if (fireCountdown <= 0f && manager.isWavePlaying)
         {
             repairTurrets();
             fireCountdown = fireRate;
         }
-        fireCountdown -= Time.deltaTime;
     }
 
     private void OnDrawGizmosSelected()
@@ -50,7 +49,7 @@ public class Healer : Turret
             {
                 if (turret.GetComponent<Turret>() != null && turret.GetComponent<Turret>().health < turret.GetComponent<Turret>().maxHealth && Vector3.Distance(transform.position, turret.transform.position) <= range)
                 {
-                    turret.GetComponent<Turret>().health += (int)fireRate;
+                    turret.GetComponent<Turret>().health += healRate;
                 }
 
             }
@@ -62,13 +61,13 @@ public class Healer : Turret
             {
                 if (turret.GetComponent<Healer>() != null && turret.GetComponent<Healer>().health < turret.GetComponent<Healer>().maxHealth && Vector3.Distance(transform.position, turret.transform.position) <= range)
                 {
-                    turret.GetComponent<Healer>().health += (int)fireRate;
+                    turret.GetComponent<Healer>().health += healRate;
                 }
             }
         }
 
         if (health < maxHealth)
-            health += (int)fireRate;
+            health += healRate;
     }
 
 

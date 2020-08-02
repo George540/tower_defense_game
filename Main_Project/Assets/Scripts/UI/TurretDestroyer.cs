@@ -163,12 +163,16 @@ public class TurretDestroyer : MonoBehaviour
             go = Instantiate(spawners[1], currentTurret.transform.position, currentTurret.transform.rotation * Quaternion.Euler(-90f, 00f, 90f));
             if (currentTurret.GetComponent<Mortar>() != null || currentTurret.GetComponent<Scout>() != null || currentTurret.GetComponent<Healer>() != null || currentTurret.GetComponent<MiningDrill>() != null || currentTurret.GetComponent<Outpost>() != null)
             {
-                go.transform.Rotate(0f, 0f, 0f);
-                if (currentTurret.GetComponent<Mortar>() != null || currentTurret.GetComponent<Scout>() != null || currentTurret.GetComponent<Healer>() != null || currentTurret.GetComponent<MiningDrill>() != null || currentTurret.GetComponent<Outpost>() != null)
-                    go.transform.Rotate(0f, 90f, 0f);
+                go.transform.Rotate(0f, 0f, 90f);
+                if (currentTurret.GetComponent<Scout>() != null || currentTurret.GetComponent<Healer>() != null || currentTurret.GetComponent<MiningDrill>() != null || currentTurret.GetComponent<Outpost>() != null)
+                {
+                    go.transform.Rotate(0f, -90f, 0f);
+                }
             }
             if (currentTurret.GetComponent<SniperTurret>() != null)
                 go.transform.Rotate(0f, 0f, 90f);
+            else if (currentTurret.GetComponent<Mortar>() != null)
+                go.transform.Rotate(0f, 90f, 00f);
             manager.supportSpawners.Add(go);
         }
         manager.numberOfTurrets--;

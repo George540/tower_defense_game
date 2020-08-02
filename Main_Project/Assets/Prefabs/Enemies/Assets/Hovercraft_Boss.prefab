@@ -54,13 +54,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260809457720359453}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.781, y: 1.978, z: -2.334}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -0.029175062, y: 0.022262445, z: 0.024725085}
+  m_LocalScale: {x: 0.0049999994, y: 0.005, z: 0.005}
   m_Children:
   - {fileID: 1707084201339809973}
-  m_Father: {fileID: 1016595428926747860}
-  m_RootOrder: 2
+  m_Father: {fileID: 5027411033346139426}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &5737832839326794380
 MonoBehaviour:
@@ -80,11 +80,41 @@ MonoBehaviour:
   partToRotate2: {fileID: 2853471482347124758}
   turnSpeed: 15
   bullet: {fileID: 8699402184316741563, guid: c6722de077581d54a8631bad46c33395, type: 3}
-  fireRate: 4
+  fireRate: 5
   fireCountdown: 0
   isAimingAtTarget: 0
   isRangeIncreased: 0
   nozzle: {fileID: 7159235272879395098}
+--- !u!1 &620030932687601265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2939644008437764240}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2939644008437764240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620030932687601265}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.72, y: 3.55, z: 0}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
+  m_Children: []
+  m_Father: {fileID: 1016595428926747860}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1612393002315889483
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,13 +139,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612393002315889483}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.998, y: 2.884, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: -0.012474951, z: 0.03604991}
+  m_LocalScale: {x: 0.012499999, y: 0.012499999, z: 0.0125}
   m_Children:
   - {fileID: 166072693964976611}
-  m_Father: {fileID: 1016595428926747860}
-  m_RootOrder: 1
+  m_Father: {fileID: 5027411033346139426}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &6511688996371022810
 MonoBehaviour:
@@ -133,7 +163,7 @@ MonoBehaviour:
   range: 50
   partToRotate: {fileID: 2478560825987569889}
   partToRotate2: {fileID: 3631971699486308672}
-  turnSpeed: 5
+  turnSpeed: 10
   bullet: {fileID: 5952639348048364582, guid: ccf04615571d8a44a898cd37373b7c84, type: 3}
   fireRate: 0.5
   fireCountdown: 0
@@ -260,11 +290,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1016595428926747860}
   - component: {fileID: 5556414433035280343}
-  - component: {fileID: 7799525968968858834}
   - component: {fileID: 7343310666668390987}
-  m_Layer: 0
+  - component: {fileID: 4634554698457768553}
+  m_Layer: 9
   m_Name: Hovercraft_Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,11 +310,8 @@ Transform:
   m_LocalPosition: {x: 183.42276, y: 299.3912, z: -325.9404}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
+  - {fileID: 2939644008437764240}
   - {fileID: 5027411033346139426}
-  - {fileID: 2478560825987569889}
-  - {fileID: 4006892797483735479}
-  - {fileID: 4360041005665311016}
-  - {fileID: 525127562171595430}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -304,20 +331,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &7799525968968858834
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2384597850086401028}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!114 &7343310666668390987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,12 +346,25 @@ MonoBehaviour:
   manager: {fileID: 0}
   navigator: {fileID: 0}
   turnSpeed: 7
-  moveSpeed: 8
+  moveSpeed: 4
   health: 5000
   currencyDrop: 5
-  pushDamage: 100
+  pushDamage: 400
   isStealthy: 0
   detectsMines: 0
+--- !u!65 &4634554698457768553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2384597850086401028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.248413, y: 3.284546, z: 5}
+  m_Center: {x: 1.9004211, y: 3.2983603, z: 0}
 --- !u!1 &2784318667466716994
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,13 +420,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2823368742227875606}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.781, y: 1.978, z: 2.23}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0.027875012, y: 0.022262445, z: 0.024725089}
+  m_LocalScale: {x: 0.0049999994, y: 0.005, z: 0.005}
   m_Children:
   - {fileID: 592559893156945423}
-  m_Father: {fileID: 1016595428926747860}
-  m_RootOrder: 3
+  m_Father: {fileID: 5027411033346139426}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &5777977401621261530
 MonoBehaviour:
@@ -420,7 +446,7 @@ MonoBehaviour:
   partToRotate2: {fileID: 4942244624711835961}
   turnSpeed: 15
   bullet: {fileID: 8699402184316741563, guid: c6722de077581d54a8631bad46c33395, type: 3}
-  fireRate: 4
+  fireRate: 5
   fireCountdown: 0
   isAimingAtTarget: 0
   isRangeIncreased: 0
@@ -831,13 +857,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5805184706067248237}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.84, y: 1.68, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0.08549996, z: 0.020999908}
+  m_LocalScale: {x: 0.0049999994, y: 0.005, z: 0.005}
   m_Children:
   - {fileID: 8793701364475837470}
-  m_Father: {fileID: 1016595428926747860}
-  m_RootOrder: 4
+  m_Father: {fileID: 5027411033346139426}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &3166357185737048545
 MonoBehaviour:
@@ -857,7 +883,7 @@ MonoBehaviour:
   partToRotate2: {fileID: 392347519747836783}
   turnSpeed: 15
   bullet: {fileID: 8699402184316741563, guid: c6722de077581d54a8631bad46c33395, type: 3}
-  fireRate: 4
+  fireRate: 5
   fireCountdown: 0
   isAimingAtTarget: 0
   isRangeIncreased: 0
@@ -1734,7 +1760,7 @@ GameObject:
   - component: {fileID: 5027411033346139426}
   - component: {fileID: 4080249227240202004}
   - component: {fileID: 7756179763281863661}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hovercraft_Multiturret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1749,11 +1775,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8331565208471279409}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3.57, z: 0}
   m_LocalScale: {x: 80, y: 80, z: 80}
-  m_Children: []
+  m_Children:
+  - {fileID: 2478560825987569889}
+  - {fileID: 4006892797483735479}
+  - {fileID: 4360041005665311016}
+  - {fileID: 525127562171595430}
   m_Father: {fileID: 1016595428926747860}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!33 &4080249227240202004
 MeshFilter:

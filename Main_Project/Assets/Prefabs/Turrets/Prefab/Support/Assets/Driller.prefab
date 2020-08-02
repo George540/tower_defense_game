@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8005839739402280818}
   - component: {fileID: 5196382857934248451}
   m_Layer: 9
-  m_Name: Mine
+  m_Name: Driller
   m_TagString: SupportTurret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
   partToRotate2: {fileID: 0}
   turnSpeed: 0
   bullet: {fileID: 0}
-  fireRate: 20
+  fireRate: 10
   fireCountdown: 0
   isAimingAtTarget: 1
   isRangeIncreased: 0

@@ -184,7 +184,7 @@ MonoBehaviour:
   partToRotate2: {fileID: 0}
   turnSpeed: 0
   bullet: {fileID: 0}
-  fireRate: 10
+  fireRate: 1
   fireCountdown: 0
   isAimingAtTarget: 0
   isRangeIncreased: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   rotationSpeedScale: 1
   rotationSpeed: 200
   turretsInRange: 0
-  healRate: 1
+  healRate: 2
 --- !u!65 &8963185307238844826
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -138,19 +138,31 @@ public class Turret : MonoBehaviour
         }
         else if (gameObject.CompareTag("SupportTurret"))
         {
-            go = Instantiate(spawner, transform.position, transform.rotation * Quaternion.Euler(-90f, 0f, 90f));
+            go = Instantiate(spawner, gameObject.transform.position, gameObject.transform.rotation * Quaternion.Euler(-90f, 00f, 90f));
             if (gameObject.GetComponent<Mortar>() != null || gameObject.GetComponent<Scout>() != null || gameObject.GetComponent<Healer>() != null || gameObject.GetComponent<MiningDrill>() != null || gameObject.GetComponent<Outpost>() != null)
             {
                 go.transform.Rotate(0f, 0f, 90f);
-                if (gameObject.GetComponent<Mortar>() != null || gameObject.GetComponent<Scout>() != null || gameObject.GetComponent<Healer>() != null || gameObject.GetComponent<MiningDrill>() != null || gameObject.GetComponent<Outpost>() != null)
-                    go.transform.Rotate(0f, 90f, 0f);
+                if (gameObject.GetComponent<Scout>() != null || gameObject.GetComponent<Healer>() != null || gameObject.GetComponent<MiningDrill>() != null || gameObject.GetComponent<Outpost>() != null)
+                {
+                    go.transform.Rotate(0f, -90f, 0f);
+                }
             }
+            if (gameObject.GetComponent<SniperTurret>() != null)
+                go.transform.Rotate(0f, 0f, 90f);
+            else if (gameObject.GetComponent<Mortar>() != null)
+                go.transform.Rotate(0f, 90f, 00f);
             manager.supportSpawners.Add(go);
         }
         manager.numberOfTurrets--;
         manager.currency +=costDeployment / 2;
         manager.currency = Mathf.Floor(manager.currency);
 
+        if (gameObject.GetComponent<Mortar>() != null)
+        {
+            Destroy(gameObject.GetComponent<Mortar>().mortarTarget);
+            gameObject.GetComponent<Mortar>().mortarTarget = null;
+            gameObject.GetComponent<Mortar>().target = null;
+        }
         if (GameObject.Find("TurretSelector(Clone)") != null)
             Destroy(GameObject.Find("TurretSelector(Clone)"));
         if (GameObject.Find("TurretRanger(Clone)") != null)

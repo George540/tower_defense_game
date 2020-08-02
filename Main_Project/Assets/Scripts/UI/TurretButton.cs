@@ -84,6 +84,10 @@ public class TurretButton : MonoBehaviour
             {
                 go.transform.Rotate(0f, 0f, -90f);
             }
+            else if (go.GetComponent<Outpost>() != null || go.GetComponent<Scout>() != null || go.GetComponent<MiningDrill>() != null || go.GetComponent<Healer>() != null)
+            {
+                go.transform.Rotate(0f, 0f, 90f);
+            }
         }
         manager.currency -= cost;
         manager.numberOfTurrets++;
