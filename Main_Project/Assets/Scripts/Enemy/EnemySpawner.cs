@@ -79,12 +79,15 @@ public class EnemySpawner : MonoBehaviour
 
     int pickEnemy()
     {
+        // Wave 1: Prompt player to place the blaster turret
         int picker = 0;
         if (manager.currentWave > 0 && manager.currentWave < 4)
         {
             picker = 0;
         }
-        else if (manager.currentWave > 3 && manager.currentWave < 8)
+        // Wave 3: Prompt player to place the auto turret
+        // Wave 4: Warn player to watch out about bigger turrets
+        else if (manager.currentWave > 3 && manager.currentWave < 7)
         {
             int rand = Random.Range(1, 20);
             if (rand >= 3 && rand <= 8)
@@ -96,7 +99,9 @@ public class EnemySpawner : MonoBehaviour
                 picker = 0;
             }
         }
-        else if (manager.currentWave > 7 && manager.currentWave < 13)
+        // Wave 7: Warn player to watch out for stealthy waves
+        // Wave 8: Warn player to watch out for flankers and their carriers
+        else if (manager.currentWave > 6 && manager.currentWave < 13)
         {
             int rand = Random.Range(1, 20);
             if (rand >= 3 && rand <= 5)
@@ -107,10 +112,6 @@ public class EnemySpawner : MonoBehaviour
             {
                 picker = 2;
             }
-            else if (rand >= 9 && rand <= 11)
-            {
-                picker = 3;
-            }
             else if (rand == 14)
             {
                 picker = 5;
@@ -120,6 +121,7 @@ public class EnemySpawner : MonoBehaviour
                 picker = 0;
             }
         }
+        // Wave 13: Warn player about repair hovercrafts
         else if (manager.currentWave > 12 && manager.currentWave < 17)
         {
             int rand = Random.Range(1, 25);
@@ -131,7 +133,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 picker = 2;
             }
-            else if (rand >= 9 && rand <= 11)
+            else if (rand >= 13 && rand <= 15)
             {
                 picker = 3;
             }
@@ -144,6 +146,7 @@ public class EnemySpawner : MonoBehaviour
                 picker = 0;
             }
         }
+        // Wave 17: Warn player about ramping up the armored hovercrafts
         else if (manager.currentWave > 16 && manager.currentWave < 23)
         {
             int rand = Random.Range(1, 30);
@@ -168,58 +171,7 @@ public class EnemySpawner : MonoBehaviour
                 picker = 0;
             }
         }
-        else if (manager.currentWave > 22 && manager.currentWave < 28)
-        {
-            int rand = Random.Range(1, 30);
-            if (rand >= 3 && rand <= 11)
-            {
-                picker = 1;
-            }
-            else if (rand >= 12 && rand <= 14)
-            {
-                picker = 2;
-            }
-            else if (rand >= 15 && rand <= 18)
-            {
-                picker = 3;
-            }
-            else if (rand >= 22 && rand <= 24)
-            {
-                picker = 5;
-            }
-            else
-            {
-                picker = 0;
-            }
-        }
-        else if (manager.currentWave > 22 && manager.currentWave < 28)
-        {
-            int rand = Random.Range(1, 30);
-            if (rand >= 3 && rand <= 11)
-            {
-                picker = 1;
-            }
-            else if (rand >= 12 && rand <= 14)
-            {
-                picker = 2;
-            }
-            else if (rand >= 15 && rand <= 18)
-            {
-                picker = 3;
-            }
-            else if (rand >= 22 && rand <= 24)
-            {
-                picker = 5;
-            }
-            else if (rand >= 25 && rand <= 26)
-            {
-                picker = 6;
-            }
-            else
-            {
-                picker = 0;
-            }
-        }
+        // Wave 23: Warn player about hovercrafts being armed and have already healers up
         else if (manager.currentWave > 22 && manager.currentWave < 28)
         {
             int rand = Random.Range(1, 30);
@@ -239,10 +191,6 @@ public class EnemySpawner : MonoBehaviour
             {
                 picker = 5;
             }
-            else if (rand == 27)
-            {
-                picker = 4;
-            }
             else if (rand == 28 || rand == 29)
             {
                 picker = 6;
@@ -252,6 +200,7 @@ public class EnemySpawner : MonoBehaviour
                 picker = 0;
             }
         }
+        // Wave 28: Warn player about miners sweeping through minefields
         else if (manager.currentWave > 27 && manager.currentWave < 34)
         {
             int rand = Random.Range(1, 30);
@@ -288,11 +237,13 @@ public class EnemySpawner : MonoBehaviour
                 picker = 0;
             }
         }
+        // Wave 34: Warn player about destroyers and stealthy hovercrafts
         else if (manager.currentWave > 33)
         {
             picker = Random.Range(0, enemies.Length);
         }
         return picker;
+        // Wave 40: Boss wave. Warn player about spawning backups and having great defense
     }
 
     void setNumberOfEnemies()

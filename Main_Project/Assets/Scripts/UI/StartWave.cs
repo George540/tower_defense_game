@@ -8,6 +8,7 @@ public class StartWave : MonoBehaviour
 {
     public Manager manager;
     public GameObject enemySpawner;
+    public GameObject tipBoard;
     private bool isWavePlaying = false;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,9 @@ public class StartWave : MonoBehaviour
         {
             Destroy(mine);
         }
+
+        tipBoard.GetComponent<Image>().enabled = false;
+        tipBoard.transform.GetChild(0).GetComponent<Text>().enabled = false;
     }
 
     public bool getisWavePlaying()

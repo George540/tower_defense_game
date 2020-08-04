@@ -513,10 +513,10 @@ MonoBehaviour:
   costDeployment: 595
   target: {fileID: 0}
   childTarget: {fileID: 0}
-  range: 120
+  range: 100
   partToRotate: {fileID: 8035942074526999841}
   partToRotate2: {fileID: 5640197901139070943}
-  turnSpeed: 30
+  turnSpeed: 100
   bullet: {fileID: 4550968459640254068, guid: aa57d7add49bafa4cbb7efc54dfa0299, type: 3}
   fireRate: 0.5
   fireCountdown: 0
@@ -529,7 +529,7 @@ MonoBehaviour:
   assists: 0
   board: {fileID: 7824558216938689966, guid: 0a92605b0bc61624eb3b4706a0eea11b, type: 3}
   nozzle: {fileID: 6615064738119094704}
-  damage: 100
+  damage: 130
   smoke: {fileID: 8645499971539758651}
 --- !u!65 &2482577445027048214
 BoxCollider:

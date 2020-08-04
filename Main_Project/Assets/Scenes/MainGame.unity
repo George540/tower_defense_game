@@ -1163,6 +1163,7 @@ MonoBehaviour:
   manager: {fileID: 184557176}
   enemySpawner: {fileID: 4297482218911925780, guid: bfd400ab556695e4996ed27414284db2,
     type: 3}
+  tipBoard: {fileID: 1703066201}
 --- !u!1 &181189793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,7 +1289,7 @@ MonoBehaviour:
   maxZ: 0
   minZ: 0
   currentTurret: {fileID: 0}
-  currency: 10000
+  currency: 0
   numberOfTurrets: 0
   baseHealth: 50
   totalBaseHealth: 0
@@ -1304,6 +1305,7 @@ MonoBehaviour:
   medianZ: 0
   startButton: {fileID: 171067253}
   chronoScale: 0
+  tipBoard: {fileID: 1703066201}
   stealthWaves: 00000000000000000000000000000000
 --- !u!4 &184557177
 Transform:
@@ -4274,6 +4276,7 @@ RectTransform:
   - {fileID: 1991668213}
   - {fileID: 1640793953}
   - {fileID: 1909942922}
+  - {fileID: 1703066202}
   - {fileID: 1735274009}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -4972,6 +4975,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692320433}
   m_CullTransparentMesh: 0
+--- !u!1 &1703066201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1361741848435804600, guid: 4d77e501663fc064aadcef99acebb5c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1361741849954251745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1703066202 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1361741849954251745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1703066205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703066201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42242b8d28a29574b8c5ad66406823be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTipWave: 0
 --- !u!1001 &1735274008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5017,7 +5045,7 @@ PrefabInstance:
     - target: {fileID: 4260283308879963652, guid: 2e03bedfba0ec1f48ba14aa5a7975323,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4260283308879963652, guid: 2e03bedfba0ec1f48ba14aa5a7975323,
         type: 3}
@@ -6130,6 +6158,162 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1001 &1361741849954251745
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1390428838}
+    m_Modifications:
+    - target: {fileID: 1361741848435804600, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_Name
+      value: WarningsBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804602, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -347
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848435804603, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848688093414, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848688093414, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 650
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848688093417, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848688093417, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_Text
+      value: Welcome to Skywars Pre-Alpha! An invasion of hovercrafts have emerged
+        and made a surprise attack on our territory. Do not let them get through
+        our mainland terminals and destroy everything!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848688093417, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361741848688093417, guid: 4d77e501663fc064aadcef99acebb5c3,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d77e501663fc064aadcef99acebb5c3, type: 3}
 --- !u!4 &1418874305619719702
 Transform:
   m_ObjectHideFlags: 0

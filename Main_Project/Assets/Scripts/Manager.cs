@@ -40,9 +40,11 @@ public class Manager : MonoBehaviour
     public float medianY;
     public float medianZ;
 
+    // Starting buttons
     public GameObject startButton;
     private bool isGamePaused;
     public float chronoScale;
+    public GameObject tipBoard;
 
     // STEALTH WAVES
     public int[] stealthWaves = new int[5];
@@ -77,6 +79,11 @@ public class Manager : MonoBehaviour
             startButton.GetComponent<Button>().GetComponent<Image>().color = tempColor;
             startButton.GetComponent<Button>().interactable = true;
             startButton.transform.GetChild(0).gameObject.GetComponent<Text>().text = "START WAVE";
+            if (tipBoard.GetComponent<TipBoard>().isTipWave)
+            {
+                tipBoard.GetComponent<Image>().enabled = true;
+                tipBoard.transform.GetChild(0).GetComponent<Text>().enabled = true;
+            }
             isWavePlaying = false;
             giveExtraCredits();
         }
