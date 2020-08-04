@@ -5,6 +5,8 @@ using UnityEngine;
 public class SniperTurret : Turret
 {
     public GameObject nozzle;
+    public int damage;
+    public ParticleSystem smoke;
 
     void Start()
     {
@@ -26,7 +28,7 @@ public class SniperTurret : Turret
         if (target.CompareTag("Enemy") && childTarget != null)
         {
             fireCountdown -= Time.deltaTime;
-            FindTarget(childTarget);
+            FindTarget(target);
         }
 
         if (fireCountdown <= 0f && target != null && target.CompareTag("Enemy") && isAimingAtTarget == true)
@@ -69,8 +71,19 @@ public class SniperTurret : Turret
 
     override public void Fire()
     {
+        RaycastHit hit;
+        if (Physics.Raycast(nozzle.transform.position, nozzle.transform.right, out hit, range))
+        {
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                hit.transform.gameObject.GetComponent<Enemy>().health -= damage;
+            }
+        }
+        smoke.Play();
+        /*
         GameObject bul = Instantiate(bullet, nozzle.transform.position, nozzle.transform.rotation * Quaternion.Euler(0f, 0f, -90f));
         bul.GetComponent<Rigidbody>().velocity = nozzle.transform.right * bul.GetComponent<Bullet>().getBulletSpeed();
+        */
     }
 
     void isTargeting()

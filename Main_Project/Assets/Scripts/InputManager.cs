@@ -19,5 +19,19 @@ public class InputManager : MonoBehaviour
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject[] navigators = GameObject.FindGameObjectsWithTag("EnemyNavigator");
+
+            foreach (GameObject enemy in enemies)
+            {
+                Destroy(enemy);
+            }
+            foreach (GameObject navigator in navigators)
+            {
+                Destroy(navigator);
+            }
+        }
     }
 }

@@ -135,6 +135,8 @@ public class Manager : MonoBehaviour
 
     void setWaves()
     {
+        numberOfWaves = 40;
+        /*
         if (terminals.Count <= 1)
         {
             numberOfWaves = 20;
@@ -147,6 +149,7 @@ public class Manager : MonoBehaviour
         {
             numberOfWaves = 40;
         }
+        */
 
         for (int i = 0; i < stealthWaves.Length; i++)
         {

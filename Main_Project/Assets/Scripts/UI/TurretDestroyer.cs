@@ -175,6 +175,13 @@ public class TurretDestroyer : MonoBehaviour
                 go.transform.Rotate(0f, 90f, 00f);
             manager.supportSpawners.Add(go);
         }
+        if (currentTurret.GetComponent<Mortar>() != null)
+        {
+            Destroy(currentTurret.GetComponent<Mortar>().mortarTarget);
+            currentTurret.GetComponent<Mortar>().mortarTarget = null;
+            currentTurret.GetComponent<Mortar>().target = null;
+        }
+
         manager.numberOfTurrets--;
         manager.currency += currentTurret.GetComponent<Turret>().costDeployment/2;
         manager.currency = Mathf.Floor(manager.currency);

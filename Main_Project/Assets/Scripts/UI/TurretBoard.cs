@@ -61,7 +61,7 @@ public class TurretBoard : MonoBehaviour
             transform.GetChild(3).gameObject.GetComponent<Text>().text = turret.GetComponent<Turret>().health.ToString();
             transform.GetChild(4).gameObject.GetComponent<Text>().text = "Range: " + turret.GetComponent<Turret>().range.ToString();
 
-            if (turret.GetComponent<Turret>().bullet != null && turret.GetComponent<MineDispenser>() == null)
+            if (turret.GetComponent<Turret>().bullet != null && turret.GetComponent<MineDispenser>() == null && turret.GetComponent<SniperTurret>() == null && turret.GetComponent<Mortar>() != null)
                 transform.GetChild(5).gameObject.GetComponent<Text>().text = "Damage: " + turret.GetComponent<Turret>().bullet.GetComponent<Bullet>().damage.ToString();
             else if (turret.GetComponent<LaserTurret>() != null)
                 transform.GetChild(5).gameObject.GetComponent<Text>().text = "Damage: " + turret.GetComponent<LaserTurret>().laserDamage.ToString();
@@ -80,6 +80,8 @@ public class TurretBoard : MonoBehaviour
                 transform.GetChild(5).gameObject.GetComponent<Text>().text = "";
             else if (turret.GetComponent<Mortar>() != null)
                 transform.GetChild(5).gameObject.GetComponent<Text>().text = "Damage: " + turret.GetComponent<Mortar>().damage;
+            else if (turret.GetComponent<SniperTurret>() != null)
+                transform.GetChild(5).gameObject.GetComponent<Text>().text = "Damage: " + turret.GetComponent<SniperTurret>().damage;
 
             if (turret.GetComponent<Mortar>() != null && turret.GetComponent<Mortar>().mortarTarget != null)
             {

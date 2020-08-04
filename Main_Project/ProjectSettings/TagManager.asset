@@ -30,6 +30,7 @@ TagManager:
   - EnemyBullet
   - Bullet
   - MortarTarget
+  - EnemyNavigator
   layers:
   - Default
   - TransparentFX
