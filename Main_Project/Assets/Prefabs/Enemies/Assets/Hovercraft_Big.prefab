@@ -160,10 +160,11 @@ MonoBehaviour:
   navigator: {fileID: 0}
   turnSpeed: 10
   moveSpeed: 20
-  health: 300
+  health: 200
   currencyDrop: 2
   pushDamage: 30
   isStealthy: 0
+  detectsMines: 0
 --- !u!54 &-3692337395893117502
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -72,7 +72,7 @@ public class TipBoard : MonoBehaviour
             }
             else if (manager.currentWave == 39)
             {
-                textBox.text = "Our radars have detected a massive vehicle comming out of space! It has multiple turrets and cannons that can break through our defense! Deploy everything we have!";
+                textBox.text = "Our radars have detected a massive vehicle comming in! It has multiple turrets and cannons that can break through our defense! Deploy everything we have!";
             }
             else
             {

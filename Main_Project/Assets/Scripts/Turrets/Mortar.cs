@@ -63,6 +63,7 @@ public class Mortar : Turret
         {
             mortarFire.Play();
             float tempTime = fireRate;
+            gameObject.GetComponent<AudioSource>().Play();
             Invoke("createExplosion", 2f);
         }
     }

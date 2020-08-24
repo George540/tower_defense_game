@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,15 +49,26 @@ public class Manager : MonoBehaviour
 
     // STEALTH WAVES
     public int[] stealthWaves = new int[5];
+
+    // GAME OVER
+    private bool canGameOver;
+    private bool hasSongPlayed;
+    public GameObject gameOverBG;
+    public GameObject gameOverText;
+    public GameObject gameOverButton;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         chronoScale = Time.timeScale;
         isGamePaused = false;
+        hasSongPlayed = false;
         startButton = GameObject.Find("Canvas").transform.Find("StartWave").gameObject;
         Invoke("spawnIslandCounter", 0.5f);
-        Invoke("setHealth", 0.5f);
         Invoke("setWaves", 0.5f);
+        Invoke("setHealth", 1.0f);
     }
 
     // Update is called once per frame
@@ -72,7 +84,7 @@ public class Manager : MonoBehaviour
             setMedians();
         }
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (startButton.GetComponent<StartWave>().getisWavePlaying() == false && enemies.Length == 0)
+        if (startButton.GetComponent<StartWave>().getisWavePlaying() == false && enemies.Length == 0 && currentWave <= 40)
         {
             var tempColor = startButton.GetComponent<Button>().GetComponent<Image>().color;
             tempColor.a = 1f;
@@ -86,6 +98,15 @@ public class Manager : MonoBehaviour
             }
             isWavePlaying = false;
             giveExtraCredits();
+        }
+
+        if (totalBaseHealth <= 0)
+        {
+            totalBaseHealth = 0;
+            if (canGameOver == true)
+            {
+                setGameOver();
+            }
         }
     }
 
@@ -137,7 +158,12 @@ public class Manager : MonoBehaviour
 
     void setHealth()
     {
-        totalBaseHealth = baseHealth * terminals.Count;
+        if (terminals.Count > 0)
+            totalBaseHealth = baseHealth * terminals.Count;
+        else
+            totalBaseHealth = 100f;
+
+        canGameOver = true;
     }
 
     void setWaves()
@@ -214,5 +240,34 @@ public class Manager : MonoBehaviour
                 return true;
         }
         return false;
+    }
+
+    private void setGameOver()
+    {
+        if (gameOverBG.GetComponent<AudioSource>().isPlaying == false && hasSongPlayed == false)
+        {
+            gameOverBG.GetComponent<AudioSource>().Play();
+            hasSongPlayed = true;
+        }
+            
+        gameOverText.GetComponent<TextMeshProUGUI>().text = "GAME OVER";
+        gameOverButton.GetComponent<Image>().enabled = true;
+        gameOverButton.GetComponent<Button>().enabled = true;
+        gameOverButton.transform.GetChild(0).GetComponent<Text>().enabled = true;
+        gameOverBG.GetComponent<Image>().enabled = true;
+    }
+
+    public void setVictory()
+    {
+        gameOverBG.GetComponent<Image>().enabled = true;
+        if (gameOverText.GetComponent<AudioSource>().isPlaying == false && hasSongPlayed == false)
+        {
+            gameOverText.GetComponent<AudioSource>().Play();
+            hasSongPlayed = true;
+        }
+        gameOverText.GetComponent<TextMeshPro>().text = "VICTORY!";
+        gameOverButton.GetComponent<Image>().enabled = true;
+        gameOverButton.GetComponent<Button>().enabled = true;
+        gameOverText.transform.GetChild(0).GetComponent<Text>().enabled = true;
     }
 }

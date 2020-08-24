@@ -33,6 +33,7 @@ public class Turret : MonoBehaviour
     public int assists;
 
     public GameObject board;
+    private AudioSource fireSound;
 
     // Start is called before the first frame update
     void Start()

@@ -54,6 +54,7 @@ public class LaserTurret : Turret
             }
             fireCountdown -= Time.deltaTime;
         }
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     void isTargeting()

@@ -80,7 +80,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   navigator: {fileID: 0}
   turnSpeed: 12
-  moveSpeed: 35
+  moveSpeed: 33
   health: 120
   currencyDrop: 0
   pushDamage: 6

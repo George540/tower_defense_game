@@ -299,7 +299,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e1a0507d03a1a1444ac4a3c4b6e2e661, type: 2}
+  - {fileID: 2100000, guid: 4dff9b411dac3344591684c71aad85a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -336,4 +336,4 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 36ca926202ddc454bade1190d4c556d1, type: 2}
   - {fileID: 2100000, guid: 4dff9b411dac3344591684c71aad85a6, type: 2}
   item: {fileID: 1241905497972189965, guid: 27afc6bac6e0b2b4ba90963ed1317642, type: 3}
-  cost: 30
+  cost: 20

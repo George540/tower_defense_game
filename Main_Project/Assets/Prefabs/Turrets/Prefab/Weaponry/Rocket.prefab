@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 370
-  damage: 200
+  damage: 150
   lifespan: 3
   explosiveAreaRadius: 15
   explosion: {fileID: 51128450218048248, guid: a10cbb131eb2584438ab9ae424b55bb0, type: 3}

@@ -50,11 +50,12 @@ MonoBehaviour:
   manager: {fileID: 0}
   navigator: {fileID: 0}
   turnSpeed: 20
-  moveSpeed: 50
+  moveSpeed: 35
   health: 40
   currencyDrop: 1
   pushDamage: 3
   isStealthy: 0
+  detectsMines: 0
 --- !u!54 &-638747330785039320
 Rigidbody:
   m_ObjectHideFlags: 0

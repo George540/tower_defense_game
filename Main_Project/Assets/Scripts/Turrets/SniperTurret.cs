@@ -74,6 +74,7 @@ public class SniperTurret : Turret
         RaycastHit hit;
         if (Physics.Raycast(nozzle.transform.position, nozzle.transform.right, out hit, range))
         {
+            gameObject.GetComponent<AudioSource>().Play();
             if (hit.transform.CompareTag("Enemy"))
             {
                 hit.transform.gameObject.GetComponent<Enemy>().health -= damage;

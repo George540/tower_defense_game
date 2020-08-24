@@ -152,7 +152,7 @@ MonoBehaviour:
   navigator: {fileID: 0}
   turnSpeed: 7
   moveSpeed: 8
-  health: 2200
+  health: 800
   currencyDrop: 5
   pushDamage: 100
   isStealthy: 0
@@ -274,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4349093593289220016}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.95, y: 3.71, z: 0}
+  m_LocalPosition: {x: 10.38, y: 3.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 528937814790763815}
@@ -983,7 +983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8850466491901286082}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 2.82, z: 0}
+  m_LocalPosition: {x: 0, y: 2.32, z: 0}
   m_LocalScale: {x: 80, y: 80, z: 80}
   m_Children:
   - {fileID: 3110047785221167378}

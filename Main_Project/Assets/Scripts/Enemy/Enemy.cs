@@ -43,6 +43,11 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             manager.currency += currencyDrop;
+            if (healthMax <= 6000 && GetComponent<AudioSource>() != null)
+            {
+                GetComponent<AudioSource>().Play();
+                manager.setVictory();
+            }
             Destroy(navigator);
             Destroy(gameObject);
         }

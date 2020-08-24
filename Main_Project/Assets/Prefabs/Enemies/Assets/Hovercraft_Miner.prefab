@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3310412764377702310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.958294, y: -13.449572, z: 26.008512}
+  m_LocalPosition: {x: 13.64, y: 0.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4444013181339464683}
@@ -285,9 +285,9 @@ MonoBehaviour:
   manager: {fileID: 0}
   navigator: {fileID: 0}
   turnSpeed: 15
-  moveSpeed: 40
-  health: 150
-  currencyDrop: 0
+  moveSpeed: 30
+  health: 130
+  currencyDrop: 1
   pushDamage: 20
   isStealthy: 0
   detectsMines: 1

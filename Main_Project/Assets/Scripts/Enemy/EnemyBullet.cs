@@ -7,6 +7,7 @@ public class EnemyBullet : MonoBehaviour
     public float bulletSpeed;
     public float damage;
     public float lifespan;
+    public ParticleSystem explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,8 @@ public class EnemyBullet : MonoBehaviour
 
     protected void destroyBullet()
     {
+        if (damage <= 150)
+            Instantiate(explosion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

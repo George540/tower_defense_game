@@ -26,7 +26,7 @@ public class MineDispenser : Turret
             Fire();
             fireCountdown = 1.0f / fireRate;
 
-            float random = Random.Range(-6f, 6f);
+            float random = Random.Range(-5f, 5f);
             target.Translate(0f, random, 0f);
             Vector3 currentPosition = target.transform.localPosition;
             currentPosition.y = Mathf.Clamp(currentPosition.y, -0.1f, 0.1f);

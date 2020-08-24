@@ -116,7 +116,7 @@ MonoBehaviour:
   assists: 0
   board: {fileID: 7824558216938689966, guid: 0a92605b0bc61624eb3b4706a0eea11b, type: 3}
   antena: {fileID: 8607037096293637790}
-  divisor: 10
+  divisor: 5
 --- !u!65 &6266531079046536024
 BoxCollider:
   m_ObjectHideFlags: 0

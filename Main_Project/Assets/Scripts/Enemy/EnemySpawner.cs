@@ -29,6 +29,11 @@ public class EnemySpawner : MonoBehaviour
         startButton = GameObject.Find("Canvas").transform.Find("StartWave").gameObject;
         timer = 3;
         setNumberOfEnemies();
+        if (manager.currentWave == 40)
+        {
+            timer = Random.Range(4f, 7f);
+            Invoke("SpawnBoss", timer);
+        }
     }
 
     // Update is called once per frame
@@ -39,14 +44,11 @@ public class EnemySpawner : MonoBehaviour
             startButton.gameObject.GetComponent<StartWave>().setisWavePlaying(false);
             Destroy(gameObject);
         }
-        if (timerCooldown <= 0)
+        if (timerCooldown <= 0 && manager.currentWave <= 39)
         {
             if (!manager.isWaveStealthy())
             {
-                if (manager.currentWave <= 39)
-                    SpawnEnemy(pickEnemy());
-                else
-                    SpawnEnemy(bossEnemy);
+                SpawnEnemy(pickEnemy());
                 setTimer();
                 timerCooldown = timer;
             }
@@ -326,7 +328,7 @@ public class EnemySpawner : MonoBehaviour
             else if (manager.currentWave > 2 && manager.currentWave < 6)
             {
                 if (manager.currentWave == 4)
-                    timer = 0.3f;
+                    timer = 0.5f;
                 else
                     timer = Random.Range(0.8f, 2f);
             }
@@ -344,27 +346,28 @@ public class EnemySpawner : MonoBehaviour
             }
             else if (manager.currentWave > 19 && manager.currentWave < 26)
             {
-                timer = Random.Range(0.05f, 1.3f);
+                timer = Random.Range(0.12f, 1.6f);
             }
             else if (manager.currentWave > 25 && manager.currentWave < 32)
             {
-                timer = Random.Range(0.05f, 0.9f);
+                timer = Random.Range(0.12f, 1.2f);
             }
             else if (manager.currentWave > 31 && manager.currentWave < 38)
             {
                 if(manager.currentWave == 35)
-                    timer = Random.Range(0.01f, 0.04f);
+                    timer = Random.Range(0.1f, 1.2f);
                 else
-                    timer = Random.Range(0.08f, 1.5f);
+                    timer = Random.Range(0.12f, 1.5f);
             }
             else if (manager.currentWave == 38 || manager.currentWave == 39)
             {
-                timer = Random.Range(0.01f, 0.03f);
-            }
-            else if (manager.currentWave == 40)
-            {
-                timer = Random.Range(4f, 7f);
+                timer = Random.Range(0.04f, 0.06f);
             }
         }
+    }
+
+    void SpawnBoss()
+    {
+        SpawnEnemy(bossEnemy);
     }
 }

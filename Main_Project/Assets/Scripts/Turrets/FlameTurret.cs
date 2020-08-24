@@ -52,7 +52,10 @@ public class FlameTurret : Turret
     public override void Fire()
     {
         if (flame.isPlaying == false)
+        {
             flame.Play();
+        }
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     void isTargeting()

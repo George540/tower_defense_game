@@ -52,8 +52,8 @@ MonoBehaviour:
   navigator: {fileID: 0}
   turnSpeed: 7
   moveSpeed: 13
-  health: 1300
-  currencyDrop: 4
+  health: 500
+  currencyDrop: 5
   pushDamage: 80
   isStealthy: 0
   detectsMines: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   flanker: {fileID: 456765385886924443, guid: ce7ecdda3e9b5a442be0a540f2d34a92, type: 3}
   flankerNavigator: {fileID: 6688876839523292188, guid: 48574ed53c9401e408d73ec8192f8b15,
     type: 3}
-  spawnRate: 5
+  spawnRate: 10
   spawnCooldown: 0
 --- !u!54 &5905405802547691531
 Rigidbody:

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Mine : MonoBehaviour
 {
@@ -54,6 +51,7 @@ public class Mine : MonoBehaviour
             if (collider.CompareTag("Enemy") && collider.gameObject.GetComponent<Enemy>().detectsMines == false)
             {
                 collider.gameObject.GetComponent<Enemy>().health -= damage;
+                gameObject.GetComponent<AudioSource>().Play();
             }
         }
     }

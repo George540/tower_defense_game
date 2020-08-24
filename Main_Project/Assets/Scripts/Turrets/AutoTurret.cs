@@ -38,6 +38,7 @@ public class AutoTurret : Turret
         float random3 = Random.Range(-1, 1);
         GameObject bul = Instantiate(bullet, nozzle.transform.position, nozzle.transform.rotation * Quaternion.Euler(0f, 0f, -90f));
         bul.GetComponent<Rigidbody>().velocity = nozzle.transform.right * bul.GetComponent<Bullet>().getBulletSpeed();
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     void isTargeting()
