@@ -1,5 +1,6 @@
 # tower_defense_game
 Research and Development for a prototype game
 
-Functionalities completed:
-Check the issues section
+Property of George Mavroeidis
+
+Do not copy for commercial use
